@@ -1,0 +1,5835 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Rescuerz's Blog">
+      
+      
+      
+      
+        <link rel="prev" href="../Assembly%20Language/">
+      
+      
+        <link rel="next" href="../IO/">
+      
+      
+      <link rel="icon" href="../../../duck.bmp">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+    
+    
+      
+        <title>Chapter 8 Data Structures - Rescuerz's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-data-structures" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
+      
+  <img src="../../../favicon1.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rescuerz's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 8 Data Structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rescuerz/Blog" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Rescuerz/Blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../cldf/Digital%20Systems%20and%20Information/" class="md-tabs__link">
+          
+  
+    
+  
+  System
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../miscellaneous/" class="md-tabs__link">
+          
+  
+    
+  
+  Miscellaneous
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
+      
+  <img src="../../../favicon1.png" alt="logo">
+
+    </a>
+    Rescuerz's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rescuerz/Blog" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Rescuerz/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能引论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能引论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    知识表达与推理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            知识表达与推理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    命题逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    谓词逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识图谱推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率图推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    因果推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    搜索探寻与问题求解
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            搜索探寻与问题求解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E6%90%9C%E7%B4%A2%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    搜索基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E8%B4%AA%E5%A9%AA%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    贪婪最佳优先搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/A-star%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A-star搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/Minimax%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minimax搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/alpha-beta%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    alpha-beta搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    机器学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            机器学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    决策树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/LDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E4%BA%BA%E8%84%B8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征人脸法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k均值聚类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遗传算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    神经网络与深度学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            神经网络与深度学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    神经网络参数优化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%AD%A3%E5%88%99%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    神经网络正则化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    卷积神经网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    循环神经网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注意力机制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    强化学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            强化学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    马尔可夫决策过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    强化学习问题定义
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    强化学习方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能博弈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能博弈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    纳什均衡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能与博弈论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能伦理与安全
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能伦理与安全
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能伦理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%A8%A1%E5%9E%8B%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能模型安全
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    图像信息处理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            图像信息处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic concept and programming introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Basic concept and programming introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Basic%20principle%20of%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic principle of imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Color%20space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Color space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Image%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/JPEG%28Joint%20Photographic%20Experts%20Group%29%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JPEG(Joint Photographic Experts Group) format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/TIFF%28Tagged%20Image%20File%20Format%29%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIFF(Tagged Image File Format) format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Binary Image and Morphological Operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Binary Image and Morphological Operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Binary%20Image%20and%20Morphological%20Operation/Binary%20Image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Binary%20Image%20and%20Morphological%20Operation/Morphology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Morphology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Basic operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Image%20grayscale%20transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image grayscale transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Geometric%20transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometric transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interpolation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Morph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Morph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Convolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Sparse%20Norm%20Filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sparse Norm Filtering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Guided%20Image%20Filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guided Image Filtering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Fourier%20Transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Image%20feature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image feature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    算法分析基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            算法分析基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分析内容
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    渐进符号
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    具体问题分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%881/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88%E5%A0%86%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    优先队列(堆)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    并查集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    哈希
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            计算机逻辑设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Digital%20Systems%20and%20Information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Systems and Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Combinational Logic Circuits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Combinational Logic Circuits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Gate%20Circuits%20and%20Boolean%20Equations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Circuit%20Optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Circuit Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Additional%20Gates%20and%20Circuits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Gates and Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Combinational Logic Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Combinational Logic Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design Procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sequential Circuit
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sequential Circuit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Sequential%20Circuit/Storage%20Elements%20and%20Sequential%20Circuit%20Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Elements and Sequential Circuit Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Sequential%20Circuit/Sequential%20Circuit%20Design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequential Circuit Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_5" id="__nav_3_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Hardware Implementation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Hardware Implementation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Digital%20Hardware%20Implementation/Programmable%20Implementation%20Technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmable Implementation Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_6" id="__nav_3_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Registers and Register Transfers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Registers and Register Transfers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Registers%20and%20Register%20Transfers/Registers%2C%20Microoperations%20and%20Implementations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers, Microoperations and Implementations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Registers%20and%20Register%20Transfers/Counters%2C%20register%20cells%2C%20buses%2C%20%26%20serial%20operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Counters, register cells, buses, & serial operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digital%20Logic%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-subroutines" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Subroutines函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 Subroutines函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-the-callreturn-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.1 The Call/Return Mechanism 调用/返回机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-jsrrthe-instruction-that-calls-the-subroutine" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.2 JSR（R）——The Instruction That Calls the Subroutine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813-saving-and-restoring-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.3 Saving and Restoring Registers保存和恢复寄存器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#814-library-routines" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.4 Library Routines（库例程，或者函数库）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Stack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-implementation-in-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1 Implementation in memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2.1 Implementation in memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8211-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1.1 push
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8212-pop" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1.2 pop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8213-underflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1.3 Underflow下溢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8124-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.2.4 overflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-the-complete-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2 The Complete Picture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-recursiona-powerful-technique-when-used-appropriately" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Recursion，a powerful Technique When used Appropriately（递归）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Recursion，a powerful Technique When used Appropriately（递归）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-factorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.1 Factorial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-the-mazea-good-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.2 The Maze，a Good Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3.2 The Maze，a Good Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-recursive-subroutine-to-exit-the-maze" class="md-nav__link">
+    <span class="md-ellipsis">
+      A recursive Subroutine to Exit the Maze
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-the-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 The Queue 队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 The Queue 队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-the-basic-operationsremove-from-front-insert-at-rear" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.1 The Basic Operations：remove from front ,insert at rear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-wrap-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.2 Wrap-Around
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-how-many-element-can-we-store-in-a-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.3 How Many Element Can We Store in a Queue?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#844-teat-for-underflowoverflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.4 Teat for Underflow，Overflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    动手学深度学习读书笔记
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            动手学深度学习读书笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            引言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    核心组件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习问题分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    线性神经网络
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            线性神经网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性回归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    损失函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机梯度下降
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/softmax%E5%9B%9E%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    softmax回归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    预备知识
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            预备知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵微分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自动微分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../miscellaneous/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../miscellaneous/verilog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    verilog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            verilog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%A8%A1%E5%9D%97%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块的结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%26%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据类型&常量变量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    运算符
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    赋值语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    控制语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E5%9D%97%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    块语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    结构语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-subroutines" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Subroutines函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 Subroutines函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-the-callreturn-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.1 The Call/Return Mechanism 调用/返回机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-jsrrthe-instruction-that-calls-the-subroutine" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.2 JSR（R）——The Instruction That Calls the Subroutine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813-saving-and-restoring-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.3 Saving and Restoring Registers保存和恢复寄存器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#814-library-routines" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.4 Library Routines（库例程，或者函数库）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Stack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-implementation-in-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1 Implementation in memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2.1 Implementation in memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8211-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1.1 push
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8212-pop" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1.2 pop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8213-underflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1.3 Underflow下溢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8124-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.2.4 overflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-the-complete-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2 The Complete Picture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-recursiona-powerful-technique-when-used-appropriately" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Recursion，a powerful Technique When used Appropriately（递归）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Recursion，a powerful Technique When used Appropriately（递归）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-factorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.1 Factorial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-the-mazea-good-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.2 The Maze，a Good Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3.2 The Maze，a Good Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-recursive-subroutine-to-exit-the-maze" class="md-nav__link">
+    <span class="md-ellipsis">
+      A recursive Subroutine to Exit the Maze
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-the-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 The Queue 队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 The Queue 队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-the-basic-operationsremove-from-front-insert-at-rear" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.1 The Basic Operations：remove from front ,insert at rear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-wrap-around" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.2 Wrap-Around
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-how-many-element-can-we-store-in-a-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.3 How Many Element Can We Store in a Queue?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#844-teat-for-underflowoverflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.4 Teat for Underflow，Overflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter-8-data-structures">Chapter 8 | Data Structures 数据结构<a class="headerlink" href="#chapter-8-data-structures" title="Permanent link">&para;</a></h1>
+<p>In this chapter, we will study <strong>three abstract data types:</strong> <code>stacks, queues, and character strings(栈，队列，字符串)</code></p>
+<h2 id="81-subroutines">8.1 Subroutines函数<a class="headerlink" href="#81-subroutines" title="Permanent link">&para;</a></h2>
+<p>For all of these reasons, it is good to have a way to use <strong>program fragments</strong> efficiently. Such program fragments are called <code>subroutines,</code> or alternatively, <code>procedures</code>, or in C terminology, <code>functions.</code></p>
+<p>出于所有这些原因，最好有一种方法来有效地使用<strong>程序片段</strong>。此类程序片段称为<strong>子例程</strong>，或者称为<strong>过程</strong>，或用 C 术语称为<strong>函数</strong>。</p>
+<h3 id="811-the-callreturn-mechanism">8.1.1 The Call/Return Mechanism 调用/返回机制<a class="headerlink" href="#811-the-callreturn-mechanism" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230719154400896" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503187.png" /></p>
+<p>With subroutine，programmer has to provide the code A only once. 对于相同的代码片段，只需提供一次，其他的就只要call/return</p>
+<p>The programmer uses the call/return mechanism to direct the computer each time via the call instruction to the code A, and after the computer has executed the code A, to the return instruction to the proper <strong>next instruction to be executed</strong> in the program.</p>
+<p>程序员使用调用/返回机制，每次通过<strong>调用指令将计算机引导到代码A</strong>，并在计算机<strong>执行完代码A后，将返回指令引导到程序中正确的下一条要执行的指令</strong>。</p>
+<ul>
+<li>The program that contains the call as the caller</li>
+<li>The subroutine that contains the return as the callee</li>
+</ul>
+<p><code>The call/return mechanism consists of two instructions.</code></p>
+<p>调用/返回机制由两条指令组成</p>
+<ol>
+<li>
+<p>The first instruction <code>JSR(R)</code> is in the caller program and<code>does two things</code>:</p>
+</li>
+<li>
+<p>It loads the PC with the starting address of the subroutine </p>
+<p>将函数的起始地址加载到 PC 中</p>
+</li>
+<li>
+<p>and <strong>it loads R7 with the address immediately after the address of the JSR(R) instruction.（将紧随 JSR(R) 指令地址之后的地址加载到 R7 中）</strong> </p>
+</li>
+<li>
+<p><code>The address immediately after the address of the JSR(R) instruction is the address to come back to after executing the subroutine</code></p>
+<p><code>紧接在 JSR(R) 指令地址之后的地址是执行子程序后要返回的地址。</code>. We call the address we come back to the return linkage（返回链接）. </p>
+</li>
+<li>
+<p>The second instruction <code>JMP`` R7</code> is the last instruction <strong>in the subroutine</strong> (i.e., in the callee program). It <strong>loads the PC with the contents of R7</strong>, <code>the address just after the address of the JSR instruction</code>, completing the round trip flow of control from the caller to the callee and back.</p>
+</li>
+<li>
+<p>R7中存放着的是JSR指令地址后的地址</p>
+</li>
+<li>实现在函数执行完成之后，按照顺序跳转到下一条指令（安排）</li>
+</ol>
+<blockquote>
+<p><strong>JSR A 跳转到子程序的开始</strong></p>
+<p><strong>结束子程序后，我们可以用RET或者JMP R7返回原来要执行的指令，RET指令完全等价于JMP R7</strong> </p>
+</blockquote>
+<h3 id="812-jsrrthe-instruction-that-calls-the-subroutine">8.1.2 JSR（R）——The Instruction That Calls the Subroutine<a class="headerlink" href="#812-jsrrthe-instruction-that-calls-the-subroutine" title="Permanent link">&para;</a></h3>
+<p>关于跳转指令JAR（R），<code>根据寻址的方式PC-relative 和 Base Register addressing，分为JSR和JSRR</code>，用于跳转到函数</p>
+<p>JSR(R)的功能：</p>
+<ol>
+<li>计算子程序函数的起始地址，并加载到PC中</li>
+<li>将返回地址保存在R7中，返回地址是JSR（R）后面的指令的地址</li>
+</ol>
+<p><img alt="image-20230719160427957" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503466.png" /></p>
+<ul>
+<li>Bits[15:12] 表示<code>opcode 0100</code></li>
+<li>Bit[11] 表示寻址方式，1表示寻址方式PC-relative，o表示寻址方式为Base Register addressing</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>JSR</strong></p>
+</blockquote>
+<p>The JSR instruction <strong>computes the target address</strong> of the subroutine by <strong>signextending the 11-bit offset</strong> (bits [10:0]) of the instruction to 16 bits and adding that to the <strong>incremented</strong> PC.</p>
+<p>JSR 指令通过将指令的 <strong>11 位偏移量</strong>（位 [10:0]）符号扩展为 16 位并将其添加到<strong>递增的 PC</strong> 来计算子例程的目标地址。</p>
+<p><img alt="image-20230719160900779" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503467.png" /></p>
+<p>eg</p>
+<p><strong>JSR的地址是x4200，PC + offset = x4201 + xFC04 = x3E05</strong></p>
+<p>返回x4201地址保存在寄存器R7中</p>
+<blockquote>
+<p><strong>JSRR</strong></p>
+</blockquote>
+<p><img alt="image-20230719161141266" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503136.png" /></p>
+<p><strong>已知JSRR指令的地址是x420A，R5是基址寄存器，contains x3002</strong></p>
+<p><strong>PC will be loaded with x3002 + x0000 = x3002</strong></p>
+<p>返回x420B保存在寄存器R7中</p>
+<h3 id="813-saving-and-restoring-registers">8.1.3 Saving and Restoring Registers保存和恢复寄存器<a class="headerlink" href="#813-saving-and-restoring-registers" title="Permanent link">&para;</a></h3>
+<p><strong>Every time an instruction loads a value into a register，the value that was previously in that register is lost</strong></p>
+<p>当指令将值value保存在寄存器时，寄存器原先保存的值就会消失</p>
+<p><img alt="image-20230719162546832" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503686.png" /></p>
+<p>由于子程序通过执行第 05、06 和 0A 行中的指令<strong>破坏了 R1、R2 和 R3 中的值</strong>，因此当 CALLER 在子程序第 20 行的 JMP R7 指令之后恢复执行时，这些值将丢失给 CALLER。</p>
+<p>为了阻止执行函数后R1，R2，R3的值发生改变</p>
+<p>在初始化阶段，将R1的值写入内存SaveR1中……，子例程中的三个位置（第 22、23 和 24 行）已预留用于保存这些寄存器值。</p>
+<p>后续在1D，1E，1F行，又将存储在SaveR1，SaveR2……的值重新lD进入寄存器中</p>
+<blockquote>
+<p><strong>在子例程使用 R1、R2 和 R3 供自己使用之前，子例程会保存调用程序放入其中的值。并且，在子例程返回到调用程序之前，这些值被放回（即恢复）调用程序它们的位置。</strong></p>
+</blockquote>
+<ol>
+<li>We call this technique<code>callee save</code>because the subroutine (i.e., the callee) saves and restores the registers</li>
+</ol>
+<p>此技术为callee save被调用者保存，因为被调用者（函数）保存和恢复寄存器</p>
+<blockquote>
+<p>在函数（<strong>被调用程序，called program</strong>）中进行保存和恢复</p>
+</blockquote>
+<ol start="2">
+<li><code>caller save</code>because the calling program saves and restores the register vallue</li>
+</ol>
+<p>调用者保存，因为调用程序保存并恢复寄存器值</p>
+<p>由于 JMP START 在 R7 中<strong>加载返回链接</strong>，因此 JMP START 指令的执行<strong>会破坏 R7 中的任何内容</strong>。因此，如果调用程序在 START 处调用子例程之前已在 R7 中存储了一个值，并且在==从子例程返回后需要该值==，则调用程序必须保存并恢复 R7。</p>
+<blockquote>
+<p>在函数外（<strong>调用程序，calling program</strong>），JSR发生之前，保存，发生之后，恢复</p>
+</blockquote>
+<p>如果需要保存寄存器中的原先值，一般情况下，先将寄存器中的值ST存储在内存中，再将其LD加载到寄存器中恢复它</p>
+<p><img alt="image-20230720093839407" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503506.png" /></p>
+<h3 id="814-library-routines">8.1.4 Library Routines（库例程，或者函数库）<a class="headerlink" href="#814-library-routines" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230719165302409" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503470.png" /></p>
+<p>If the library routine starts at address SQRT, and the argument is provided in R0 to the library routine, and the result is obtained in R0 from the library routine</p>
+<p>库例程从地址 SQRT 开始，并且参数通过 R0 中提供给库例程，并且结果从库例程返回 R0 中获得</p>
+<p><strong>The pseudo-op .EXTERNAL</strong>. We already saw in Section 7.4.2 that this pseudo-op tells the assembler that the label (SQRT), which is needed to assemble the .FILL pseudo-op in line 19, will be supplied by <strong>some other program fragment</strong> (i.e., module) and will be combined with this program</p>
+<p>伪操作，.EXTERNAL 这个伪操作告诉汇编器，和其他程序片段program fragment合并在一起计算</p>
+<p><img alt="image-20230719165920938" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503786.png" /></p>
+<p>The executable image is produced at link time.</p>
+<p>可执行映像是在链接时生成的。在链接时组合多个模块以生成可执行映像</p>
+<p><img alt="image-20230719170219445" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503360.png" /></p>
+<h2 id="82-stack">8.2 Stack<a class="headerlink" href="#82-stack" title="Permanent link">&para;</a></h2>
+<p>the defining notion of a stack is that the <code>last thing you stored</code> in the stack is <code>the first thing you remove from it.</code></p>
+<p>在堆栈中存储的最后一个内容是您从堆栈中删除的第一个内容</p>
+<blockquote>
+<p><code>Last in,First out,LIFO</code></p>
+</blockquote>
+<p><img alt="image-20230719195819785" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503246.png" /></p>
+<p>In Figure 8.8a, the stack is initially shown as empty. Access is always via the first element, which is labeled TOP. </p>
+<p>If the value 18 is <code>pushed</code>onto the stack, we have Figure 8.8b. </p>
+<p>If the three values 31, 5, and 12 are pushed (in that order), the result is as shown in Figure 8.8c. </p>
+<p>Finally, if two values are <code>popped</code> from the stack,
+we have Figure 8.8d. </p>
+<p>A distinguishing feature of the stack of Figure 8.8 is that, like the quarters in the coin holder, a<code>s each value is added or removed, all the other values already on the stack move.</code></p>
+<h3 id="821-implementation-in-memory">8.2.1 Implementation in memory<a class="headerlink" href="#821-implementation-in-memory" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230719200123568" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503733.png" /></p>
+<p>如图这是最常见的堆栈实现</p>
+<p>This stack consists of <code>a sequence of memory locations</code>along with a mechanism（机制）, called the <code>stack pointer(堆栈指针)</code>, which keeps track of the top of the stack. We use==<strong>R6 to contain the address of the top of the stack</strong><mark>. That is, in the LC-3, ==<strong>R6 is the stack pointer</strong></mark>.</p>
+<p>该堆栈由一系列<strong>内存位置</strong>以及称为堆栈指针的机制组成，该机制跟踪堆栈的顶部。我们使用 <strong>R6 来包含栈顶的地址</strong>。即在LC-3中，<strong>R6是堆栈指针</strong></p>
+<p>在上图中，x3FFB，x3FFC，x3FFD，x3FFE，x3FFF，是五个提供给堆栈的内存。</p>
+<p>The actual locations comprising the stack at any single instant of time are the <strong>consecutive locations from x3FFF to the location specified in R6</strong>, that is, the top of the stack.</p>
+<p>在任何单个时刻组成堆栈的实际位置是<strong>从 x3FFF 到 R6 中指定的位置</strong>（即堆栈顶部）的连续位置。</p>
+<ol>
+<li>在Figure 8.9（a），Since there are no values on the stack,the stack pointer contains the address x4000</li>
+</ol>
+<p>由于堆栈上没有值，因此堆栈指针包含地址 x4000</p>
+<ol start="2">
+<li>在Figure8.9（b），the stack push the value 18，the stack pointer contains the address x3FFF，which is the <strong>new top of the stack</strong></li>
+</ol>
+<p>在堆栈pushvalue18后，堆栈指针位于x3FFF，成为堆栈的top</p>
+<blockquote>
+<p><strong>意味着，push或者pop，会导致堆栈指针的位置的变化</strong></p>
+</blockquote>
+<ol start="3">
+<li>在Figure8.9（c），the stack push the value 31，5，12，in this order。</li>
+</ol>
+<p>Note that the values inserted into the stack are stored in memory locations having <strong>decreasing addresses</strong>. We say the <strong>stack grows toward zero</strong></p>
+<p>插入堆栈的值存储在<strong>地址递减的内存位置</strong>中。我们说堆栈<strong>向零增长</strong></p>
+<ol start="4">
+<li>在Figure8.9（d），shows the stack after popping the top of two elements off the stack</li>
+</ol>
+<p>those two elements (the values 5 and 12) that were popped <strong>are still present in memory locations</strong> x3FFD and x3FFC.</p>
+<p>被弹出的这两个元素（值 5 和 12）仍然<strong>存在于内存位置</strong> x3FFD 和 x3FFC 中。<strong>已经存储在堆栈上的数据不会物理移动</strong></p>
+<blockquote>
+<p><strong>后续介绍两种堆栈操作push 和 pop</strong></p>
+</blockquote>
+<h4 id="8211-push">8.2.1.1 push<a class="headerlink" href="#8211-push" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230719202022266" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503055.png" /></p>
+<p>在Figure 8.9（a），初始状态，<mark>堆栈为空，指针位于x4000</mark>。后续将18push进入堆栈，<mark>堆栈指针R6递减，此时R6保存的地址是x3FFF</mark>，对应的是要<code>存储压入堆栈的值的位置</code>。</p>
+<p>The actual push is done by <strong>first loading 18 into R0</strong>, and then <strong>executing STR R0,R6,#0.</strong> This <code>stores the contents of R0 into memory location x3FFF.</code></p>
+<p>存储的过程是，先将18保存到R0，再执行STR  R0，R6，#0，将R0的内容18写入R6保存的地址x3FFF中。</p>
+<blockquote>
+<p><code>to push a value onto the stack, we first load that value into R0. Then we decrement R6, which contained the previous top of the stack. Then we execute STR R0,R6,#0, which stores the contents of R0 into the memory location whose
+ address is in R6.</code></p>
+</blockquote>
+<h4 id="8212-pop">8.2.1.2 pop<a class="headerlink" href="#8212-pop" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230719202819053" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503101.png" /></p>
+<p>弹出堆栈顶部包含的值并将其<strong>加载到 R0</strong> 中。<strong>堆栈指针（R6）递增</strong>，表示堆栈顶部的旧值已被弹出，不再在堆栈上，并且堆栈顶部有一个新值。</p>
+<h4 id="8213-underflow">8.2.1.3 Underflow下溢<a class="headerlink" href="#8213-underflow" title="Permanent link">&para;</a></h4>
+<p>堆栈上只剩下两个值，但是尝试从堆栈中弹出pop三个值</p>
+<p>we can test for underflow by <code>comparing the stack pointer with x4000</code>, which would be the contents of R6 if there were nothing left on the stack to pop</p>
+<p>我们可以通过将堆栈指针与 x4000 进行比较来测试下溢，如果堆栈上没有剩余内容可以弹出，这将是 R6 的内容</p>
+<p><img alt="image-20230719203728566" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503241.png" /></p>
+<p>如果pop不成功，希望pop routine return to the <strong>calling program</strong> with the <strong>underflow information containd in a register</strong>让 POP 例程返回到调用程序并在寄存器中包含下溢信息</p>
+<ol>
+<li>Upon return from the POP routine, the calling program would <code>examine R5 to determine whether the POP completed successfully</code>(R5 = 0), or not (R5 = 1).</li>
+</ol>
+<p>如果R5 = 0，说明pop成功，如果R5 = 1，说明pop失败</p>
+<ol start="2">
+<li>如果pop成功与否反映在R5身上，所以R5原先的值会丢失，所以，如果需要R5原先的值，就需要实现进行保存，看之前的8.13 Saving and Restoring Register</li>
+</ol>
+<p><img alt="image-20230719204628018" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503411.png" /></p>
+<ul>
+<li>AND R5初始化为0</li>
+<li>LD    R1存储地址<code>xC000,由x4000按位取反再加1得到</code></li>
+<li>ADD R2 = R6 + R1,此处是<code>为了判断R6，堆栈指针是否在x4000</code></li>
+<li>BR    <strong>若R2 = 0，说明堆栈指针在x4000处，此时堆栈为空，跳转到Failure，R5 = R5 + 1 = 1表示pop失败，return</strong></li>
+<li>如果 R2 不为0，则pop成功，堆栈指针R6 加1</li>
+</ul>
+<h4 id="8124-overflow">8.1.2.4 overflow<a class="headerlink" href="#8124-overflow" title="Permanent link">&para;</a></h4>
+<ul>
+<li>We augment the PUSH routine with instructions to <strong>store 0 (success) or 1 (failure) in R5</strong>, depending on whether or not the push completed successfully. </li>
+</ul>
+<p>用指令扩充push 例程routine，<strong>在R5中存储0，表示push成功，在R5中存储1，表示push失败</strong></p>
+<ul>
+<li>Upon return from the PUSH routine, the <code>calling progra</code>m would <code>examine R5 to determine whether the PUSH completed successfully (R5 = 0) or not (R5 = 1).</code></li>
+</ul>
+<p>从push例程返回后，调用程序将检查R5来确定push是否成功完成</p>
+<p><img alt="image-20230719205822779" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503641.png" /></p>
+<p>要看push是否成功是==看top是否和x3FFB（最上方，最小的地址）相等==</p>
+<ul>
+<li>AND R5初始化</li>
+<li>在R1中存入  MAX，即x3005，为x3FFB的相反数</li>
+<li>ADD R2 = R6 + R1</li>
+<li>BR 进行判断，如果R2 = 0，则说明此时top堆栈指针恰好位于x3FFB，所以无法进行push操作，跳转到Failure，对寄存器R5+1，表示push失败</li>
+<li>ADD  如果R2不等于0，push加入一个数，则堆栈指针-1，上移一位</li>
+<li>STR  R0储藏着push进入的数，通过STR操作，将R0中保存的数，写入堆栈指针所在的内存</li>
+<li>最后RET return</li>
+</ul>
+<h3 id="822-the-complete-picture">8.2.2 The Complete Picture<a class="headerlink" href="#822-the-complete-picture" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If we wish to push a value onto the stack, we simply <code>load that value into R0 and execute JSR PUSH</code>. </li>
+</ul>
+<p>如果我们希望将一个值压入堆栈，我们只需将该值加载到 R0 中并执行 JSR PUSH 即可。</p>
+<ul>
+<li>To <code>pop a value from the stack into R0</code>, we simply <code>execute JSR POP.</code></li>
+</ul>
+<p>要将一个值从堆栈弹出到 R0 中，我们只需执行 JSR POP 即可</p>
+<ul>
+<li>If we wish to change the location or <code>the size of the stack</code>, we adjust<code>BASE and MAX</code> accordingly.</li>
+</ul>
+<p>如果我们希望更改堆栈的位置或大小，我们可以相应地调整 BASE 和 MAX。</p>
+<blockquote>
+<p>由于<strong>push和pop函数（subroutines）会使用R1和R2</strong>，即改变R1和R2的值，所以我们需要<strong>在使用R1和R2之前保存它们，在返回调用程序（calling program）之前恢复它们</strong></p>
+</blockquote>
+<p><strong>PUSH 和 POP 例程也写入 R5</strong>。但是，正如我们已经指出的，调用程序知道子例程将在 R5 中报告成功或失败，因此如果需要存储在 R5 中的值，则调用程序的工作是<strong>在执行 JSR 指令之前保存 R5之后</strong>。正如第 8.1.3 节中所讨论的，这是调用者保存的示例。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>;Subroutines for carrying out the PUSH and POP functions
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>;program works with a stack consisting of memory locations x3FFF through x3FFB.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>;R6 is the stack pointer.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>POP     AND R5,R5,#0      ;初始化R5，表示成功
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        ST  R1,Save1
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        ST  R2,Save2      ;事先保存R1，R2的value到指定地址
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        LD  R1,EMPTY      ;EMPTY contains x4000的相反数
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        ADD R2,R6,R1      ;堆栈指针和x4000进行比较，保存在R2中
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        BRz fail_exit     ;Branch if stack is empty
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        LD  R0,R6,#0      ;将R6地址保存的数保存在R0中
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        ADD R6.R6,#1      ;堆栈指针+1
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        BRnzp success_exit
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>PUSH    AND R5,R5,#0      ;初始化R5，表示成功
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        ST  R1,Save1
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        ST  R2,Save2      ;事先保存R1，R2的value到指定地址
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        LD  R1,FULL       ;FUll contains x3FFB的相反数
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        ADD R2,R6,R1      ;堆栈指针和x3FFB进行比较，保存在R2中
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        BRz fail_exit     ;Branch if stack is full
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        ADD R6,R6,#-1
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        STR R0,R6,#0
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>success_exit
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        LD  R2,Save2
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        LD  R1,Save1   ;恢复R1，R2的原先值
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        RET
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>fail_exit
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        LD R2,Save2 ; Restore original
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        LD R1,Save1 ; register values
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        ADD R5,R5,#1 ; R5 &lt;-- failure
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        RET
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>EMPTY   .FILL xC000
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>FULL    .FILL xC005
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>Save1   .FILL x0000
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>Save2   .FILL x0001
+</code></pre></div>
+<h2 id="83-recursiona-powerful-technique-when-used-appropriately">8.3 <mark>Recursion，a powerful Technique When used Appropriately（递归）</mark><a class="headerlink" href="#83-recursiona-powerful-technique-when-used-appropriately" title="Permanent link">&para;</a></h2>
+<h3 id="831-factorial">8.3.1 Factorial<a class="headerlink" href="#831-factorial" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230725145406927" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503722.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>FACT    ST      R1,Save1        ;保存和恢复寄存器R1
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        ADD     R1,R0,#-1       ;R1 = R0 - 1,对应n-1
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        BRz     DONE            ;如果R0 = n = 1，则结束，最终结果就是1
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        ADD     R1,R0,#0        ;令R1 = n，便于计算完（n-1）!后，将R1和R0相乘得到最终结果n!
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        ADD     R0,R1,#-1       ;令R0 = n-1，进入后续的FACT运算，得到(n-1)!
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>B       JSR     FACT
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        MUL     R0,R0,R1        ;相乘
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>DONE    LD      R1,Save1
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        RET
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Save1   .BLKW
+</code></pre></div>
+<ul>
+<li>
+<p>由于LC-3，没有MUL指令（相乘），所以需要另一个子例程调用</p>
+</li>
+<li>
+<p>此处还有一个问题，图 8.13 显示了我们希望的指令执行流程。主程序使用地址 A 处的 JSR 指令调用子例程。这将导致执行<strong>标记为 #1 的代码</strong>。在地址 B 处，子例程 FACT 使用指令 JSR FACT 调用自身。这会导致执行<strong>标记为 #2 的代码</strong>，依此类推。注意，当主程序执行 JSR FACT 指令时，<strong>返回链接 A+1 保存在 R7 中。在标记为 #1 的代码块中，地址 B (JSR FACT) 处的指令将其返回链接 B+1 存储在 R7 中，从而破坏了 A+1，因此无法返回主程序。</strong></p>
+</li>
+<li>我们可以通过在执行地址 B 处的 JSR FACT 之前<strong>将地址 A+1 压入堆栈</strong>来解决这个问题。随后返回到地址 B+1 后，我们可以弹出堆栈并将地址 A+1 加载到 R7 中，然后再执行指令 RET 返回主程序。</li>
+</ul>
+<p><img alt="image-20230725150758656" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503717.png" /></p>
+<ul>
+<li>问题加一：在#1的代码块中，指令ADD   R1，R0，#0将值n加载到R1中，而在#2的代码块中，指令ADD   R1，R0，#0将值n-1加载到R1中。会导致指令回流时，n被覆盖</li>
+<li>我们也可以用栈来解决这个问题。也就是说，我们不是在将 n-1 加载到 R0 之前将值 n 移至 R1，<strong>而是将 n 压入堆栈，然后在使用 (n-1) 从子例程返回后在需要时将其弹出在 R0 中</strong>。</li>
+<li>问题加二：在子例程中，第一条指令是将R1保存在Save1中，而RET之前的最后一条指令时将其恢复成R1.这样做是为了在调用子例程前后R1的值不变。但是，<strong>此处由于子例程时递归的，所以当地址B处的JSR指令重新调用子例程时，R1存储着ADD R1，R0，#0指令的结果，后续FACT的第一条指令就是保存，覆盖第一次FACT保存在Save1的值</strong></li>
+<li>可以用栈来解决这个问题。我们只需将 ST R1,Save1 替换为推送，将 LD R1,Save1 替换为弹出。</li>
+</ul>
+<h3 id="832-the-mazea-good-example">8.3.2 The Maze，a Good Example<a class="headerlink" href="#832-the-mazea-good-example" title="Permanent link">&para;</a></h3>
+<p>避免使用递归来计算阶乘或斐波那契的原因很简单，迭代算法足够简单，易于理解，而不会带来可怕的递归执行时间损失。然而，重要的是要指出，有时递归的表现力之美对于解决复杂问题很有用。<strong>以下涉及迷宫的问题就是这种情况：给定一个迷宫和迷宫内的起始位置，编写一个程序来确定是否有从起始位置离开迷宫的出路。</strong></p>
+<blockquote>
+<p><strong>迷宫的每一单元都可以通过是否有通往东西南北的门，以及是否有从单元到外界的门来表征。每一单元都可以用一个内存字表示</strong></p>
+</blockquote>
+<ul>
+<li>Bit[4]=1 if there is a door to the outside world; Bit[4]=0 if no door.</li>
+</ul>
+<p><code>bit[4]表示是否有从单元通往外界的门，有则为1</code></p>
+<ul>
+<li>Bit[3]=1 if there is a door to the cell to the north; Bit[3]=0 if no door.</li>
+</ul>
+<p><code>bit[3]表示单元是否有北门</code></p>
+<ul>
+<li>Bit[2]=1 if there is a door to the cell to the east; Bit[2]=0 if no door.</li>
+</ul>
+<p><code>东门</code></p>
+<ul>
+<li>Bit[1]=1 if there is a door to the cell to the south; Bit[1]=0 if no door.</li>
+</ul>
+<p><code>南门</code></p>
+<ul>
+<li>Bit[0]=1 if there is a door to the cell to the west; Bit[0]=0 if no door</li>
+</ul>
+<p><code>西门</code></p>
+<p>The words are stored in what we call row major order.</p>
+<p>That is ，row1 is stored，then row2 is stored，……</p>
+<p><img alt="image-20230725154055250" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503768.png" /></p>
+<p><img alt="image-20230725154115500" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503964.png" /></p>
+<h4 id="a-recursive-subroutine-to-exit-the-maze">A recursive Subroutine to Exit the Maze<a class="headerlink" href="#a-recursive-subroutine-to-exit-the-maze" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230725154435846" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503231.png" /></p>
+<p>如果我们能退出迷宫，我们将从子程序中返回，R1=1；如果不是，我们将返回 R1=0</p>
+<p>该算法的工作原理如下：</p>
+<ol>
+<li>在每个单元中，我们首先询问<strong>该单元是否有通往外界的出口</strong>。如果是，我们返回值1并返回。</li>
+<li>如果没有，我们会询问是否应该尝试北边、东边、南边或西边的牢房。为了在任何方向上尝试牢房，显然在该方向上必须有一扇通往牢房的门。</li>
+<li>此外，我们希望<strong>确保我们不会陷入无限循环</strong>，例如，有一些门允许我们向北移动一个单元格，然后从那里向东移动一个单元格，从那里向南移动一个单元格，然后从那里向西移动一个单元格，让我们回到我们开始的地方。为了防止发生这种情况，我们<code>在访问的每个单元格中放置了一个“面包屑（breadcrumb）”</code>，并且只有在我们之前没有访问过该单元格的情况下才会转到该单元格并使用 JSR FIND EXIT。</li>
+</ol>
+<p>a. From our cell, we ask if we can exit. If yes, we are done. We exit with R1=1.</p>
+<p>b. If not, we put a breadcrumb in our cell. Our breadcrumb is bit [15] of the word corresponding to our current cell. We set it to 1</p>
+<p>c. We ask two questions: Is there a door to the north, and have we never visited the cell to the north before? If the answer to both is yes, we set the address to the cell to the north, and JSR FIND EXIT.<code>We set the address to the cell to the north by simply subtracting 6 from the address of the current cell. Why 6? Because the cells are stored in row major order, and the number of columns in the maze is 6</code></p>
+<p>d. If the answer to either question is no, or if going north resulted in failure, we ask: <strong>Is there a door to the east,</strong> and have we never visited that cell before? If the answer to both is yes, we set the address to the address of the cell to the east (by adding 1 to the address) and JSR FIND EXIT.</p>
+<p>e. If going east does not get us out, we repeat the question for south, and if that does not work, then for west.</p>
+<p>f. If we end up with no door to the west to a cell we have not visited, or if there is a door and we haven’t visited, but it results in failure, we are done. We cannot exit the maze from our starting position. We set R1=0 and return.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>;Recursive subroutine that determines if there is a path from current cell to the outside world
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>;input:R0,current cell address
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>;output:R1,YES(1),NO(0)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>            .ORIG   x4000
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>FIND_EXIT   ;save modified regsters into the stack保存修改后的寄存器至栈中
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            ADD     R6,R6,#-1
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            STR     R2,R6,#0        ;R6是栈的指针，R2保存调用者的单元格信息(地址对应的数据)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            ADD     R6,R6,#-1
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>            STR     R3,R6,#0        ;R3,holds the cell address of the caller（地址）
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>            ADD     R6,R6,#-1
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            STR     R7,R6,#0        ;R7 holds the PC of the caller
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>            ;Move cell address to R3,since we need to use R0 as the input to recursive subroutine calls
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>            ADD     R3,R0,#0        ;R0是递归子例程调用的输入
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>            ;if the exit is in this cell.return YES
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>            LDR     R2,R0,#0        ;取出R0，对应的地址的数据
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            LD      R7,EXIT_MASK    ;0000 0000 0001 0000
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>            AND     R7,R2,R7        ;AND 之后只保留bit[4],如果bit[4]=1,则说明单元与外界连通，输出YES
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>            BRnp    DONE_YES
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>            ;put breadcrumb in the current cell
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>            LD      R7,BREAKCRUMB   ;x8000 1000 0000 0000 0000
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>            ADD     R,R2,R7     ;首位是1，表示已经被检查过
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>            STR     R2,R0,#0        ;将新的单元格信息保存到输出地址的内存中
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>            ;check the north cell for a path to exit
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>CHECK_NORTH 
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>            LD      R7,NORTH_MASK   ;x0008 0000 0000 0000 1000
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>            AND     R7,R2,R7
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>            BRz     CHECK_EAST      ;R7 = 0,表示没有北门，后续检查东门
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>            LDR     R7,R3,#-6       ;R7【3】 = 1,表示有北门，则通过地址减6，将新地址的数据加载到R7，表示往北走一格
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>            BRn     CHECK_EAST      ;如果有一个breadcrumb in the north cell，检查东门。已经检查过没有与外界连通，
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>            ADD     R0,R3,#-6
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>            JSR     FIND_EXIT       ;递归检查北边的cell
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>            ADD     R1,R1,#0        ;R1是用于输出最终的结果，1表示能够离开迷宫
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>            BRp     DONE_YES;
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>CHECK_EAST  LD      R7,EAST_MASK        
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>            AND     R7,R2,R7        ;x0004 0000 0000 0000 0100
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>            BRz     CHECK_SOUTH     ;如果没有东门就检查南门
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>            LDR     R7,R3,#1        ;如果有东门，地址加1，因为东边的格子在右边
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>            BRn     CHECK_SOUTH     ;如果有breadcrumb，则检查南门，
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>            ADD     R0,R3,#1
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>            JSR     FIND_EXIT       ;R0是作为递归的输入值，递归检查东边的格子
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>            ADD     R1,R1,#0
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>            BRp     DONE_YES        ;FIND_EXIT之后会对R0做出改变，1表示成功离开迷宫
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>CHECK_SOUTH LD      R7,SOUTH_MASK       
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>            AND     R7,R2,R7        ;x0004 0000 0000 0000 0010
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>            BRz     CHECK_WEST      ;如果没有南门就检查南门
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>            LDR     R7,R3,#6        ;如果有南门，则到南边的格子去，地址加6
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>            BRn     CHECK_WEST      ;如果有breadcrumb，则检查南门，
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>            ADD     R0,R3,#6
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>            JSR     FIND_EXIT       ;R0是作为递归的输入值，递归检查南边的格子
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>            ADD     R1,R1,#0
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>            BRp     DONE_YES        ;FIND_EXIT之后会对R0做出改变，1表示成功离开迷宫
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>CHECK_WEST  LD      R7,WEST_MASK        
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>            AND     R7,R2,R7        ;x0004 0000 0000 0000 0100
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>            BRz     DONE_NO         ;没有西门，说明以上东西南北门都没有，封闭格子，出不去
+<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>            LDR     R7,R3,#-1       ;有西门，地址-1，到西边的格子
+<a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>            BRn     DONE_NO         ;如果有breadcrumb，则已经检查过，没有与外界连通
+<a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>            ADD     R0,R3,#-1
+<a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a>            JSR     FIND_EXIT       ;R0是作为递归的输入值，递归检查西边的格子
+<a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a>            ADD     R1,R1,#0
+<a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a>            BRp     DONE_YES        ;FIND_EXIT之后会对R0做出改变，1表示成功离开迷宫
+<a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a>
+<a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a>DONE_NO     AND     R1,R1,#0
+<a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>            BR      RESTORE
+<a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>DONE_YES    AND     R1,R1,#0
+<a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>            ADD     R1,R1,#1
+<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>RESTORE     ADD     R0,R3,#0        ;restore R0 from R3
+<a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>            ;restore the rest of the modified registers from the stack
+<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>            LDR     R7,R6,#0
+<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>            ADD     R6,R6,#1
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>            LDR     R3,R6,#0
+<a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a>            ADD     R6,R6,#1
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a>            LDR     R2,R6,#0
+<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a>            ADD     R6,R6,#1
+<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a>            RET
+<a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a>BREADCRUMB  .FILL   x8000           ;1000 0000 0000 0000
+<a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a>EXIT_MASK   .FILL   x0010           ;0000 0000 0001 0000
+<a id="__codelineno-2-82" name="__codelineno-2-82" href="#__codelineno-2-82"></a>NORTH_MASK  .FILL   x0008           ;0000 0000 0000 1000
+<a id="__codelineno-2-83" name="__codelineno-2-83" href="#__codelineno-2-83"></a>EAST_MASK   .FILL   x0004           ;0000 0000 0000 0100
+<a id="__codelineno-2-84" name="__codelineno-2-84" href="#__codelineno-2-84"></a>SOUTH_MASK  .FILL   x0002           ;0000 0000 0000 0010
+<a id="__codelineno-2-85" name="__codelineno-2-85" href="#__codelineno-2-85"></a>WEST_MASK   .FILL   x0001           ;0000 0000 0000 0001
+<a id="__codelineno-2-86" name="__codelineno-2-86" href="#__codelineno-2-86"></a>            .END
+</code></pre></div>
+<h2 id="84-the-queue">8.4 The Queue 队列<a class="headerlink" href="#84-the-queue" title="Permanent link">&para;</a></h2>
+<p><code>FIFO stands for “First in First out.”</code></p>
+<p>In the context of the data structure, this means we need to keep track of <code>two ends</code>of the storage structure: <code>a FRONT pointer for servicing (i.e., removing elements from the front of the queue)</code>and <code>a REAR pointer for entering (i.e., inserting into the rear of the queue).</code></p>
+<p>在数据结构的上下文中，这意味着我们需要跟踪存储结构的两端：<strong>用于服务的 FRONT 指针（即，从队列前面删除元素）</strong>和<strong>用于输入的 REAR 指针（即，插入排在队列的最后）</strong></p>
+<p><img alt="image-20230719222318785" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503483.png" /></p>
+<p><img alt="image-20230719222331035" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503606.png" /></p>
+<p>Figure 8.25 shows a block of six sequential memory locations that have been allocated for storing elements in the queue. The queue grows from x8000 to x8005. </p>
+<p>图 8.25 显示了一个由六个连续内存位置组成的块，这些内存位置已分配用于存储队列中的元素。队列从 x8000 增长到 x8005。</p>
+<p>We arbitrarily assign the FRONT pointer to the location just before the first element of the queue. 我们任意地将 <code>FRONT 指针</code>分配到队列<code>第一个元素之前的位置。</code></p>
+<p>We assign the REAR pointer to the location containing the most recent element that was added to the queue. 我们将 <code>REAR 指针</code>分配给包含添加到队列中的<code>最新元素的位置。</code></p>
+<p>Let’s use <code>R3 as our FRONT pointer</code>and <code>R4 as our REAR pointer.</code>让我们使用 R3 作为 FRONT 指针，R4 作为 REAR 指针。</p>
+<p>Figure 8.25a shows a queue in which five values were entered into the queue. Since <strong>FRONT = x8001</strong>, <code>the values 45 in memory location x8000 and 17 in x8001 must have been removed</code>, and the front element of the queue is 23, <strong>the value contained in x8002</strong>.</p>
+<blockquote>
+<p><strong>Front 指针在队列第一个元素之前的位置，所以存储在Front指针所在地址以及更小的地址的值，都必须被删除</strong></p>
+<p><strong>请注意，值 45 和 17 仍然包含在内存位置 x8000 和 x8001 中，即使它们已被删除。存储在存储位置中的内容不会被删除。内存位置的内容被简单地复制到目标寄存器中</strong></p>
+</blockquote>
+<h3 id="841-the-basic-operationsremove-from-front-insert-at-rear">8.4.1 The Basic Operations：remove from front ,insert at rear<a class="headerlink" href="#841-the-basic-operationsremove-from-front-insert-at-rear" title="Permanent link">&para;</a></h3>
+<ul>
+<li>要符合先进先出，从尾巴进，从头出</li>
+</ul>
+<p><img alt="image-20230719224417549" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503487.png" /></p>
+<p>Since FRONT points to the location just in <strong>front of the first element in the queue</strong>, we <code>remove</code> a value by <code>first incrementing FRONT</code> and then <strong>loading the value stored at that incremented address.</strong> 由于Front指针所在位置的value已经被remove，所以需要先进行Front指针加一</p>
+<p>假设要remove 23</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ADD R3,R3,#1          ;R3表示是Front指针
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>LDR R0,R3,#0          ;将Front指针对应的value加载到R0
+</code></pre></div>
+<p><strong>Since REAR = x8004, the last value to enter the queue is 74</strong>. The values in the queue in Figure 8.25b are 2 and 74. To insert another element (e.g., 10) at the back of the queue, the following code is executed:</p>
+<p>由于Rear指针所在位置的value已经insert，所以需要先将Rear指针+1，再写入对应的内存</p>
+<p>假设要插入10</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ADD R4,R4,#1        ;R4表示Rear指针
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>STR R0,R4,#0        ;将R0的值写到R4（Rear指针）对应的内存
+</code></pre></div>
+<h3 id="842-wrap-around">8.4.2 Wrap-Around<a class="headerlink" href="#842-wrap-around" title="Permanent link">&para;</a></h3>
+<p>当我们从队列中删除一个值时，该位置可用于存储另一个元素。我们通过<code>允许可用的存储位置环绕</code>来做到这一点。例如，假设我们要向队列添加 20 。由于 x8000 中没有存储任何内容（之前已删除了 45），因此我们可以在 x8000 中存储 20。</p>
+<ul>
+<li>
+<p>“Wrap-around” works by having our removal and insertion algorithms test the contents of FRONT and REAR for the value x8005.</p>
+</li>
+<li>
+<p>If we wish to<code>insert</code>, and <code>REAR contains x8005, we know we have reached the end of our available storage</code> and we must see <strong>if x8000 is available.</strong></p>
+</li>
+</ul>
+<p>REAR 包含 x8005，我们知道我们已经到达可用存储空间的末尾，并且我们必须查看 x8000 是否可用。(<strong>返回头部front检查是否有位置</strong>)</p>
+<ul>
+<li>If we wish to <code>remove</code>, we must <strong>first see if FRONT contains the address x8005</strong>. </li>
+</ul>
+<p>如果我们想删除，我们必须首先查看FRONT是否包含地址x8005</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>;remove
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>LD   R2,LAST
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ADD  R2,R3,R2          ;计算R3-x8005,
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>BRnp SKIP_1            ;只要R2不为0，即Front指针不在x8005，即此时队列不为空，就跳转到SKIP_1,先执行Front指针加1，在Front指针所在地址的数据加载到R0
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>LD   R3,FIRST          ;当发现Front指针已经位于x8005时，利用环绕wrap-around的性质，将Front指针移回到x8000，后续是将当前位置的数据取出，不进行Front指针加1操作
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>BR   SKIP_2
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>SKIP_1 ADD R3,R3,#1
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>SKIP_2 LDR R0,R3,#0
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>RET
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>LAST    .FILL x7FFB   ;LAST contains the negative of 8005,只要用于看头指针是否在x8005
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>FIRST   .FILL x8000   ;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>;insert
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>LD   R2,LAST
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>ADD  R2,R4,R2            ;计算R4-x8005，判断R4是否已经到末尾
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>BRnp SKIP_1              ;只要R2不为0，即此时Rear指针不在x8005，队列还存在空间，就跳转到SKIP_1,先进行Rear指针+1，再将R0的数据写入到Rear指针对应的内存中
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>LD   R4,FIRST            ;当R2为0时，此时Rear指针在最后，就跳转到开头x8005
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>BR   SKIP_2              ;无条件跳转到SKIP_2,只进行数据的写入操作
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>SKIP_1  ADD R4,R4,#1
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>SKIP_2  STR R0,R4,#0
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>RET
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>LAST    .FILL x7FFB     ;LAST contains the negative of 8005
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>FIRST   .FILL x8000
+</code></pre></div>
+<h3 id="843-how-many-element-can-we-store-in-a-queue">8.4.3 How Many Element Can We Store in a Queue?<a class="headerlink" href="#843-how-many-element-can-we-store-in-a-queue" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230720151515266" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503809.png" /></p>
+<p>在图（d） There are <strong>four values</strong> in the queue: 2, 74, 10, and 20.这是因为，Rear指针已经到达过x8005，后续回到了x8000，并且输入保存了20</p>
+<ul>
+<li>Suppose we insert 30 and 40 at the rear of the queue, producing Figure 8.25e.
+  Both <strong>R3 and R4 contain the same address (x8002)</strong>, and the <code>queue is full</code>. </li>
+<li>Now suppose we start removing elements from the front of the queue. If we remove
+  2, which is at the front of the queue, R3 will contain the address x8003. If we
+  <strong>remove the remaining five elements in the queue</strong>, we will have what is shown in
+  Figure 8.25f. Note that <strong>the FRONT and REAR pointers for e and f are identi-</strong>
+  <strong>cal</strong>, </li>
+<li><code>Figure 8.25e describes a full queue and Figure 8.25f describes an empty queue!</code></li>
+</ul>
+<blockquote>
+<p><strong>此时，当Front指针和Rear指针所在地址相同时，队列有两种可能，既可能是满的，也可能是空的。为了防止该不确定性的发生，对于分配了n个元素的空间，当队列中有n - 1元素时，我们便声明队列已满</strong></p>
+</blockquote>
+<p><img alt="image-20230720153808676" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181503766.png" /></p>
+<p>假设我们插入30，就会得到8.26的（a），此时队列中已经有五个元素，说明此时队列已经满了</p>
+<p>接着开始remove元素，直到队列为空，如图8.26（b）所示，此时Front = Rear</p>
+<blockquote>
+<p><code>当队列full时，Front = Rear + 1；当队列为empty时，Front = Rear</code></p>
+</blockquote>
+<h3 id="844-teat-for-underflowoverflow">8.4.4 Teat for Underflow，Overflow<a class="headerlink" href="#844-teat-for-underflowoverflow" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If the queue is <strong>empty</strong> and we try to <strong>remove an element</strong>, we have an <strong>underflow</strong> condition. </li>
+<li>If the queue is <strong>full</strong> and we try to <strong>insert an element,</strong> we have an <strong>overflow</strong> condition.</li>
+</ul>
+<p>如果队列为空并且我们尝试删除一个元素，则会出现下溢情况。如果队列已满并且我们尝试插入元素，则会出现溢出情况。</p>
+<blockquote>
+<p><strong>我们首先检查队列是否为空，即 R3 = R4 是否。如果是这样，我们分支到 UNDERFLOW，在这里我们将 R5 设置为故障，恢复 R1，然后返回。如果没有，则执行代码以删除队列的前面。溢出测试类似。要将元素插入队列的末尾，我们首先递增 REAR 指针。如果这导致 FRONT = REAR，则队列已包含 n-1 个元素，这意味着队列已满，因此我们无法插入更多元素。我们递减 REAR 指针，将 R5 设置为 1，然后返回。</strong></p>
+<p><strong>R5 = 0 表示成功，R5 = 1 表示失败</strong></p>
+</blockquote>
+<p>关于插入，我们首先必须确保队列未满。为此，我们<strong>递增 REAR 指针 (R4)，然后测试 REAR=FRONT。</strong><code>如果 REAR 指针最初是 x8005，我们通过将其设置为 x8000 来增加 REAR；也就是说，我们需要环绕。</code>如果队列已满，我们需要将 REAR 设置回其原始值，然后返回，报告失败（R5 = 1）。如果队列未满，我们将希望插入的项目（位于 R0 中）存储在 REAR 中，然后返回，报告成功 (R5 = 0)。</p>
+<p>关于删除，我们首先通过<strong>测试是否 REAR=FRONT 来确保队列不为空(无需指针加1操作)</strong>。如果 REAR=FRONT，则队列为空，因此我们返回并报告失败。如果 REAR 与 FRONT 不同，则队列不为空，因此我们可以删除前面的元素。为此，<code>我们首先测试 FRONT=x8005 是否。如果是，我们设置 FRONT=x8000。如果不是，我们增加 FRONT。</code>在这两种情况下，我们都会将该内存位置中的值加载到 R0 中，然后返回，报告成功。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>;Input:R0 for item to be inserted.R3 is Front,R4 is Rear
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>;Output:R0 for item to be removed
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>INSERT  ST      R1,SaveR1   ;操作之前事先进行保存
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        AND     R5,R5,#0    ;R5的初始化
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        LD      R1,NEG_LAST ;R1保存-x8005，目的是检查Rear指针是否位于x8005
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        ADD     R1,R1,R4    ;
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        BRnp    SKIP1       ;跳过wrap around
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        LD      R4,FIRST    ;返回起点x8000
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        BR      SKIP2       ;不需要进行Rear指针+1
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>SKIP1   ADD     R4,R4,#1    ;Rear指针+1
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>SKIP2   NOT     R1,R4
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        ADD     R1,R1,#1    ;R1此时表示-Rear
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        ADD     R1,R1,R3    ;R1 = Front - Rear,在Rear指针+1之后，判断Rear和Front是否相等，相等则队列已满
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        BRz     FULL        ;若队列已满，则Rear指针回退，分Rear指针是否在x8000进行考虑
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        STR     R0,R4,#0    ;不相等情况，在Rear指针对应的内存写入R0
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        BR      DONE        ;跳转到结束
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>FULL    LD      R1,NEG_FIRST;R1 = -x8000,判断R4是否在x8000位置
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        ADD     R1,R1,R4    ;R1 = Rear - x8000
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        BRnp    SKIP3       ;如果不在，就进行简单的回退操作，并且在R5中写入1，表示失败
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>        LD      R4,LAST     ;如果Rear指针在x8000，说明原先Rear指针在x8005，退回原样
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>        BR      SKIP4
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>SKIP3   ADD     R4,R4,#-1
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>SKIP4   ADD     R5,R5,#1
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        BR      DONE
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>REMOVE  ST      R1,SaveR1   ;操作之前，事先保存R1,在结束时，恢复
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>        AND     R5,R5,#0
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>        NOT     R1,R4
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>        ADD     R1,R4,#1    ;得到R1 = -Rear
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        ADD     R1,R1,R3    ;R1 = Front - Rear，用于判断队列是否为空
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        BRz     EMPTY       ;若Front = Rear，则说明，队列为空，跳转到EMPTY操作
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>        LD      R1,NEG_LAST ;用于判断Front指针是否为x8005
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>        ADD     R1,R1,R3    ;R1 = Front - x8005
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>        BRnp    SKIP5       ;若Front指针不在x8005，只需Front指针加一，再把当前Front指针所在地址的数据加载到R0
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>        LD      R3,FIRST    ;若FROnt指针在x8005，首先得使Front指针位于x8000，再把x8000的数据加载到R0
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>        BR      SKIP6
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>SKIP5   ADD     R3,R3,#1    ;Front指针+1
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>SKIP6   LDR     R0,R3,#0    ;读数据
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>        BR      DONE
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>EMPTY   ADD     R5,R5,#-1   ;由于没有实现Front指针加1操作，所以只要使R5=1就可以表示remove失败
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>DONE    LD      R1，SaveR1  ;恢复R1寄存器
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>        RET                 ;返回离开子例程
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>FIRST   .FILL   x8000
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>NEG_FIRST.FILL  x8000
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>LAST    .FILL   x8005
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>NEG_LAST.FILL   x7FFB
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>SaveR1  .BLKW   1
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Assembly%20Language/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Chapter 7 Assembly Language">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 7 Assembly Language
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../IO/" class="md-footer__link md-footer__link--next" aria-label="下一页: Chapter 9 I/O">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 9 I/O
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rescuerz" target="_blank" rel="noopener" title="My Github Page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="" target="_blank" rel="noopener" title="My CSDN Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 64c0-17.7 14.3-32 32-32 229.8 0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7 0 64zm0 352a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm32-256c159.1 0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

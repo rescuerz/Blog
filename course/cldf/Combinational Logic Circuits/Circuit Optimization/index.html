@@ -11,22 +11,22 @@
       
       
       
-        <link rel="prev" href="../Gate%20Circuits%20and%20Boolean%20Equations/">
+        <link rel="prev" href="../Canonical%20Forms/">
       
       
         <link rel="next" href="../Additional%20Gates%20and%20Circuits/">
       
       
       <link rel="icon" href="../../../../duck.bmp">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
     
     
       
-        <title>Circuit Optimization - Rescuers's Blog</title>
+        <title>Circuit Optimization - Rescuerz's Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -49,6 +49,8 @@
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
       <link rel="stylesheet" href="../../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#k-map" class="md-skip">
+        <a href="#23-circuit-optimization" class="md-skip">
           跳转至
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
@@ -103,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Rescuers's Blog
+            Rescuerz's Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -355,12 +357,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
     </a>
-    Rescuers's Blog
+    Rescuerz's Blog
   </label>
   
     <div class="md-nav__source">
@@ -392,14 +394,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
@@ -456,14 +456,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
@@ -482,7 +480,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -522,11 +520,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
@@ -571,11 +570,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
@@ -735,11 +735,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
@@ -924,11 +925,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
@@ -1151,11 +1153,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
@@ -1332,11 +1335,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
@@ -1469,11 +1473,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
@@ -1585,11 +1590,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
@@ -1709,11 +1715,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
@@ -1758,11 +1765,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
@@ -1914,11 +1922,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
@@ -2021,11 +2030,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
@@ -2271,13 +2281,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
@@ -2287,7 +2300,7 @@
             
   
   <span class="md-ellipsis">
-    数据结构与算法基础
+    数据结构基础
   </span>
   
 
@@ -2297,7 +2310,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            数据结构与算法基础
+            数据结构基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2318,11 +2331,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
@@ -2357,7 +2371,7 @@
         
   
   <span class="md-ellipsis">
-    算法
+    分析内容
   </span>
   
 
@@ -2378,7 +2392,7 @@
         
   
   <span class="md-ellipsis">
-    算法分析
+    渐进符号
   </span>
   
 
@@ -2395,11 +2409,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" class="md-nav__link">
+      <a href="../../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    算法比较
+    具体问题分析
   </span>
   
 
@@ -2438,21 +2452,14 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
@@ -2483,32 +2490,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ADT/" class="md-nav__link">
+      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%881/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ADT
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%88%97%E8%A1%A8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    列表
+    栈
   </span>
   
 
@@ -2546,74 +2532,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    栈
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    二叉树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    查找树
   </span>
   
 
@@ -2736,6 +2659,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2764,16 +2708,19 @@
       
         
       
-    
-    
+        
+      
     
     
       
+        
+        
       
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
@@ -2820,13 +2767,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
@@ -2888,13 +2838,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
@@ -2930,6 +2883,27 @@
   
   <span class="md-ellipsis">
     Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
   </span>
   
 
@@ -2988,11 +2962,179 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#k-map" class="md-nav__link">
+  <a href="#23-circuit-optimization" class="md-nav__link">
     <span class="md-ellipsis">
-      卡诺图 (K-map)
+      2.3 Circuit Optimization 电路优化
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.3 Circuit Optimization 电路优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-literal-costl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Literal Cost（L）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-gate-input-costg" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 Gate Input Cost（G）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-gate-input-cost-with-nots-gn" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 Gate input cost with NOTs (GN)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-map-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 Map Manipulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.4 Map Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2341-karnaugh-mapsk-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4.1 Karnaugh maps(K-map) 卡诺图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2342-dont-cares-in-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4.2 Don’t Cares(无关项) in K-Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2343-systematic-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4.3 Systematic Simplification 系统化简化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-multi-level-circuit-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5 Multi-Level Circuit Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.5 Multi-Level Circuit Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2351-integrated-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5.1 Integrated Circuits 集成电路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2352-propagation-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5.2 Propagation Delay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-additional-gates-and-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6 Additional Gates and Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.6 Additional Gates and Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2361-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.1 Buffer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2362-nand" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.2 NAND
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2363-nor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.3 NOR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2364-exclusive-or-exclusive-nor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.4 Exclusive OR / Exclusive NOR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2365-hi-impedance-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.5 Hi-Impedance Outputs 高阻输出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3049,13 +3191,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
@@ -3086,27 +3231,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Combinational Logic
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
         
   
@@ -3128,11 +3252,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
   </span>
   
 
@@ -3165,11 +3331,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
@@ -3256,11 +3423,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
@@ -3328,11 +3496,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
@@ -3406,6 +3575,401 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Digital%20Logic%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Data%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3434,20 +3998,18 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3486,11 +4048,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
@@ -3543,11 +4106,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
@@ -3684,11 +4248,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
@@ -3840,11 +4405,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
@@ -3950,14 +4516,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
@@ -3976,7 +4540,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -4022,11 +4586,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
@@ -4268,11 +4833,179 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#k-map" class="md-nav__link">
+  <a href="#23-circuit-optimization" class="md-nav__link">
     <span class="md-ellipsis">
-      卡诺图 (K-map)
+      2.3 Circuit Optimization 电路优化
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2.3 Circuit Optimization 电路优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-literal-costl" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Literal Cost（L）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-gate-input-costg" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 Gate Input Cost（G）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-gate-input-cost-with-nots-gn" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 Gate input cost with NOTs (GN)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#234-map-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 Map Manipulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.4 Map Manipulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2341-karnaugh-mapsk-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4.1 Karnaugh maps(K-map) 卡诺图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2342-dont-cares-in-k-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4.2 Don’t Cares(无关项) in K-Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2343-systematic-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4.3 Systematic Simplification 系统化简化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#235-multi-level-circuit-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5 Multi-Level Circuit Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.5 Multi-Level Circuit Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2351-integrated-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5.1 Integrated Circuits 集成电路
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2352-propagation-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5.2 Propagation Delay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#236-additional-gates-and-circuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6 Additional Gates and Circuits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3.6 Additional Gates and Circuits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2361-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.1 Buffer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2362-nand" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.2 NAND
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2363-nor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.3 NOR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2364-exclusive-or-exclusive-nor" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.4 Exclusive OR / Exclusive NOR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2365-hi-impedance-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6.5 Hi-Impedance Outputs 高阻输出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4296,106 +5029,381 @@
 
   <h1>Circuit Optimization</h1>
 
-<p>目标：获得给定函数的最简实现</p>
-<p>衡量标准：</p>
+<h2 id="23-circuit-optimization">2.3 Circuit Optimization 电路优化<a class="headerlink" href="#23-circuit-optimization" title="Permanent link">&para;</a></h2>
+<p>目标：对于给定的函数，获得最简单的实现方式</p>
+<p>Distinct cost criteria we will use:（判断标准）</p>
 <ul>
-<li>Literal Cost (L)<ul>
-<li>定义：出现过的所有变量的个数</li>
-<li>例：<span class="arithmatex">\(F=ABCD+\overline{ABCD}\)</span>，L = 8</li>
+<li><strong>Literal cost (L)文字成本</strong> </li>
+<li><strong>Gate input cost (G) 门输入成本</strong></li>
+<li><strong>Gate input cost with NOTs (GN) 带NOT的门输入成本</strong></li>
 </ul>
-</li>
-<li>Gate Input Cost (G), Gate input cost with NOTs (GN)<ul>
-<li>定义：G：L + 出现的项个数（不含单变量，输出）GN：G + 非门个数（一个变量计算一次）</li>
-<li>例：<span class="arithmatex">\(F=BD+A\overline BC+A\overline{BD}+AB\overline C\)</span>，G = 11 + 4 = 15  GN = 15 + 3 = 18</li>
-<li>非门一般无需计算（前部电路可提供），但内部电路的非门需计算</li>
-</ul>
-</li>
-<li>与电路对应：
-    <img alt="image.png|250" src="https://s2.loli.net/2023/10/07/FhL3K57EXdgTb9Z.png" /><img alt="image.png|250" src="https://s2.loli.net/2023/10/07/jrOLKoWnzfwaDdm.png" /></li>
-</ul>
-<h2 id="k-map">卡诺图 (K-map)<a class="headerlink" href="#k-map" title="Permanent link">&para;</a></h2>
-<p>排布：相邻两个格子只有一处差异</p>
-<p>双变量卡诺图：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>y=0</th>
-<th>y=1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x=0</td>
-<td><span class="arithmatex">\(m_0=\bar x\bar y\)</span></td>
-<td><span class="arithmatex">\(m_1=\bar xy\)</span></td>
-</tr>
-<tr>
-<td>x=1</td>
-<td><span class="arithmatex">\(m_2=x\bar y\)</span></td>
-<td><span class="arithmatex">\(m_3=xy\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>三变量卡诺图：列序为格雷码</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>yz=00</th>
-<th>yz=01</th>
-<th><mark>yz=11</mark></th>
-<th><mark>yz=10</mark></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>x=0</td>
-<td><span class="arithmatex">\(m_0=\bar x\bar y\bar z\)</span></td>
-<td><span class="arithmatex">\(m_1=\bar x\bar yz\)</span></td>
-<td><span class="arithmatex">\(m_3=\bar xyz\)</span></td>
-<td><span class="arithmatex">\(m_2=\bar xy\bar z\)</span></td>
-</tr>
-<tr>
-<td>x=1</td>
-<td><span class="arithmatex">\(m_4=x\bar y\bar z\)</span></td>
-<td><span class="arithmatex">\(m_5=x\bar yz\)</span></td>
-<td><span class="arithmatex">\(m_7=xyz\)</span></td>
-<td><span class="arithmatex">\(m_6=xy\bar z\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>图示：</p>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/10/07/Eo7N8zCF5MGHjvW.png" /></p>
+<h3 id="231-literal-costl">2.3.1 Literal Cost（L）<a class="headerlink" href="#231-literal-costl" title="Permanent link">&para;</a></h3>
+<p><strong>literal</strong> is a variable or its complement  字面量——变量或者它的补集</p>
+<p><strong>literal cost</strong> is the number of literal appearances in a Boolean expression corresponding to the logic circuit diagram.</p>
 <blockquote>
-<p><span class="arithmatex">\(x\bar z,xz\)</span>也相邻，理解为将卡诺图卷起为柱</p>
+<p><strong><code>数一数，布尔表达式中的变量数即可（可重复计算）</code></strong></p>
 </blockquote>
-<p>四变量卡诺图：行序列序均为格雷码</p>
-<p><img alt="image.png|400" src="https://s2.loli.net/2023/10/07/51QMUKYePyNcv8O.png" /></p>
-<blockquote>
-<p><span class="arithmatex">\(\bar x\bar z\)</span>区域：卷起为球</p>
-</blockquote>
-<p>五变量卡诺图：使用两个四变量卡诺图</p>
-<p><img alt="image.png|400" src="https://s2.loli.net/2023/10/12/OonuSAV3iw7Q26I.png" /></p>
-<blockquote>
-<p>五变量及以上的卡诺图难以找圈，一般变量数不超过四个</p>
-</blockquote>
-<p>化简：</p>
 <ul>
-<li>将相邻的2，4或8个变量圈起，消去变化的变量</li>
-<li>先圈最大的圈，用尽可能大的圈去圈（减少变量数，圈可重叠）</li>
+<li><span class="arithmatex">\(F = BD + A\bar BC + A\bar C \bar D\)</span></li>
 </ul>
-<p>无关项：从不会出现的输入，从不会使用的输出</p>
-<p>表示：d(i), 在卡诺图上用 x 表示；被圈起时x作1，不圈作0</p>
-<p>寻找POS：先找SOP，再求反</p>
-<p>系统化化简方法：</p>
+<p>L = 8</p>
+<ul>
+<li><span class="arithmatex">\(F = BD + A\bar B C + A\bar B \bar D + ABC\)</span></li>
+</ul>
+<p>L = 11</p>
+<h3 id="232-gate-input-costg">2.3.2 Gate Input Cost（G）<a class="headerlink" href="#232-gate-input-costg" title="Permanent link">&para;</a></h3>
+<p><strong>Gate input costs</strong> is the number of inputs to the gates in the implementation corresponding exactly to the given equation or equations. (G - inverters not counted, GN - inverters counted)</p>
+<p>与给定方程完全对应的电路实现中，门的输入数量</p>
+<blockquote>
+<p><strong><code>在L的基础上，在加上项的数量（但是不包括单变量项，否则会与L重复计算）</code></strong></p>
+<p>什么是项：形如A AND B / A OR B的式子，A，B称之为项</p>
+</blockquote>
+<ul>
+<li>all literal appearances(L)</li>
+<li>the number of terms <strong>excluding single literal terms</strong>, (G).
+  e.g. for A+BC its L=3 while G=1</li>
+</ul>
+<h3 id="233-gate-input-cost-with-nots-gn">2.3.3 Gate input cost with NOTs (GN)<a class="headerlink" href="#233-gate-input-cost-with-nots-gn" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong><code>在G的基础上，加上非门的数量(根据变量来，不重复计算相同变量的非门)</code></strong></p>
+</blockquote>
+<ul>
+<li><span class="arithmatex">\(F = BD + A\bar BC + A\bar C \bar D\)</span></li>
+</ul>
+<p>L = 8 ,   G= 8 + 3 =11 ,    GN = 11 + 3 = 14</p>
+<ul>
+<li><span class="arithmatex">\(F = BD + A\bar B C + A\bar B \bar D + ABC\)</span></li>
+</ul>
+<p>L = 11   G = 11 + 4 = 15 ,    GN = 15 + 2 = 17（仅计算BD的非门）</p>
+<p><img alt="image-20231007150935906" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421097.png" /></p>
+<h3 id="234-map-manipulation">2.3.4 Map Manipulation<a class="headerlink" href="#234-map-manipulation" title="Permanent link">&para;</a></h3>
+<h4 id="2341-karnaugh-mapsk-map">2.3.4.1 Karnaugh maps(K-map) 卡诺图<a class="headerlink" href="#2341-karnaugh-mapsk-map" title="Permanent link">&para;</a></h4>
+<p>The <strong>K-map</strong> can be viewed as</p>
+<ul>
+<li>A reorganized version of the truth table 真值表的重组版本</li>
+<li>A topologically-warped Venn diagram as used to visualize sets in algebra of sets 用于可视化集合代数中的集合的拓扑扭曲维恩图。</li>
+</ul>
+<blockquote>
+<p><strong>简单来说，K-map是小方块的集合，每一个正方形代表一个最小项，相邻的方块只有一个变量不同</strong></p>
+<p><strong><code>`Adjacent squares differ in the value of one variable</code></strong></p>
+</blockquote>
+<p><img alt="image-20231007153010237" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421371.png" /></p>
+<ul>
+<li>m0 和 m1 的不同之处在于 变量y</li>
+<li>m0 和 m2 的不同之处在于 变量x</li>
+</ul>
+<p><img alt="image-20231007153211176" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421869.png" /></p>
+<p><img alt="image-20231007153231477" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421004.png" /></p>
+<blockquote>
+<p>注意列, **<code>`要按照Gray codes的顺序排列, 即相邻两列只相差一位.** 因此列标号为 00 01 11 10</code>.</p>
+<p>相邻两个小方格都只有一个变量不同.</p>
+<p>可以卷起来, 即最左边一列和最右边一列,(这两列也是相邻)</p>
+</blockquote>
+<p><img alt="image-20231007153420858" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421104.png" /></p>
+<p><strong>Alternative Map Labeling</strong></p>
+<p><img alt="image-20231007153524560" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421955.png" /></p>
+<p><strong>Combining Squares</strong></p>
+<p>可以画 2^n^ 大小的方形格(即一次要包括 2^n^ 个小方格)
+For 3-variable <strong>K-Map</strong>:</p>
+<ul>
+<li>One square represents a minterm with three variables</li>
+<li>Two adjacent squares represent a product term with two variables</li>
+<li>Four “adjacent” terms represent a product term with one variable</li>
+<li>Eight “adjacent” terms is the function of all ones (no variables) = 1.</li>
+</ul>
+<p><img alt="image-20231007154539509" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421852.png" /></p>
+<blockquote>
+<p><strong>化简思路: 用最大的最少的圈把所有的 1 圈完.(圈与圈之间可以有交叉)</strong></p>
+</blockquote>
+<p><img alt="image-20231007154619730" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421721.png" /></p>
+<p><img alt="image-20231007154714162" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421866.png" /></p>
+<blockquote>
+<p><strong>注意四个角也可以卷(0 2 8 10 -&gt; <span class="arithmatex">\(\overline{XZ}\)</span>)</strong></p>
+</blockquote>
+<h4 id="2342-dont-cares-in-k-maps">2.3.4.2 Don’t Cares(无关项) in K-Maps<a class="headerlink" href="#2342-dont-cares-in-k-maps" title="Permanent link">&para;</a></h4>
+<p><strong>By placing “don't cares” (an “x” entry) in the function table or map, the cost of the logic circuit may be lowered.</strong>
+如我们把 BCD 码作为输入, 有效数字 0 - 9, 如果那么 9 以上的输入组合我们不在乎输出结果, 称为无关项, 在卡诺图上画 x.</p>
+<p><img alt="image-20231012103854485" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421215.png" /></p>
+<blockquote>
+<p><strong>用 <span class="arithmatex">\(d（\cdots）\)</span> 表示无关项，无关项的值既可以是0，也可以是1，根据题目而定</strong></p>
+</blockquote>
+<p>Find the optimum POS solution: </p>
+<p><span class="arithmatex">\(F(A,B,C,D) = \sum m(3,9,11,12,13,14,15) + \sum d(1,4,6)\)</span></p>
+<p>Hint: Use <span class="arithmatex">\(\bar F\)</span> and complement it to get the result.
+ans: F' = B' D' + A' B (求 F' 时在卡诺图中圈空格，而不是 1) F = (B + D)(A + B')</p>
+<p>利用卡诺图化简以下表达式
+$$
+F = AB + \bar BC + CD + \bar AC
+$$
+<img src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421206.png" alt="image-20231105172700942" style="zoom: 33%;" /></p>
+<h4 id="2343-systematic-simplification">2.3.4.3 Systematic Simplification 系统化简化<a class="headerlink" href="#2343-systematic-simplification" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A <strong>Prime Implicant</strong>(质蕴含项) is a product term obtained by combining the maximum possible number of adjacent squares in the map into a rectangle with the number of squares a power of 2. </li>
+</ul>
+<p>素蕴含项是通过将图中<strong>最大可能数量的相邻正方形组合成一个矩形</strong>而获得的乘积项，其中正方形的数量为 2 的幂。</p>
+<blockquote>
+<p><strong>如果已经建成一个大的矩形，大矩形里面的小矩形就不做考虑了</strong></p>
+</blockquote>
+<ul>
+<li>A prime implicant is called an <strong>Essential Prime Implicant</strong>(必要质蕴涵项) if it is the only prime implicant that covers (includes) one or more minterms.</li>
+</ul>
+<p>该质蕴含项是唯一覆盖某小正方形的质蕴含项，则称为必要质蕴含项</p>
+<blockquote>
+<p><strong>也就是，如果没有 必要质蕴含项，就无法实现全覆盖</strong></p>
+</blockquote>
+<p>质蕴涵项是对某个 "1" 而言包括它的最大方形。对某个 "1" 而言如果它的质蕴涵项只有一个，那么它是必要的。</p>
 <ol>
-<li>寻找质蕴含项：从最大可圈开始，直到圈出所有最小项</li>
-<li>寻找必要质蕴含项：含有只被圈一次的最小项的圈
-<img alt="image.png|500" src="https://s2.loli.net/2023/10/12/EsXmkibnKjz9F5u.png" /></li>
+<li>Find All Prime Implicants</li>
+<li>Find Essential ones</li>
+<li>处理剩下的 1</li>
 </ol>
-<p>多级门电路优化：通过提取公因式，降低G</p>
-<p>电路级数：输入到输出的最长路径长度</p>
+<p><img alt="image-20231012104246424" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421241.png" /></p>
+<p><img alt="image-20231105171850247" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421669.png" /></p>
+<p><img alt="image-20231105172716963" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421884.png" /></p>
+<h3 id="235-multi-level-circuit-optimization">2.3.5 Multi-Level Circuit Optimization<a class="headerlink" href="#235-multi-level-circuit-optimization" title="Permanent link">&para;</a></h3>
+<p>两级门的延迟低，但 cost 高。
+$$
+\begin{aligned}
+F &amp;= \bar A \bar C \bar D + \bar A B \bar C + ABC + AC\bar D      G = 16\
+F &amp;= \bar A (\bar C \bar D + B\bar C) + A(BC + C\bar D)       G = 18\
+F &amp;= \bar A \bar C(B + \bar D) + AC(B + \bar D)            G = 12\
+F &amp;= (\bar A \bar C + AC)(B + \bar D)       G = 10
+\end{aligned}
+$$</p>
+<h4 id="2351-integrated-circuits">2.3.5.1 Integrated Circuits 集成电路<a class="headerlink" href="#2351-integrated-circuits" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><strong>Integrated circuit</strong> (informally, a <strong>“chip”</strong>) is a semiconductor crystal (most often silicon) containing the electronic components for the digital gates and storage elements which are interconnected on the chip.</p>
+</li>
+<li>
+<p><strong>Terminology</strong> - Levels of chip integration</p>
+</li>
+<li>
+<p><em>SSI (small-scale integrated)</em> - fewer than 10 gates</p>
+</li>
+<li><em>MSI (medium-scale integrated)</em> - 10 to 100 gates</li>
+<li><em>LSI (large-scale integrated)</em> - 100 to thousands of gates</li>
+<li>
+<p><em>VLSI (very large-scale integrated)</em> - thousands to 100s of millions of gates</p>
+</li>
+<li>
+<p><strong>Technology Parameters技术参数</strong></p>
+</li>
+<li>
+<p><strong>Fan-in 扇入系数</strong> – the number of inputs available on a gate
+    一个门的输入端的上限
+    理想情况一个门的输入可以接无数个门的输入，但实际上因为每一个门的输入端都会花费一些电流，而门输出的电流是有限的，从集成电路本身会要求一个门的输出最多能拉多少门的输入。</p>
+</li>
+<li>
+<p><strong>Fan-out 扇出系数</strong> – the number of standard loads driven by a gate output
+    一个门的输出带了很多门的输入？（像火车头带了很多车厢）
+    一个门的输出不能接到太多门的输入上去，一般会用 buffer 做缓冲</p>
+<ul>
+<li><strong>eg:</strong> 1 standard load equals the load contributed by the input of 1 inverter.</li>
+</ul>
+<p>一个标准负载等于一个非门输入所贡献的负载</p>
+<ul>
+<li><strong>Transition time 转换时间</strong>- the time required for the gate output to change , <span class="arithmatex">\(from \ H \ to \ L,t_{HL},or \ from L \ to \ H , t_{LH}\)</span></li>
+</ul>
+<p>带的门越多，上升时间就越多。 我们会限制过渡时间，设置 maximum fan-out</p>
+<ul>
+<li>The maximum fan-out that can be driven by a gate is the number of standard loads the gate can drive without exceeding its specified  maximum transition time</li>
+</ul>
+<p>最大扇出系数，是指不超过其指定最大转换时间的标准负载数</p>
+<ul>
+<li>
+<p><strong>Logic Levels</strong> – the signal value ranges for 1 and 0 on the inputs and 1 and 0 on the outputs (see Figure 1-1)</p>
+</li>
+<li>
+<p><strong>Noise Margin</strong> – the maximum external noise voltage superimposed on a normal input value that will not cause an undesirable change in the circuit output</p>
+<p>叠加在正常输入值上的最大外部噪声电压，不会导致电路输出发生不良变化</p>
+</li>
+<li>
+<p><strong>Cost for a gate</strong> - a measure of the contribution by the gate to the cost of the integrated circuit
+    Ignoring the wiring area, the gate area is roughly proportional to the gate input count.</p>
+</li>
+<li>
+<p><strong>Propagation Delay(传输延迟)</strong> – The time required for a change in the value of a signal to propagate from an input to an output</p>
+<p>信号值的变化从输入传播到输出所需的时间</p>
+</li>
+<li>
+<p><strong>Power Dissipation功耗</strong> – the amount of power drawn from the power supply and consumed by the gate</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2352-propagation-delay">2.3.5.2 Propagation Delay<a class="headerlink" href="#2352-propagation-delay" title="Permanent link">&para;</a></h4>
+<p>Delay is usually measured at the 50% point with respect to the H and L output voltage levels.
+High-to-low (<span class="arithmatex">\(t_{PHL}\)</span>) and low-to-high (<span class="arithmatex">\(t_{PLH}\)</span>) output signal changes may have different propagation delays.</p>
+<p><img alt="image-20231012111045710" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421643.png" /></p>
+<p><img alt="" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421620.png" /></p>
+<blockquote>
+<p><strong>计算中点的时间差，延迟通常是在相对于H和L输出电压电平的50%点测量的</strong></p>
+</blockquote>
+<p><img alt="image-20231012112323646" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421662.png" /></p>
+<blockquote>
+<p><strong>此处需要注意的是，中间的是从低到高，<span class="arithmatex">\(t_{PLH}\)</span></strong></p>
+</blockquote>
+<p><strong>Delay Mode</strong></p>
+<ol>
+<li>Propagation Delay传输延迟</li>
+</ol>
+<ul>
+<li>
+<p><strong>Transport delay</strong> - a change in the output in response to a change on the inputs occurs after a fixed specified delay
+  输出整体往后移（固定的指定延迟）</p>
+</li>
+<li>
+<p><strong>Inertial delay（惯性延迟）</strong> - similar to transport delay, except that if the input changes such that the output is to change twice in a time interval less than the <strong>rejection time</strong>, the output changes do not occur. Models typical electronic circuit behavior, namely, rejects narrow “pulses” on the outputs </p>
+</li>
+</ul>
+<p>如果输入发生变化，使得输出在小于拒绝时间的时间间隔内发生两次变化，则不会发生输出变化。</p>
+<blockquote>
+<p><strong>除了输出往后移，在惯性延迟下，很窄的脉冲（小于 rejection time）会被消除掉。</strong></p>
+<p><code>也就是说，Inertial Delay不仅要考虑传输延迟（transport delay），还要考虑消除窄脉冲</code></p>
+</blockquote>
+<p><img alt="image-20231012112408136" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421499.png" /></p>
+<ol start="2">
+<li>circuit delay 电路延迟</li>
+</ol>
+<p><img alt="image-20231012112905321" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421654.png" /></p>
+<ul>
+<li>
+<p>最开始 S 由$ 0-&gt;1 $后 <span class="arithmatex">\(0.9s Y 从 0-&gt;1\)</span>（只需要考虑 第二个AND门 和 最后的OR门，第一个AND门不做变化）</p>
+</li>
+<li>
+<p>S 从 1 变为 0后，经过 0.4s 后，第二个AND门变为0，经过0.9s后，Y值从1变为0</p>
+</li>
+<li>非门需要在0.2s后，才能做出相应，从0变为1，经过0.6s后，第一个AND门变为1，经过1.1s后，Y值变为1；</li>
+<li>所以在0.9s 到 1.1s 这段时间，Y值为0，出现一个小凹槽，1.1s之后，Y值变为1</li>
+<li>这里 Y 出现了一个小尖峰，我们称之为电路产生的<strong>冒险</strong>。
+  S 的两条路径我们发现延迟不同，这种我们称之为电路中的<strong>竞争</strong>。</li>
+</ul>
+<ol start="3">
+<li>Fan-out and Delay
+   The fan-out loading a gate’s output affects the gate’s propagation delay。
+   <strong>SL</strong>(Standard Load)标准负载: 以非门为标准。带一个非门需要...的负载</li>
+</ol>
+<blockquote>
+<p><strong>One realistic equation for tpd for a NAND gate with 4 inputs is: $t_{pd} =0.07+0.021SL $ .</strong></p>
+<p><strong>ns SL is the number of standard loads the gate is driving, i. e., its fan-out in standard loads For SL = 4.5, tpd = 0.165 ns</strong>
+<strong>由工艺程度+负载情况决定</strong></p>
+</blockquote>
+<p>例题：</p>
+<p>NAND gate G with 20 standard loads on its output has a delay of 0.45 ns and has a normalized cost of 2.0.</p>
+<p>与非门G 输出上有20个标准负载，且传输延迟为0.45ns，标准成本为2.0</p>
+<p>A buffer H has a normalized cost of 1.5. The NAND gate driving the buffer with 20 standard loads gives a total delay of 0.33 ns</p>
+<p>缓冲区H的标准成本是1.5，总延迟是0.33ns</p>
+<ol>
+<li>The cost of this portion of the circuit cannot be more than 2.5 </li>
+<li>The delay of this portion of the circuit cannot be more than 0.40 ns </li>
+<li>The delay of this portion of the circuit must be less than 0.40 ns and the cost less than 3.0</li>
+</ol>
+<p>ans: </p>
+<ol>
+<li>
+<p>No buffer</p>
+</li>
+<li>
+<p>Use buffer</p>
+</li>
+<li>
+<p>Irrelevant - buffer needed to satisfy delay constraint, but cannot satisfy cost constraint.</p>
+</li>
+</ol>
+<p>无关紧要 - 需要缓冲来满足延迟约束，但不能满足成本约束。</p>
+<h3 id="236-additional-gates-and-circuits">2.3.6 Additional Gates and Circuits<a class="headerlink" href="#236-additional-gates-and-circuits" title="Permanent link">&para;</a></h3>
+<h4 id="2361-buffer">2.3.6.1 Buffer<a class="headerlink" href="#2361-buffer" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231019100244886" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421392.png" /></p>
+<p>没有逻辑功能（相当于导线），但有很强的带负载的能力，能够拉高电平，降低传输延迟。</p>
+<blockquote>
+<p><strong><code>A buffer is an electronic amplifier used to improve circuit voltage levels and increase the speed of circuit operation.缓冲器是一种电子放大器，用于提高电路电压电平并提高电路运行速度。</code></strong></p>
+</blockquote>
+<h4 id="2362-nand">2.3.6.2 NAND<a class="headerlink" href="#2362-nand" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231019100515011" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421436.png" /></p>
+<p>与非也可以认为是<em>先非后或</em> <span class="arithmatex">\(F= \bar X + \bar Y + \bar Z\)</span></p>
+<p>A NAND gate with one input degenerates to an inverter.</p>
+<p><strong>Universal gate</strong>（通用门） - a gate type that can implement any Boolean function. 最高效</p>
+<p>我们一般不使用与非门做逻辑运算，因为他不满足交换、结合律。<strong>一般在最后把与或非(AND OR NOT)转为用与非(NAND)实现。</strong></p>
+<h4 id="2363-nor">2.3.6.3 NOR<a class="headerlink" href="#2363-nor" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231019100736563" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421240.png" /></p>
+<p>也可以利用 De Morgan 变为 先非后与，其他同与非。</p>
+<p><span class="arithmatex">\(F= \bar X \bar Y \bar Z\)</span></p>
+<h4 id="2364-exclusive-or-exclusive-nor">2.3.6.4 Exclusive OR / Exclusive NOR<a class="headerlink" href="#2364-exclusive-or-exclusive-nor" title="Permanent link">&para;</a></h4>
+<p>definition</p>
+<p><img alt="image-20231019101104174" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421351.png" />
+$$
+\begin{aligned}
+&amp;异或的作用相当于加法，当且仅当X和Y不相等时，X \oplus Y = 1\
+&amp;因为在此时，X\overline Y,\overline XY才有可能等于1\
+&amp;对于XNOR，当且仅当X和Y相等时， \overline{X\oplus Y} = 1\
+&amp;因为，在此时，XY或者\overline{X}  \overline Y 才有可能等于1
+&amp;XNOR的推导过程：\
+&amp;\overline{X \oplus Y} = \overline{X\overline Y  + \overline XY} = \overline{X\overline Y}  \overline{\overline XY} = (\overline X + Y)(X + \overline Y) = XY + \overline{X}  \overline Y
+\end{aligned}
+$$</p>
+<p><img alt="image-20231019101215773" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421359.png" /></p>
+<p><img alt="image-20231019101228766" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421567.png" /></p>
+<p>$$
+X \oplus Y = X\bar Y + \bar X Y\
+\overline{X \oplus Y} = XY + \bar X \bar Y\
+X \oplus \bar Y = X\bar{\bar Y} + \bar X \bar Y = XY + \bar X \bar Y = \overline{X \oplus Y}\
+$$
+严格来说，只有两变量的异或。对于多于两个输入的，我们用奇函数/偶函数代替。
+对于三变量的异或 <span class="arithmatex">\(X\oplus Y = \bar X \bar Y Z + \bar X Y \bar Z + X\bar Y \bar Z + XYZ\)</span> 卡诺图无法再化简</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">1</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>我们称它为奇函数，因为 minterm 里 1 的个数(=$=\sum m(1(001),2(010),4(100),7(111))) $为奇数。其反函数为偶函数。</p>
+<ul>
+<li>The 1s of an <strong>odd function</strong> correspond to minterms having an index with an odd number of 1s.</li>
+<li>The 1s of an <strong>even function</strong> correspond to minterms having an index with an even number of 1s.</li>
+</ul>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;对于奇函数和偶函数的论断，对于三变量的异或，要求具有奇数个1，才能得到X\oplus Y \oplus Z = 1\\
+&amp;称为奇函数的原因是， minterm里1的个数为奇数，其反函数称为偶函数（minterm里1的个数为偶数）\\
+&amp; X \oplus Y \oplus Z = \sum m_1(001) + m_2(010) + m_4(100) + m_7(111)
+\end{aligned}
+\]</div>
+<p>The symbols for XOR and XNOR</p>
+<p><img alt="image-20231019101717442" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421508.png" /></p>
+<p><img alt="image-20231019101740913" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421944.png" />
+$$
+\begin{aligned}
+&amp;至于如何实现复杂门电路异或门\
+&amp;X \oplus Y = X\overline Y + \overline X Y\
+&amp;需要两个AND门，每个AND门分别对应一个NOT门，最后连接到OR门\ 
+\end{aligned}
+$$</p>
+<p><strong>Parity Generators and Checkers 奇偶校验：传输若干个数据位，增加一个数据位，用来表示数据位的奇偶性。输入和输出端的奇偶位应该相同。</strong></p>
+<p><img alt="image-20231019102735966" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421151.png" /></p>
+<h4 id="2365-hi-impedance-outputs">2.3.6.5 Hi-Impedance Outputs 高阻输出<a class="headerlink" href="#2365-hi-impedance-outputs" title="Permanent link">&para;</a></h4>
+<p>一般情况下，不允许门的输出接在一起</p>
+<p>高阻意味着，回顾电路，输出似乎已断开。</p>
+<p>就好像内部电路和输出之间的开关已打开。</p>
+<p><img alt="image-20231019103713375" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421061.png" /></p>
+<p>对于符号和真值表，IN 是数据输入，EN 是控制输入。</p>
+<p>当 EN = 0 时，无论 IN 上的值（用 X 表示）如何，输出值都是 Hi-Z。</p>
+<p>当 EN = 1 时，输出值跟随输入值</p>
+<p><img alt="image-20231019104106304" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421089.png" /></p>
+<p>Data Selection Function: If s = 0, OL = IN0, else OL = IN1</p>
+<p><img alt="image-20231019104134516" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181421250.png" /></p>
 
 
 
@@ -4431,7 +5439,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../Gate%20Circuits%20and%20Boolean%20Equations/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Gate Circuits and Boolean Equations">
+          <a href="../Canonical%20Forms/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Canonical Forms">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4441,7 +5449,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Gate Circuits and Boolean Equations
+                Canonical Forms
               </div>
             </div>
           </a>
@@ -4508,10 +5516,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
@@ -4520,6 +5528,12 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
   </body>

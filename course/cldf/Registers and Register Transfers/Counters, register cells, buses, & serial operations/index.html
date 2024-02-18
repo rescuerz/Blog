@@ -14,19 +14,19 @@
         <link rel="prev" href="../Registers%2C%20Microoperations%20and%20Implementations/">
       
       
-        <link rel="next" href="../../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+        <link rel="next" href="../../Memory%20Basis/Memory%20Definition/">
       
       
       <link rel="icon" href="../../../../duck.bmp">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
     
     
       
-        <title>Counters, register cells, buses, & serial operations - Rescuers's Blog</title>
+        <title>Counters, register cells, buses, & serial operations - Rescuerz's Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -49,6 +49,8 @@
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
       <link rel="stylesheet" href="../../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#63-counter" class="md-skip">
           跳转至
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
@@ -103,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Rescuers's Blog
+            Rescuerz's Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -355,12 +357,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
     </a>
-    Rescuers's Blog
+    Rescuerz's Blog
   </label>
   
     <div class="md-nav__source">
@@ -392,14 +394,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
@@ -456,14 +456,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
@@ -482,7 +480,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -522,11 +520,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
@@ -571,11 +570,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
@@ -735,11 +735,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
@@ -924,11 +925,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
@@ -1151,11 +1153,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
@@ -1332,11 +1335,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
@@ -1469,11 +1473,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
@@ -1585,11 +1590,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
@@ -1709,11 +1715,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
@@ -1758,11 +1765,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
@@ -1914,11 +1922,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
@@ -2021,11 +2030,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
@@ -2271,13 +2281,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
@@ -2287,7 +2300,7 @@
             
   
   <span class="md-ellipsis">
-    数据结构与算法基础
+    数据结构基础
   </span>
   
 
@@ -2297,7 +2310,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            数据结构与算法基础
+            数据结构基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2318,11 +2331,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
@@ -2357,7 +2371,7 @@
         
   
   <span class="md-ellipsis">
-    算法
+    分析内容
   </span>
   
 
@@ -2378,7 +2392,7 @@
         
   
   <span class="md-ellipsis">
-    算法分析
+    渐进符号
   </span>
   
 
@@ -2395,11 +2409,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" class="md-nav__link">
+      <a href="../../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    算法比较
+    具体问题分析
   </span>
   
 
@@ -2438,21 +2452,14 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
@@ -2483,32 +2490,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ADT/" class="md-nav__link">
+      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%881/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ADT
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%88%97%E8%A1%A8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    列表
+    栈
   </span>
   
 
@@ -2546,74 +2532,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    栈
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    二叉树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    查找树
   </span>
   
 
@@ -2736,6 +2659,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2764,16 +2708,19 @@
       
         
       
-    
-    
+        
+      
     
     
       
+        
+        
       
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
@@ -2820,13 +2767,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
@@ -2886,13 +2836,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
@@ -2928,6 +2881,27 @@
   
   <span class="md-ellipsis">
     Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Circuits/Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
   </span>
   
 
@@ -3002,13 +2976,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
@@ -3039,27 +3016,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Combinational Logic
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
         
   
@@ -3081,11 +3037,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
   </span>
   
 
@@ -3118,11 +3116,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
@@ -3209,11 +3208,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
@@ -3283,11 +3283,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" checked>
@@ -3381,18 +3382,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#63-counter" class="md-nav__link">
     <span class="md-ellipsis">
-      计数器
+      6.3 Counter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Counter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-ripple-counter" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 Ripple Counter
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#632-synchronous-counter" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 Synchronous Counter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-other-countercounter-with-parallel-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.3 Other Counter——Counter with Parallel Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-other-counters-counting-modulo-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.4 Other Counters - Counting Modulo N
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#64-serial-transfer-and-microoperation" class="md-nav__link">
     <span class="md-ellipsis">
-      串行传输
+      6.4 Serial Transfer and Microoperation
     </span>
   </a>
   
@@ -3415,6 +3458,401 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Digital%20Logic%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Data%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3443,20 +3881,18 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3495,11 +3931,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
@@ -3552,11 +3989,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
@@ -3693,11 +4131,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
@@ -3849,11 +4288,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
@@ -3959,14 +4399,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
@@ -3985,7 +4423,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -4031,11 +4469,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
@@ -4277,18 +4716,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#63-counter" class="md-nav__link">
     <span class="md-ellipsis">
-      计数器
+      6.3 Counter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Counter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-ripple-counter" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 Ripple Counter
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#632-synchronous-counter" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 Synchronous Counter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-other-countercounter-with-parallel-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.3 Other Counter——Counter with Parallel Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634-other-counters-counting-modulo-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.4 Other Counters - Counting Modulo N
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#64-serial-transfer-and-microoperation" class="md-nav__link">
     <span class="md-ellipsis">
-      串行传输
+      6.4 Serial Transfer and Microoperation
     </span>
   </a>
   
@@ -4314,77 +4795,113 @@
 
   <h1>Counters, register cells, buses, & serial operations</h1>
 
-<h2 id="_1">计数器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>概念：Counters are sequential circuits which "count" through a specific state sequence.</p>
-<p>功能：count up, count down, or count through other fixed sequences</p>
-<p>实现：</p>
-<ul>
-<li>纹波计数器</li>
-</ul>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/O7WvkIyFX4DPZiV.png" /></p>
-<p>D = <span class="arithmatex">\(\overline{\text Q}\)</span>：得到低频时钟（分频器）</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/G8S2igw3MjmNVAf.png" /></p>
-<p><span class="arithmatex">\(T_A=2T_{CP}\)</span></p>
-<p>问题：时钟并不是同一个器件提供，时钟歪斜</p>
-<p>应用：减少触发次数，降低电路功耗（用于实时时钟电路）</p>
-<ul>
-<li>同步计数器：寄存器 + 自增器</li>
-</ul>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/zx36pqufGCSnEjT.png" /></p>
-<p>自增器设计：</p>
-<ul>
-<li>性质：高位变换 <span class="arithmatex">\(\iff\)</span> 低位全为1</li>
-</ul>
-<p>使用与门信号链对所有输出信号求与，用低位与结果与自身输出做异或实现切换；第一个与门接计数使能，使能为0时停止计数</p>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/12/14/uP8zM7fclJm61so.png" /></p>
-<p>问题：传输延迟</p>
-<p>解决：Look Head，换大与门全部接入</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/oF6Hyn9SAbvP3Ei.png" /></p>
-<p>推广：</p>
+<h2 id="63-counter">6.3 Counter<a class="headerlink" href="#63-counter" title="Permanent link">&para;</a></h2>
+<h3 id="631-ripple-counter">6.3.1 Ripple Counter<a class="headerlink" href="#631-ripple-counter" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20231214105810282" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450355.png" /></p>
+<p>每个触发器的时钟，没有接在同一个系统时钟上，是一个<strong>异步时序电路</strong>。</p>
+<p><strong><span class="arithmatex">\(\overline Q\)</span>重新接回到输入，实现每一个周期都取反一次</strong></p>
+<p>每个时钟周期，A 计数器翻转一次。当 A 处于下降沿的时候 B 会进行一次求反。</p>
+<p><span class="arithmatex">\(CP \rightarrow A \rightarrow B\)</span>周期一次增加一倍</p>
+<p><span class="arithmatex">\(\overline A\)</span> 接到B的时钟处，也就说，当A发生下降沿的时候，B的值发生一次变化</p>
+<p><img alt="image-20231214110418190" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450474.png" /></p>
+<p><strong>每个附加位 C、D……的行为类似于位 B，其更改频率是其之前位的一半。</strong></p>
+<p><img alt="image-20231214110523756" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450656.png" /></p>
+<p>考虑 3 位触发器，理想上 C=B=A=1 后从全 1 立即变成全 0. 但因为门延迟，实际变化过程为111−110−100−000（<strong><code>从least significant bit 到 most significant bit</code></strong>）</p>
+<p>此外对于 n bits, 最坏时间延迟是 <span class="arithmatex">\(n \cdot t_{PHL}\)</span>, 速度会非常慢</p>
+<h3 id="632-synchronous-counter">6.3.2 Synchronous Counter<a class="headerlink" href="#632-synchronous-counter" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20231214110944181" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450334.png" /></p>
+<p>up-counter: incrementer <span class="arithmatex">\(S = A + 1\)</span></p>
+<p>使用公共时钟并使用组合电路来生成下一个状态。</p>
+<p><img alt="image-20231214111040544" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450564.png" /></p>
+<p>低位全是1，高位就得求反</p>
+<p>使用公共时钟并使用组合电路来生成下一个状态。</p>
+<p><img alt="image-20231214111305985" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450572.png" /></p>
+<p>这里的控制信号是一个与门链，<code>Count Enable</code> 是与门链的使能。</p>
+<p>当Count enable EN = 0，与门信号链全部为0，触发结果均为0</p>
+<p>当Count enable EN = 1，与门信号链被使能，当低位全部为1时，信号链所得结果为1，经过异或作用进行取反操作</p>
+<p><code>存在问题：与门链是串接的，当计数器位数大时，与门链的传输延迟可能会影响计数器。</code></p>
+<p>series of AND gates through which the carry “ripples”</p>
+<p>Yields long path delays 产生长路径延迟</p>
+<p>Called serial gating 称为串行门控</p>
+<p>解决方法：Replace AND carry chain with ANDs =&gt; in parallel</p>
+<p><img alt="image-20231214111630401" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450094.png" />
+$$
+CO 是 进位carry— out
+$$</p>
+<p>Reduces path delays 减少路径延迟</p>
+<p>Called parallel gating 称为并行门控</p>
+<p>Like carry lookahead</p>
+<p>Lookahead can be used on COs and ENs to prevent long paths in
+large countersLookahead </p>
+<p>可用于 CO 和 EN，以防止大型计数器中的长路径</p>
+<p><img alt="image-20231214112217723" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450065.png" /></p>
+<h3 id="633-other-countercounter-with-parallel-load">6.3.3 Other Counter——Counter with Parallel Load<a class="headerlink" href="#633-other-countercounter-with-parallel-load" title="Permanent link">&para;</a></h3>
+<p>在 D 输入触发器前加上 2-1 Mux(<code>Load</code> 是选择信号), 选择与门链的结果(<code>Load=0</code>) or 外部输入(<code>Load=1</code>)，可以实现并行加载和计数的选择控制</p>
+<p><img alt="image-20231214112550411" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450255.png" /></p>
+<p><img alt="image-20231214112605903" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450301.png" /></p>
+<p>如何实现8位的计数器呢？</p>
+<p>将CO作为ENable信号接入到第二个四位计数器，得到Q[4:7]</p>
+<p>Includes modulo 10 which is the BCD counter</p>
 <ul>
 <li>
-<p>可并行输入设初值的计数器：触发器前加一层MUX2to1，选择保持触发器的值或外部输入</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/17zG4ZnXlxhNogk.png" /></p>
+<p>状态表如下:(1010-1111 don't cares)<img alt="image-20231214113245659" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450344.png" /></p>
 </li>
 <li>
-<p>级联计数器：低位计数器计数输出接高位计数器使能（低位计数器向上进位，允许高位计数器向上计数一次）</p>
+<p>基于上面的状态表，分别对 Q8,Q4,Q2,Q1 画卡诺图
+  利用卡诺图两级优化</p>
 </li>
-<li>模N计数器：<ul>
-<li>时序电路设计：利用状态表进行设计</li>
-<li>
-<p>二进制计数器改造：</p>
+</ul>
+<p><img alt="image-20231214113328364" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450333.png" /></p>
 <ul>
-<li>清零：<ul>
-<li>异步清零：利用触发器R输入</li>
-<li>同步清零：将MUX2to1输入接rst信号</li>
+<li>画出无关态的次态</li>
 </ul>
-</li>
-<li>
-<p>模N：</p>
+<p><img alt="image-20231214113421488" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450842.png" /></p>
+<p>可以看到不会跳到异常状态后进入死锁，画出状态图如下</p>
+<p><img alt="image-20231214113434471" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450913.png" /></p>
+<p>当然也可以，直接将10，11，12，13，14，15的次态全部设置为0，不再是无关项，重新利用卡诺图求方程</p>
+<h3 id="634-other-counters-counting-modulo-n">6.3.4 Other Counters - Counting Modulo N<a class="headerlink" href="#634-other-counters-counting-modulo-n" title="Permanent link">&para;</a></h3>
+<p>BCD 码计数器就是模 10 计数器。 常用做法是将二进制计数器进行功能转换，利用同步/异步清零，加载功能，达到 N 时中止计数结果。</p>
+<p><strong>异步清零做法</strong>：Reset信号，进行direct input，与时钟信号无关</p>
+<p><strong>同步清零做法</strong>：</p>
+<p><img alt="image-20231214114130088" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450991.png" /></p>
+<p>在D前面的两个与门处增加两个输入，由clear提供。当clear为0时，寄存器并不会马上变为0.而是等到下一个上升沿到来时，寄存器清零</p>
+<p><strong>Counting Modulo 7: Detect 7 and Asynchronously Clear</strong></p>
+<p>计数模 7：检测 7 并异步清除</p>
+<p><img alt="image-20231214114624333" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450016.png" /></p>
+<p>低电平有效的CLEAR信号，</p>
+<blockquote>
+<p>不推荐使用这种做法</p>
+</blockquote>
+<p><strong>Counting Modulo 7: Synchronously Load on Terminal Count of 6</strong></p>
+<p>计数模 7：同步加载终端计数 6</p>
+<p><img alt="image-20231214114410741" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450997.png" /></p>
+<p>0-5 与门输出全为0，当为6的时候，与门为1，Load为1，当下一个上升沿出现时，加载0000</p>
 <ul>
-<li>
-<p>计数至N后直接清零（异步）：</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/duibRH86KOfeIxN.png" /></p>
-<p>问题：7信号也会出现，出现后立即被杀死，但7的出现可能会导致后续电路被杀死
-            + 计数至N-1后rst置1（同步）：</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/n4Vj2DoRql5TAtJ.png" /></p>
-</li>
+<li>A synchronous 4-bit binary counter with a synchronous load and an asynchronous Clear is used to make a Modulo 7 counter
+  使用具有同步负载和异步 Clear 的同步4位二进制计数器来制作模7计数器</li>
+<li>Use the Load feature to detect the count "6" and load in "zero". This gives a count of 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, ...
+  使用加载功能检测计数“6”并加载“零”。这给出了 0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6, 0, ...
+  不会直接清零，而是在到达 N−1 的时候，在下个时钟上升沿将其清零</li>
 </ul>
-</li>
-<li>
-<p>改变计数范围：</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/OqPSv2YJdkyGRpl.png" /></p>
-<p>禁止使用原先的CLEAR为0，将rst导入LOAD处，并行读入初值
-计数上界为<span class="arithmatex">\(2^n-1\)</span>时可直接接CO</p>
-</li>
+<p><img alt="image-20231214115009794" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450292.png" /></p>
+<h2 id="64-serial-transfer-and-microoperation">6.4 Serial Transfer and Microoperation<a class="headerlink" href="#64-serial-transfer-and-microoperation" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>串行输入和微操作</strong></p>
+</blockquote>
+<ul>
+<li>通过使用两个移位寄存器作为操作数、一个全加器和一个触发器（用于进位），我们可以从最低有效位开始连续添加两个数字。</li>
+<li>将二进制数左移相当于乘以 2。</li>
+<li>将二进制数右移相当于除以 2。</li>
 </ul>
-</li>
+<blockquote>
+<p><strong>下图为串行加法器</strong></p>
+</blockquote>
+<ul>
+<li>所示电路对操作数 A(3:0) 和 B(3:0) 使用两个移位寄存器。</li>
+<li>一个全加器和一个触发器（用于进位）用于计算总和。</li>
 </ul>
-</li>
-</ul>
-<h2 id="_2">串行传输<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>并行读入，串行计算，多模块同步计算</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/12/14/qIuBvASmc74zRGX.png" /></p>
+<p><img alt="image-20231214115610538" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181450657.png" /></p>
+<p>所示电路对操作数 A(3:0) 和 B(3:0) 使用两个移位寄存器。</p>
 
 
 
@@ -4437,13 +4954,13 @@
         
         
           
-          <a href="../../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-footer__link md-footer__link--next" aria-label="下一页: 动手学深度学习读书笔记">
+          <a href="../../Memory%20Basis/Memory%20Definition/" class="md-footer__link md-footer__link--next" aria-label="下一页: Memory Definition">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                动手学深度学习读书笔记
+                Memory Definition
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4497,10 +5014,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
@@ -4509,6 +5026,12 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
   </body>

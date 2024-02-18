@@ -11,22 +11,22 @@
       
       
       
-        <link rel="prev" href="../%E6%9F%A5%E6%89%BE%E6%A0%91/">
+        <link rel="prev" href="../%E6%A0%91/">
       
       
         <link rel="next" href="../%E5%B9%B6%E6%9F%A5%E9%9B%86/">
       
       
       <link rel="icon" href="../../../../duck.bmp">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
     
     
       
-        <title>优先队列(堆) - Rescuers's Blog</title>
+        <title>优先队列(堆) - Rescuerz's Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -49,6 +49,8 @@
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
       <link rel="stylesheet" href="../../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -75,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#heap" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
@@ -98,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Rescuers's Blog
+            Rescuerz's Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -348,12 +355,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
     </a>
-    Rescuers's Blog
+    Rescuerz's Blog
   </label>
   
     <div class="md-nav__source">
@@ -385,14 +392,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
@@ -451,14 +456,15 @@
       
     
     
-    
-    
+      
+        
+        
       
       
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
@@ -517,11 +523,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
@@ -566,11 +573,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
@@ -730,11 +738,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
@@ -919,11 +928,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
@@ -1146,11 +1156,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
@@ -1327,11 +1338,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
@@ -1464,11 +1476,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
@@ -1580,11 +1593,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
@@ -1704,11 +1718,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
@@ -1753,11 +1768,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
@@ -1909,11 +1925,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
@@ -2016,11 +2033,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
@@ -2268,13 +2286,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
@@ -2284,7 +2305,7 @@
             
   
   <span class="md-ellipsis">
-    数据结构与算法基础
+    数据结构基础
   </span>
   
 
@@ -2294,7 +2315,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            数据结构与算法基础
+            数据结构基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2315,11 +2336,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
@@ -2354,7 +2376,7 @@
         
   
   <span class="md-ellipsis">
-    算法
+    分析内容
   </span>
   
 
@@ -2375,7 +2397,7 @@
         
   
   <span class="md-ellipsis">
-    算法分析
+    渐进符号
   </span>
   
 
@@ -2392,11 +2414,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" class="md-nav__link">
+      <a href="../../%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    算法比较
+    具体问题分析
   </span>
   
 
@@ -2437,21 +2459,14 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" checked>
@@ -2482,32 +2497,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADT/" class="md-nav__link">
+      <a href="../%E6%A0%881/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ADT
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E5%88%97%E8%A1%A8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    列表
+    栈
   </span>
   
 
@@ -2545,74 +2539,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%A0%88/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    栈
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../%E6%A0%91/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    二叉树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%9F%A5%E6%89%BE%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    查找树
   </span>
   
 
@@ -2635,6 +2566,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    优先队列(堆)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -2645,6 +2589,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 用堆实现优先队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 用堆实现优先队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-structure-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 Structure Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 堆的若干操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-d-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 d-Heaps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2743,6 +2748,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2769,22 +2795,22 @@
       
         
       
-    
-    
-    
-    
-      
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
         
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2823,13 +2849,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
@@ -2889,13 +2918,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
@@ -2931,6 +2963,27 @@
   
   <span class="md-ellipsis">
     Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cldf/Combinational%20Logic%20Circuits/Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
   </span>
   
 
@@ -3005,13 +3058,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
@@ -3042,27 +3098,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cldf/Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Combinational Logic
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../cldf/Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
         
   
@@ -3084,11 +3119,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../cldf/Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../cldf/Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cldf/Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
   </span>
   
 
@@ -3121,11 +3198,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
@@ -3212,11 +3290,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
@@ -3284,11 +3363,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
@@ -3362,6 +3442,401 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cldf/Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cldf/Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cldf/Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Digital%20Logic%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Data%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3390,20 +3865,18 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3442,11 +3915,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
@@ -3499,11 +3973,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
@@ -3640,11 +4115,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
@@ -3796,11 +4272,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
@@ -3906,14 +4383,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
@@ -3932,7 +4407,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -3978,11 +4453,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
@@ -4216,6 +4692,58 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 用堆实现优先队列
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 用堆实现优先队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-structure-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 Structure Property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 堆的若干操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-d-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 d-Heaps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -4233,176 +4761,243 @@
   
 
 
-  <h1>优先队列(堆)</h1>
-
-<p>背景：系统调度 insert any, delete max</p>
-<p>堆：纵向有序</p>
-<p>查找树：横向有序</p>
-<p>性质：</p>
-<ul>
-<li>顺序性质：纵向有序，根到叶节点路径递增<ul>
-<li>定义：A min tree is a tree in which the key value in each node is no larger than the key values in its children (if any). A min heap is a complete binary tree that is also a min tree.</li>
-</ul>
-</li>
-<li>结构性质：完全二叉树，id_fa = id_chl / 2<ul>
-<li>定义：A binary tree with n nodes and height h is complete iff its nodes correspond to the nodes numbered from 1 to n in the perfect binary tree of height h</li>
-<li>性质：高度为h的完全二叉树节点数介于<span class="arithmatex">\(2^h\)</span>和<span class="arithmatex">\(2^{h+1}-1\)</span></li>
-<li>表示：数组<code>BT[1:n+1]</code> (<code>BT[0]</code>不使用)<ul>
-<li>引理：</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<div class="arithmatex">\[
-\text{parent}(i)=\left\{
-\begin{array}{ll}
-\lfloor i/2\rfloor&amp;,i\not=1\\
-\text{None}&amp;,i=1
-\end{array}
-\right.
-\]</div>
-<div class="arithmatex">\[
-\text{left\_child}(i)=\left\{
-\begin{array}{ll}
-2i&amp;,2i\leqslant n\\
-\text{None}&amp;,2i&gt;n
-\end{array}
-\right.
-\]</div>
-<div class="arithmatex">\[
-\text{right\_child}(i)=\left\{
-\begin{array}{ll}
-2i+1&amp;,2i+1\leqslant n\\
-\text{None}&amp;,2i+1&gt;n
-\end{array}
-\right.
-\]</div>
-<p>定义：A finite ordered list with zero or more elements</p>
-<p>操作：</p>
-<ul>
-<li>PriorityQueue Initialize (int MaxElements);</li>
-<li>void <mark>Insert</mark> (ElementType X, PriorityQueue H);</li>
-<li>ElementType <mark>DeleteMin</mark> (PriorityQueue H);</li>
-<li>ElementType FindMin(PriorityQueue H);</li>
-</ul>
-<blockquote>
-<p>初始化时，利用<code>Elements[0]</code>作岗哨，防止插入时落在堆外（否则每次循环需2个条件，效率低）</p>
-</blockquote>
-<p>简单实现：</p>
-<ul>
-<li>数组</li>
-<li>链表</li>
-<li>有序数组（从大到小排）</li>
-<li>有序链表
-问题：部分操作耗时多，部分操作耗时少</li>
-</ul>
-<p>实现：</p>
-<ul>
-<li>
-<p>Initialize：
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">PriorityQueue</span><span class="w">  </span><span class="nf">Initialize</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="n">MaxElements</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="w"> </span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">     </span><span class="n">PriorityQueue</span><span class="w">  </span><span class="n">H</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">MaxElements</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MinPQSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span><span class="w">  </span><span class="n">Error</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Priority queue size is too small&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">     </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HeapStruct</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w">  </span><span class="n">FatalError</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Out of space!!!&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">     </span><span class="cm">/* Allocate the array plus one extra for sentinel */</span><span class="w"> </span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">     </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">((</span><span class="w"> </span><span class="n">MaxElements</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="p">));</span><span class="w"> </span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">return</span><span class="w">  </span><span class="n">FatalError</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Out of space!!!&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">     </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxElements</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">     </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">     </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MinData</span><span class="p">;</span><span class="w">  </span><span class="cm">/* set the sentinel */</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">     </span><span class="k">return</span><span class="w">  </span><span class="n">H</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
-</code></pre></div></p>
-<blockquote>
-<p>设置岗哨<code>Elements[0]</code></p>
-</blockquote>
-</li>
-<li>
-<p>insertion：将父节点不断往下挪  <span class="arithmatex">\(T(N)=O(\log N)\)</span>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* H-&gt;Element[ 0 ] is a sentinel */</span><span class="w"> </span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">void</span><span class="w">  </span><span class="nf">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w">  </span><span class="n">X</span><span class="p">,</span><span class="w">  </span><span class="n">PriorityQueue</span><span class="w">  </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">{</span><span class="w"> </span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">     </span><span class="kt">int</span><span class="w">  </span><span class="n">i</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">IsFull</span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Priority queue is full&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">     </span><span class="p">}</span><span class="w"> </span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">X</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">         </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">];</span><span class="w"> </span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">     </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
-</code></pre></div></p>
-<blockquote>
-<p>(1)<code>Elements[0]</code>为岗哨，最后一定会停下来 (2)赋值速度比<code>swap</code>快</p>
-</blockquote>
-</li>
-<li>
-<p>deletemin：先删除根，找最小儿子，判断能否放入最后一个节点，否则儿子向上提
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ElementType</span><span class="w">  </span><span class="nf">DeleteMin</span><span class="p">(</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w">  </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span><span class="w"> </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Child</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">ElementType</span><span class="w">  </span><span class="n">MinElement</span><span class="p">,</span><span class="w"> </span><span class="n">LastElement</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">IsEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">         </span><span class="n">Error</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Priority queue is empty&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">         </span><span class="k">return</span><span class="w">  </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">];</span><span class="w">   </span><span class="p">}</span><span class="w"> </span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">MinElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">];</span><span class="w">  </span><span class="cm">/* save the min element */</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">LastElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="o">--</span><span class="w"> </span><span class="p">];</span><span class="w">  </span><span class="cm">/* take last and reset size */</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Child</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="cm">/* Find smaller child */</span><span class="w"> </span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">         </span><span class="n">Child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Child</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="p">])</span><span class="w"> </span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">           </span><span class="n">Child</span><span class="o">++</span><span class="p">;</span><span class="w">     </span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LastElement</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">Child</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w">   </span><span class="cm">/* Percolate one level */</span><span class="w"> </span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">           </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">Child</span><span class="w"> </span><span class="p">];</span><span class="w"> </span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">         </span><span class="k">else</span><span class="w">     </span><span class="k">break</span><span class="p">;</span><span class="w">   </span><span class="cm">/* find the proper position */</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LastElement</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">return</span><span class="w">  </span><span class="n">MinElement</span><span class="p">;</span><span class="w"> </span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>decreaseKey(P,<span class="arithmatex">\(\Delta\)</span>,H) / increaseKey(P,<span class="arithmatex">\(\Delta\)</span>,H)：向上 / 向下调整</p>
-</li>
-<li>
-<p>delet(P,H) （删除任意元素）</p>
+<h1 id="heap">六. 堆heap<a class="headerlink" href="#heap" title="Permanent link">&para;</a></h1>
+<p>什么是优先队列？</p>
+<p><img alt="img" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335332.webp" /></p>
 <ol>
-<li>decrease(P,<span class="arithmatex">\(\infty\)</span>,H)调整至根</li>
-<li>deleteMin(H)</li>
+<li>优先队列的主要操作</li>
 </ol>
+<ul>
+<li><span class="arithmatex">\(insert(key, data):\)</span>插入键值为key的数据到优先队列中，元素以其key进行排序</li>
+<li><span class="arithmatex">\(deleteMin/deleteMax:\)</span> 删除并返回最小最大键值的元素</li>
+<li><span class="arithmatex">\(getMin/getMax:\)</span>返回最小最大键值的元素，并不删除它</li>
+</ul>
+<h2 id="61">6.1 用堆实现优先队列<a class="headerlink" href="#61" title="Permanent link">&para;</a></h2>
+<p><strong>先明确一下什么是完全二叉树（complete binary tree） 和 满二叉树或者完美二叉树（full binary tree / perfect binary tree）</strong></p>
+<ul>
+<li>
+<p>一个二叉树，如果每一层的结点数都达到最大值，那这个二叉树就是完美二叉树，也就说这个二叉树结点的总数为<span class="arithmatex">\(2^k -1\)</span></p>
 </li>
 <li>
-<p>buildHeap(H)：</p>
-<ul>
-<li>法一：逐个插入 <span class="arithmatex">\(T(N)=O(N\log N)\)</span></li>
-<li>法二：从最后一个有儿子的节点<span class="arithmatex">\(\dfrac{n}{2}\)</span>开始，向下一个一个调整 <span class="arithmatex">\(T(N)=O(N)\)</span><ul>
-<li>子问题：左右儿子都是堆，如何调整根使之成为堆<blockquote>
-<p>法一为深度和，深度越深节点越多；</p>
-<p>法二为高度和，高度越高节点越少</p>
-<p>故高度和 &lt; 深度和，法二更优</p>
+<p>```python
+    #一颗树深度为h，最大层数为k，深度与最大层数相同，k=h;
+    #它的叶子数是： 2^h　　
+    #第k层的结点数是： 2^(k-1)　　
+    #总结点数是： 2^k-1 (2的k次方减一)　　
+    #总节点数一定是奇数。</p>
+<div class="highlight"><pre><span></span><code>                                  0
+                        /               \
+                       1                   2
+                    /      \            /       \
+                  3        4         5           6
+                 /  \    /   \     /    \       /   \
+              7    8  9     10  11     12    13     14
+</code></pre></div>
+<p>```</p>
+</li>
+<li>
+<p>完全二叉树：完全二叉树的结点数是任意的，从形式上来说，它是一个缺失的三角形，<code>所缺失的部分一定是右下角某个连续的部分，最后一行可能不完整</code></p>
+</li>
+<li>
+<p>对于k层的完全二叉树，结点数的范围是<span class="arithmatex">\(2^{k-1}-1 &lt; N &lt; 2^k -1\)</span></p>
+</li>
+<li>
+<p>```python
+    #设二叉树的深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，</p>
+<div class="highlight"><pre><span></span><code>                                          0
+                                 /               \
+                              1                   2
+                          /      \            /       \
+                        3        4         5           6
+                      /  \    /   \     /    
+                    7    8  9     10  11
+</code></pre></div>
+<p>```</p>
+</li>
+</ul>
+<p><img alt="image-20231114082452794" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335279.png" /></p>
+<blockquote>
+<p><strong>最小堆的最大值一定在叶节点，现在转为判断哪个点不是叶结点。</strong></p>
+<p><strong>对于叶结点n，不存在子结点，那么2n+1一定不在2333中</strong></p>
 </blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>应用：找第<span class="arithmatex">\(k\)</span>大数 <span class="arithmatex">\(O(N+k\log N)\)</span></p>
+<h3 id="611-structure-property">6.1.1 Structure Property<a class="headerlink" href="#611-structure-property" title="Permanent link">&para;</a></h3>
 <ol>
-<li>建堆</li>
-<li>删最大数<span class="arithmatex">\(k-1\)</span>次</li>
+<li>堆是一颗具有特定性质的二叉树，<strong><code>堆的基本要求是堆中所有结点的值必须大于或者等于（小于等于）其孩子结点的值</code></strong>。附加完全二叉树的性质：所有的叶子结点都处于第 h 层 或者 h - 1层，（即最后一层的结点都连续集中在最左边，且可能不完整）</li>
 </ol>
-</li>
-</ul>
-<p>d-堆：每个节点有<span class="arithmatex">\(d\)</span>个儿子</p>
-<ul>
-<li>deleteMin复杂度<span class="arithmatex">\(O(d\log_d N)\)</span> 找最小儿子交换时需要<span class="arithmatex">\(d\)</span>次比较</li>
-</ul>
+<p><img alt="image-20231031101948733" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335324.png" /></p>
+<ol start="2">
+<li>可以用数组形式表示堆，<code>`array representation</code></li>
+</ol>
+<p><strong>从上到下，从左到右，依次排列，但是是从BT[1]开始，BT[0]作为哨兵</strong></p>
+<p><img alt="image-20231031102206974" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335322.png" /></p>
+<p><img alt="image-20231031102227301" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335311.png" /></p>
+<ol start="3">
+<li>堆的分类</li>
+</ol>
+<p><strong>A</strong> <strong>min tree</strong> <strong>is a tree in which the key value in each node is no larger than the key values in its children (if any).</strong></p>
+<p><strong>A min heap</strong> <strong>is a</strong> <strong>complete</strong> <strong>binary tree that is also a min tree.</strong></p>
+<p><img alt="image-20231031103754701" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335267.png" /></p>
+<h3 id="612">6.1.2 堆的若干操作<a class="headerlink" href="#612" title="Permanent link">&para;</a></h3>
+<ol>
+<li>堆的结构体定义</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Heapstruct</span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Capacity</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Size</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">Elements</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span><span class="o">*</span><span class="n">MinHeap</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// 堆的实现方式是结构和数组</span>
+</code></pre></div>
+<ol start="2">
+<li>堆的初始化</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">MinHeap</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">MaxElements</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">MinHeap</span><span class="w"> </span><span class="n">H</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">MinHeap</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Heapstruct</span><span class="p">));</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">H</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Out of space!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c1">// Allocate the array plus one extra for sentinel（给哨兵保留一个位置）</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">MaxElements</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">// 创建一个数组</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Out of space!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 创建的数组的容量，不包括哨兵</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxElements</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="c1">// 已有数组元素个数</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="c1">// Set the sentinel;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H</span><span class="p">;</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">}</span>
+</code></pre></div>
+<ol start="3">
+<li>堆的插入 insertion</li>
+</ol>
+<p>每次插入都是将先将新数据放在数组最后，由于从这个新数据的父结点到根结点必然为一个有序的序列，现在的任务是将这个新数据插入到这个有序序列中——这就类似于直接插入排序中将一个数据并入到有序区间中。</p>
+<p>我们通过一个插入例子来看看插入操作的细节。我们将数字 <code>16</code> 插入到这个堆中：</p>
+<p><img alt="image-20231031104107947" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335801.png" /></p>
+<p>第一步是将新的元素插入到数组的尾部，数组变成：[ 10, 7, 2, 5, 1, 16 ]；</p>
+<p>相应的树变成了：</p>
+<p><img alt="image-20231031104148443" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335896.png" /></p>
+<p>16 被添加最后一行的第一个空位。</p>
+<p>不行的是，现在堆属性不满足，因为 2 在 16 的上面，我们需要将大的数字在上面（这是一个最大堆）</p>
+<p>为了恢复堆属性，我们需要交换 16 和 2。</p>
+<p><img alt="image-20231031104203896" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335877.png" /></p>
+<p>现在还没有完成，因为 10 也比 16 小。我们继续交换我们的插入元素和它的父节点，直到它的父节点比它大或者我们到达树的顶部。这就是所谓的 shift-up，每一次插入操作后都需要进行。它将一个太大或者太小的数字“浮起”到树的顶部。</p>
+<p>最后我们得到的堆：</p>
+<p><img alt="image-20231031104213897" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335951.png" /></p>
+<p>现在每一个父节点都比它的子节点大。</p>
+<blockquote>
+<p>时间复杂度为 T（N） = O（<span class="arithmatex">\(log N\)</span>）</p>
+</blockquote>
+<p>4 . 堆最小元素的删除deleteMin</p>
+<p>堆中每次都只能删除堆顶元素。为了便于重建堆，实际的操作是将最后一个数据的值赋给根结点，然后再从根结点开始进行一次从上向下的调整。调整时先在左右子结点中找最小的，如果父结点比这个最小的子结点还小说明不需要调整了，反之将父结点和它交换后再考虑后面的结点。相当于根结点数据的“下沉”过程。</p>
+<p><img src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335935.png" alt="image-20231031104953879" style="zoom: 67%;" /></p>
+<p><img alt="image-20231031105008406" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335991.png" /></p>
+<p><img alt="image-20231031105049901" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335346.png" /></p>
+<p><img alt="image-20231031105109404" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335397.png" /></p>
+<ol start="5">
+<li>减小结点的元素，再重新排序</li>
+</ol>
+<p><img alt="image-20231031111402941" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335426.png" /></p>
+<p>在位置P处，减小<span class="arithmatex">\(\Delta\)</span>，再进行递归（或者for循环）与父节点进行比较</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">DecreaseKey</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">delta</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">PercolateUp</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">PercolateUp</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</code></pre></div>
+<ol start="6">
+<li>增大结点的元素值，再重新排序</li>
+</ol>
+<p><img alt="image-20231031111432537" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335411.png" /></p>
+<p>在位置P处，增加<span class="arithmatex">\(\Delta\)</span>，再进行递归（或者for循环）与父节点进行比较</p>
+<ol start="7">
+<li>删去某一特定位置的结点值</li>
+</ol>
+<p><code>在该位置处，不断地减小，直至达到MIN的位置，再删去Min</code></p>
+<p><img alt="image-20231031111605065" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335466.png" /></p>
+<ol start="8">
+<li>给定一组数，顺序构建tree，该如何构造堆</li>
+</ol>
+<p><img alt="image-20231031111756261" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335507.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">PercolateUp</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="c1">// i 是当前新插入元素的下标</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="c1">// 开始上滤操作</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">PercolateDown</span><span class="p">(</span><span class="n">MinHeap</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1">// i 是当前新插入元素的下标</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">            </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">];</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="p">}</span>
+</code></pre></div>
+<p><img alt="image-20231031111818474" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335918.png" /></p>
+<p><img alt="image-20231031111849391" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335892.png" /></p>
+<p><img alt="image-20231031111913248" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335968.png" /></p>
+<p><img alt="image-20231031111934968" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335979.png" /></p>
+<p><img alt="image-20231031111955298" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335069.png" /></p>
+<p><img alt="image-20231031112018659" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335091.png" /></p>
+<p><img alt="image-20231031112144762" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335357.png" /></p>
+<p><img alt="image-20231031112119428" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335460.png" /></p>
+<h3 id="613-d-heaps">6.1.3 d-Heaps<a class="headerlink" href="#613-d-heaps" title="Permanent link">&para;</a></h3>
+<p>d-Heaps 是 All nodes have d children</p>
+<p><img alt="image-20231031112306136" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181335500.png" /></p>
+<blockquote>
+<p><strong>例题：</strong></p>
+</blockquote>
+<p>构造一个既是二分搜索树，又是complete binary tree</p>
+<p><strong>Now given a sequence of distinct non-negative integer keys, a unique BST can be constructed if it is required that the tree must also be a CBT. You are supposed to output the level order traversal sequence of this BST.</strong></p>
+<p><strong>Input Specification:</strong></p>
+<p><strong>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤1000). Then <em>N</em> distinct non-negative integer keys are given in the next line. All the numbers in a line are separated by a space and are no greater than 2000.</strong></p>
+<p><strong>Output Specification:</strong></p>
+<p><strong>For each test case, print in one line the level order traversal sequence of the corresponding complete binary search tree. All the numbers in a line must be separated by a space, and there must be no extra space at the end of the line.</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Input:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>10
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1 2 3 4 5 6 7 8 9 0
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Output
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>6 3 8 1 5 7 9 0 2 4
+</code></pre></div>
+<blockquote>
+<p><code>本题的关键在于构造，已知整棵树的节点数量，根据complete binary tree 的性质，可以判断左子树、右子树的结点数量，还要利用 binary search tree 的性质，左子树的元素一定小于root，root小于右子树，通过对输入的数进行排序，从而确定root，然后采用递归，一次确定左右子树的root</code></p>
+</blockquote>
 
 
 
@@ -4438,7 +5033,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../%E6%9F%A5%E6%89%BE%E6%A0%91/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 查找树">
+          <a href="../%E6%A0%91/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 树">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4448,7 +5043,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                查找树
+                树
               </div>
             </div>
           </a>
@@ -4515,10 +5110,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
@@ -4527,6 +5122,12 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -1,0 +1,6237 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Rescuerz's Blog">
+      
+      
+      
+      
+        <link rel="prev" href="../Data%20Structures/">
+      
+      
+        <link rel="next" href="../Calculator/">
+      
+      
+      <link rel="icon" href="../../../duck.bmp">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+    
+    
+      
+        <title>Chapter 9 I/O - Rescuerz's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-9-io" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
+      
+  <img src="../../../favicon1.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rescuerz's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 9 I/O
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rescuerz/Blog" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Rescuerz/Blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../cldf/Digital%20Systems%20and%20Information/" class="md-tabs__link">
+          
+  
+    
+  
+  System
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../miscellaneous/" class="md-tabs__link">
+          
+  
+    
+  
+  Miscellaneous
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
+      
+  <img src="../../../favicon1.png" alt="logo">
+
+    </a>
+    Rescuerz's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rescuerz/Blog" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Rescuerz/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能引论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能引论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    知识表达与推理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            知识表达与推理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    命题逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    谓词逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识图谱推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率图推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    因果推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    搜索探寻与问题求解
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            搜索探寻与问题求解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E6%90%9C%E7%B4%A2%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    搜索基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E8%B4%AA%E5%A9%AA%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    贪婪最佳优先搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/A-star%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A-star搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/Minimax%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minimax搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/alpha-beta%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    alpha-beta搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    机器学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            机器学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    决策树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/LDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E4%BA%BA%E8%84%B8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征人脸法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k均值聚类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遗传算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    神经网络与深度学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            神经网络与深度学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    神经网络参数优化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%AD%A3%E5%88%99%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    神经网络正则化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    卷积神经网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    循环神经网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注意力机制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    强化学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            强化学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    马尔可夫决策过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    强化学习问题定义
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    强化学习方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能博弈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能博弈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    纳什均衡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能与博弈论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能伦理与安全
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能伦理与安全
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能伦理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%A8%A1%E5%9E%8B%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能模型安全
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    图像信息处理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            图像信息处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic concept and programming introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Basic concept and programming introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Basic%20principle%20of%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic principle of imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Color%20space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Color space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Image%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/JPEG%28Joint%20Photographic%20Experts%20Group%29%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JPEG(Joint Photographic Experts Group) format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/TIFF%28Tagged%20Image%20File%20Format%29%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIFF(Tagged Image File Format) format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Binary Image and Morphological Operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Binary Image and Morphological Operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Binary%20Image%20and%20Morphological%20Operation/Binary%20Image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Binary%20Image%20and%20Morphological%20Operation/Morphology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Morphology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Basic operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Image%20grayscale%20transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image grayscale transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Geometric%20transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometric transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interpolation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Morph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Morph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Convolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Sparse%20Norm%20Filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sparse Norm Filtering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Guided%20Image%20Filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guided Image Filtering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Fourier%20Transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Image%20feature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image feature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    算法分析基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            算法分析基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分析内容
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    渐进符号
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    具体问题分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%881/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88%E5%A0%86%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    优先队列(堆)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    并查集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    哈希
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            计算机逻辑设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Digital%20Systems%20and%20Information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Systems and Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Combinational Logic Circuits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Combinational Logic Circuits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Gate%20Circuits%20and%20Boolean%20Equations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Circuit%20Optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Circuit Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Additional%20Gates%20and%20Circuits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Gates and Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Combinational Logic Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Combinational Logic Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design Procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sequential Circuit
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sequential Circuit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Sequential%20Circuit/Storage%20Elements%20and%20Sequential%20Circuit%20Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Elements and Sequential Circuit Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Sequential%20Circuit/Sequential%20Circuit%20Design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequential Circuit Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_5" id="__nav_3_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Hardware Implementation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Hardware Implementation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Digital%20Hardware%20Implementation/Programmable%20Implementation%20Technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmable Implementation Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_6" id="__nav_3_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Registers and Register Transfers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Registers and Register Transfers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Registers%20and%20Register%20Transfers/Registers%2C%20Microoperations%20and%20Implementations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers, Microoperations and Implementations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Registers%20and%20Register%20Transfers/Counters%2C%20register%20cells%2C%20buses%2C%20%26%20serial%20operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Counters, register cells, buses, & serial operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Digital%20Logic%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-privilegepriorityand-the-memory-address-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Privilege,Priority,and the Memory Address Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 Privilege,Priority,and the Memory Address Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#911-privilege-and-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.1 Privilege and Priority
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#912-organization-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.2 Organization of Memory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-input-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Input / Output
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Input / Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-some-basic-characteristics-of-io-io-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.1 Some Basic Characteristics of I/O内存映射 I/O 与特殊 I/O 指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#922-input-from-the-keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2 Input from the Keyboard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2.2 Input from the Keyboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9221-basic-input-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2.1 Basic input register
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9222-the-basic-input-service-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2.2 The basic input service Routine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9223-implementation-of-memory-mapped-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2.3 Implementation of memory-mapped input 内存映射输入的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#923-output-to-the-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3 Output to the Monitor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2.3 Output to the Monitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9231-basic-output-registersddrdsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.1 Basic Output Registers（DDR，DSR）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9232-the-basic-output-service-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.2 The Basic  Output Service Routine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9233-implementation-of-memory-mapped-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.3 Implementation of Memory-Mapped Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9234-keyboard-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.4 Keyboard Echo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#924-a-more-sophisticated-input-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.4 A More Sophisticated Input Routine 更加复杂的输入例程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#925-implementation-of-memory-mapped-iorevisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.5 Implementation of Memory-Mapped I/O,Revisited
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-operating-system-service-routineslc-3-trap-routines" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Operating System Service Routines（LC-3 Trap Routines）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 Operating System Service Routines（LC-3 Trap Routines）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#931-the-trap-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.1 The Trap Mechanism（机制）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#932-the-trap-instruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.2 The TRAP Instruction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#933-the-rti-instructionto-return-control-to-the-calling-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.3 The RTI Instruction：To Return Control to the Calling Program
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#934-a-summary-of-the-trap-service-routine-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.4 A Summary of the Trap Service Routine Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#935-trap-routines-for-handling-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.5 Trap Routines for Handling I/O
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#936-a-trap-routine-for-halting-the-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.6 A Trap Routine for Halting the Computer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-interrupts-and-interrupt-driven-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 Interrupts and Interrupt-Driven I/O
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Interrupts and Interrupt-Driven I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-part1causing-the-interrupt-to-occur" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1 Part1：Causing the Interrupt to occur(设备要具有中断的能力)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4.1 Part1：Causing the Interrupt to occur(设备要具有中断的能力)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9411-the-interrupt-signal-from-the-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1.1 The Interrupt Signal from the Device
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9412-the-urgency-of-the-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1.2 The Urgency of the Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9413-the-int-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1.3 The INT Signal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-part2handling-the-interrupt-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2 Part2：Handling the Interrupt Request(处理中断的能力)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4.2 Part2：Handling the Interrupt Request(处理中断的能力)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9421-initial-the-interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2.1 initial the interrupt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9422-service-the-interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2.2 service the interrupt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9423-return-from-the-interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2.3 return from the interrupt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#943-an-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.3 an example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#944-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.4 Exception（异常）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-polling-revisitednow-that-we-know-aboat-interrupts" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 Polling Revisited，Now that We Know Aboat Interrupts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Polling Revisited，Now that We Know Aboat Interrupts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5.1 The problem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    动手学深度学习读书笔记
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            动手学深度学习读书笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            引言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    核心组件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习问题分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    线性神经网络
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            线性神经网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性回归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    损失函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机梯度下降
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/softmax%E5%9B%9E%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    softmax回归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    预备知识
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            预备知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵微分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自动微分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../miscellaneous/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../miscellaneous/verilog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    verilog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            verilog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%A8%A1%E5%9D%97%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块的结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%26%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据类型&常量变量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    运算符
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    赋值语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    控制语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E5%9D%97%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    块语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    结构语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-privilegepriorityand-the-memory-address-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Privilege,Priority,and the Memory Address Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 Privilege,Priority,and the Memory Address Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#911-privilege-and-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.1 Privilege and Priority
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#912-organization-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.2 Organization of Memory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-input-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Input / Output
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Input / Output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-some-basic-characteristics-of-io-io-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.1 Some Basic Characteristics of I/O内存映射 I/O 与特殊 I/O 指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#922-input-from-the-keyboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2 Input from the Keyboard
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2.2 Input from the Keyboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9221-basic-input-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2.1 Basic input register
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9222-the-basic-input-service-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2.2 The basic input service Routine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9223-implementation-of-memory-mapped-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.2.3 Implementation of memory-mapped input 内存映射输入的实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#923-output-to-the-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3 Output to the Monitor
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2.3 Output to the Monitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9231-basic-output-registersddrdsr" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.1 Basic Output Registers（DDR，DSR）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9232-the-basic-output-service-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.2 The Basic  Output Service Routine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9233-implementation-of-memory-mapped-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.3 Implementation of Memory-Mapped Output
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9234-keyboard-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.3.4 Keyboard Echo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#924-a-more-sophisticated-input-routine" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.4 A More Sophisticated Input Routine 更加复杂的输入例程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#925-implementation-of-memory-mapped-iorevisited" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.5 Implementation of Memory-Mapped I/O,Revisited
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-operating-system-service-routineslc-3-trap-routines" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 Operating System Service Routines（LC-3 Trap Routines）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.3 Operating System Service Routines（LC-3 Trap Routines）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#931-the-trap-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.1 The Trap Mechanism（机制）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#932-the-trap-instruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.2 The TRAP Instruction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#933-the-rti-instructionto-return-control-to-the-calling-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.3 The RTI Instruction：To Return Control to the Calling Program
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#934-a-summary-of-the-trap-service-routine-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.4 A Summary of the Trap Service Routine Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#935-trap-routines-for-handling-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.5 Trap Routines for Handling I/O
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#936-a-trap-routine-for-halting-the-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3.6 A Trap Routine for Halting the Computer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-interrupts-and-interrupt-driven-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 Interrupts and Interrupt-Driven I/O
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Interrupts and Interrupt-Driven I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-part1causing-the-interrupt-to-occur" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1 Part1：Causing the Interrupt to occur(设备要具有中断的能力)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4.1 Part1：Causing the Interrupt to occur(设备要具有中断的能力)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9411-the-interrupt-signal-from-the-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1.1 The Interrupt Signal from the Device
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9412-the-urgency-of-the-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1.2 The Urgency of the Request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9413-the-int-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.1.3 The INT Signal
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-part2handling-the-interrupt-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2 Part2：Handling the Interrupt Request(处理中断的能力)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4.2 Part2：Handling the Interrupt Request(处理中断的能力)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#9421-initial-the-interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2.1 initial the interrupt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9422-service-the-interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2.2 service the interrupt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9423-return-from-the-interrupt" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.2.3 return from the interrupt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#943-an-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.3 an example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#944-exception" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4.4 Exception（异常）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-polling-revisitednow-that-we-know-aboat-interrupts" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 Polling Revisited，Now that We Know Aboat Interrupts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Polling Revisited，Now that We Know Aboat Interrupts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5.1 The problem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter-9-io">Chapter 9 | I/O<a class="headerlink" href="#chapter-9-io" title="Permanent link">&para;</a></h1>
+<h2 id="91-privilegepriorityand-the-memory-address-space">9.1 Privilege,Priority,and the Memory Address Space<a class="headerlink" href="#91-privilegepriorityand-the-memory-address-space" title="Permanent link">&para;</a></h2>
+<ul>
+<li>privilege 特权</li>
+<li>priority   优先级</li>
+</ul>
+<h3 id="911-privilege-and-priority">9.1.1 Privilege and Priority<a class="headerlink" href="#911-privilege-and-priority" title="Permanent link">&para;</a></h3>
+<ol>
+<li>privilege</li>
+</ol>
+<p>Privilege is all about the right to do something, such as execute a particular instruction or access a particular memory location. Not all computer programs have the right to execute all instructions.</p>
+<p>特权就是做某事的权利，例如执行特定指令或访问特定内存位置。并非所有计算机程序都有权执行所有指令。</p>
+<ol start="2">
+<li>Priority 优先级</li>
+</ol>
+<p>Priority is all about the urgency of a program to execute. Every program is assigned a priority, specifying its urgency as compared to all other programs. This allows programs of greater urgency to interrupt programs of lesser urgency.</p>
+<p>优先级是指执行程序的紧急程度。每个程序都被分配了一个优先级，指定其与所有其他程序相比的紧迫性。这允许较紧急的程序中断较不紧急的程序。</p>
+<p>例如，由随机用户编写的程序可能会被分配优先级 0。键盘可能会被分配优先级 4，而计算机插入电源（如墙壁插座）的事实可能会被分配优先级 6。如果是这种情况，如果有人坐在键盘前想要执行导致数据输入计算机的程序，则随机用户程序将被中断。如果有人将电源线从墙壁插座中拔出，该程序就会被中断，从而导致计算机很快失去能源。在这种情况下，我们希望计算机执行一些专门为处理这种情况而提供的操作系统程序。</p>
+<ol start="3">
+<li>Two Orthogonal Notions</li>
+</ol>
+<p>We said privilege and priority are two orthogonal notions, meaning they have nothing to do with each other.我们说过特权和优先级是两个正交的概念，意味着它们彼此无关</p>
+<blockquote>
+<p><strong>有特权privilege，但是不一定有优先级priority</strong></p>
+<p><strong>有优先级priority，但是不一定有特权privilege</strong></p>
+</blockquote>
+<ol start="4">
+<li>The Processor Status Register（PSR）</li>
+</ol>
+<p>Each program executing on the computer has associated with it <strong>two very important registers.</strong> </p>
+<ul>
+<li>
+<p>The <strong>Program Counter (PC)</strong> you are very familiar with. </p>
+</li>
+<li>
+<p>The other register, the <strong>Processor Status Register (PSR)</strong>, is shown in Figure 9.1. <strong>It contains the privilege and priority assigned to that program.</strong></p>
+</li>
+</ul>
+<p>处理器状态寄存器，它包含分配给程序的特权和优先级</p>
+<p><img alt="image-20230720192429333" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504786.png" /></p>
+<ul>
+<li>Bit [15] specifies the privilege, where <strong>PSR[15]=0 means</strong> <strong>supervisor privilege</strong>, and <strong>PSR[15]=1 means unprivileged.</strong> </li>
+</ul>
+<p>位[15]指定权限，其中<code>PSR[15]=0表示管理员权限</code>，<code>PSR[15]=1表示无权限。</code></p>
+<ul>
+<li>Bits [10:8] specify the <code>priority level (PL)</code> of the program. The <strong>highest priority level is 7 (PL7), the lowest is PL0.</strong></li>
+</ul>
+<p>位[10:8]指定程序的优先级(PL)。优先级最高为PL7，最低为PL0</p>
+<h3 id="912-organization-of-memory">9.1.2 Organization of Memory<a class="headerlink" href="#912-organization-of-memory" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230720192821685" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504963.png" /></p>
+<ol>
+<li><mark>Locations x0000 to x2FFF</mark> are privileged memory locations. They <strong>contain the various data structures and code of the operating system</strong>. They <code>require supervisor privilege to access</code>. They are referred to as <code>system space</code>.</li>
+</ol>
+<p>x0000到x2FFF，是特权空间，需要管理员权限访问，被称为system space系统空间</p>
+<ol start="2">
+<li><mark>Locations x3000 to xFDFF</mark> are unprivileged memory locations. <code>Supervisor privilege is not required to access these memory locations</code>. All user programs and data use this region of memory. The region is often referred to as user space</li>
+</ol>
+<p>x3000到xFDFF是非特权空间，称之为user space用户空间</p>
+<ol start="3">
+<li>Addresses xFE00 to xFFFF do <code>not correspond to memory</code>locations at all.</li>
+</ol>
+<p>(地址 xFE00 到 xFFFF 根本不对应于内存位置) </p>
+<p><code>That is, the last address of a memory location is xFDFF</code>.</p>
+<div class="highlight"><pre><span></span><code>Addresses xFE00 to xFFFF are used to **identify registers that take part in input and output functions and some special registers associated with the processor**.( 地址xFE00到xFFFF用于标识参与输入和输出功能的寄存器以及与处理器相关的一些特殊寄存器。)
+</code></pre></div>
+<p>For example, <code>the PSR is assigned address xFFFC</code>, and the processor’s Master Control Register (MCR) is assigned address xFFFE.  The set of addresses from xFE00 to xFFFF is usually referred to as the I/O page since most of the addresses are used for identifying registers that take part in input or output functions. <code>Access to those registers requires supervisor privilege</code></p>
+<p>例如，PSR（processor status register） 被分配地址 xFFFC，处理器的主控制寄存器 (MCR，master control register) 被分配地址 xFFFE从 xFE00 到 xFFFF 的地址集通常称为 I/O 页，因为大多数地址用于标识参与输入或输出功能的寄存器。<strong>访问这些寄存器需要管理员权限</strong></p>
+<ol start="4">
+<li>two stacks</li>
+</ol>
+<ul>
+<li>
+<p><mark>supervisor stack</mark></p>
+<p>supervisor stack is <code>controlled by operating system</code> and <code>requires supervisor privilege</code> to access.</p>
+</li>
+<li>
+<p><mark>user stack</mark></p>
+<p>The user stack is <code>controlled by the user program</code> and does<code>not require privilege</code> to access.</p>
+</li>
+</ul>
+<ol start="5">
+<li>two stack pointers</li>
+</ol>
+<ul>
+<li>Supervisor Stack Pointer（SSP）</li>
+<li>User Stack Pointer（USP）</li>
+</ul>
+<p>只有一个栈能处于活跃状态，具体哪个栈取决于我们当前所处的模式。如果是Supervisor模式，就使用supervisor stack系统栈，如果是user模式就使用用户栈user stack</p>
+<p>我们一般用R6表示当前活跃的栈的栈顶指针。同时我们有两个寄存器Save_SSP 和Save_USP来保存当前不活跃的栈的指针。</p>
+<p>e.g. 如果当前处于User模式，那么R6相当于USP，SSP的值被保存在Save_SSP中。当我们从User—–&gt;Supervisor时，我们把R6即USP存到Save_USP中，并把Save_SSP的值加载到R6，完成栈指针的切换</p>
+<h2 id="92-input-output">9.2 Input / Output<a class="headerlink" href="#92-input-output" title="Permanent link">&para;</a></h2>
+<h3 id="921-some-basic-characteristics-of-io-io-io">9.2.1 Some Basic Characteristics of I/O内存映射 I/O 与特殊 I/O 指令<a class="headerlink" href="#921-some-basic-characteristics-of-io-io-io" title="Permanent link">&para;</a></h3>
+<ol>
+<li>memory-mapped I/O vs special I/O instructions</li>
+</ol>
+<p><code>ISA是否需要特殊的I/O指令？</code></p>
+<ul>
+<li>the I/O device registers are mapped to a set of addresses
+  that are allocated to I/O device registers rather than to memory locations. Hence the name memory-mapped I/O</li>
+</ul>
+<p>I/O 设备寄存器映射到一组分配给 I/O 设备寄存器而不是内存位置的地址。因此名称为内存映射 I/O</p>
+<blockquote>
+<p><strong>LC-3 uses memory-mapped I/O.</strong></p>
+<p><strong>LC-3 使用内存映射 I/O，地址 x0000 到 xFDFF 指的是实际的内存位置。地址 xFE00 至 xFFFF 保留用于输入/输出设备寄存器</strong></p>
+</blockquote>
+<ol start="2">
+<li>Asynchronous vs. Synchronous 异步与同步</li>
+</ol>
+<p><code>I/O设备是否与计算机以相同速度的当时进行执行</code></p>
+<p>Most I/O is carried out at speeds very much slower than the speed of the processor. A typist, typing on a keyboard, <code>loads an input device register with one ASCII code every time he/she types a character(向输入设备寄存器加载一个 ASCII 代码。)</code>. A computer can <strong>read the contents of that device register</strong> every time it executes a load instruction, where <code>the operand address is the memory-mapped address of that input device register.</code></p>
+<p>计算机每次执行加载指令时都可以读取该设备寄存器的内容，其中操作数地址是该输入设备寄存器的内存映射地址</p>
+<p>就比如说，你要读取KBDR的数据，LD指令用的是KBDR寄存器的内存映射地址</p>
+<blockquote>
+<p>处理器和 I/O 之间的大多数交互都是异步的。</p>
+</blockquote>
+<p>为了异步情况下通信，我们常用一个<code>ready bit</code> 来同步设备和计算机。<strong>当ready bit 为1时，表示设备已经准备好了，可以进行数据的传输。当ready bit为0时，表示设备还没有准备好，此时计算机需要等待</strong></p>
+<ol start="3">
+<li>Interrupt-Driven vs Polling 中断驱动和轮询</li>
+</ol>
+<p>The issue of interrupt-driven vs. polling is the issue of who controls the interaction.中断驱动与轮询的问题在于谁控制交互的问题。</p>
+<ul>
+<li>中断驱动 I/O.由I/O设备控制发起中断，随后进行中断处理程序</li>
+<li>处理器负责时的第二种类型的交互称为轮询，<strong>因为处理器会轮询就绪位，询问是否ready bit 为1。</strong></li>
+</ul>
+<h3 id="922-input-from-the-keyboard">9.2.2 Input from the Keyboard<a class="headerlink" href="#922-input-from-the-keyboard" title="Permanent link">&para;</a></h3>
+<h4 id="9221-basic-input-register">9.2.2.1 Basic input register<a class="headerlink" href="#9221-basic-input-register" title="Permanent link">&para;</a></h4>
+<p>in order to <strong>handle character input from the keyboard</strong>, we need two things: </p>
+<ul>
+<li><code>the keyboard data register (KBDR)</code></li>
+</ul>
+<p><strong>address xFE02 is assigned to the KBDR</strong></p>
+<p>a data register that <code>contains the character to be input</code></p>
+<ul>
+<li><code>the keyboard status register (KBSR)</code></li>
+</ul>
+<p><strong>address xFE00 is assigned to the KBSR.</strong></p>
+<p>a synchronization mechanism to <code>let the processor know that input has occurred.</code></p>
+<p><img alt="image-20230720204047081" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504770.png" /></p>
+<p>Even though a character needs only 8 bits and the synchronization mechanism needs only 1 bit, it is easier to assign 16 bits (like all memory addresses in the LC-3) to each.</p>
+<p><strong>In the case of KBDR(keyboard data register), bits [7:0] are used for the data, and bits [15:8] contain x00.</strong> </p>
+<blockquote>
+<p><strong>在KBDR中，前八位全是0，后八位表示数据</strong></p>
+</blockquote>
+<p><strong>In the case of KBSR(keyboard status register), bit [15] contains the synchronization mechanism, that is, the ready bit.</strong></p>
+<blockquote>
+<p><strong>当KBSR[15]为1时，说明此时可以从键盘读取数据。当KBSR[15]为0时，说明此时不可以从键盘读取数据</strong></p>
+</blockquote>
+<h4 id="9222-the-basic-input-service-routine">9.2.2.2 The basic input service Routine<a class="headerlink" href="#9222-the-basic-input-service-routine" title="Permanent link">&para;</a></h4>
+<p>**</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>;iput routine loads R0 with ASCII code ,and then move on to the NEXT_TASK in the program
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>START   LDI     R1,A          ;R1加载KBSR，主要看第一位，第一位如果为1，则为负数，如果为0，则要么正数要么为0
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        BRzp    START         ;如果第一位为0，则重新返回，现在没有输入
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        LDI     R0,B          ;如果第一位为1，则有输入，需要将输入的内容加载到R0
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        BRnzp   NEXT_TASK     ;后续跳转到下一个任务
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>A       .FILL   xFE00         ;address of KBSR
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>B       .FILL   xFE02         ;address of KBDR
+</code></pre></div>
+<ul>
+<li>KBSR[15] controls the synchronization of the slow keyboard and the fast processor.</li>
+</ul>
+<p>KBSR控制慢速键盘和快速处理器</p>
+<ul>
+<li>When a key on the keyboard is struck, <strong>the ASCII code for that key is loaded into KBDR[7:0]</strong>, and the electronic circuits associated with the keyboard automatically <code>set KBSR[15] to 1.</code></li>
+</ul>
+<p>当键盘的某一个键被敲击，则<strong>该键的ASCII会被加载到KBDR的bits[7:0]</strong>,表示数据，同时与键盘相关的电子电路会<strong>将KBSR的bit[15]设置为1</strong></p>
+<ul>
+<li>If KBSR[15] =1, the ASCII code corresponding to the last key struck has not yet been read, and so the keyboard is disabled; that is, no key can be struck until the last key is read.</li>
+</ul>
+<p><strong>如果 KBSR[15] =1</strong>，则表示最后敲击的按键对应的 <strong>ASCII 码尚未读取，因此键盘被禁用</strong>；也就是说，在读取最后一个键之前，不能敲击任何键。</p>
+<ul>
+<li>When the LC-3 reads KBDR, the electronic circuits associated with the keyboard automatically clear KBSR[15], allowing another key to be struck. </li>
+</ul>
+<p>当LC-3读取KBDR后，即读取完数据之后，<strong>KBSR[15]会被自动清除，继而允许敲击下一个键</strong></p>
+<p>如果输入/输出<code>由处理器控制（即通过轮询）</code>，则程序可以重复测试 KBSR[15]，直到注意到该位已设置。此时，处理器可以将 KBDR 中包含的 ASCII 代码加载到 LC-3 寄存器之一中。<strong>由于处理器仅在 KBSR[15] 为 1 时加载 ASCII 代码</strong>，因此不存在多次读取单个键入字符的危险。<code>（一旦加载完毕，电路就会把ready bit 设为0）</code>此外，由于在读取前一个代码之前键盘处于禁用状态，因此不存在处理器丢失所键入字符的危险。通过这种方式，KBSR[15]提供了一种机制来保证<strong>每个键入的键将被加载一次。</strong></p>
+<h3 id="9223-implementation-of-memory-mapped-input">9.2.2.3 Implementation of memory-mapped input 内存映射输入的实现<a class="headerlink" href="#9223-implementation-of-memory-mapped-input" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230720210405491" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504116.png" /></p>
+<p>一般的LD instruction：</p>
+<ol>
+<li>The MAR is loaded with the address of the memory location to be read.</li>
+<li>Memory is read, resulting in MDR being loaded with the contents at the
+   specified memory location.</li>
+<li>The destination register (DR) is loaded with the contents of MDR.</li>
+</ol>
+<blockquote>
+<p><strong>在内存映射输入中，MAR 不再加载内存位置的地址，而是加载寄存器的地址（data被写入寄存器中）。address control logic selects the corresponding device register to provide input to the MDR，地址控制逻辑选择相应的设备寄存器来向 MDR 提供输入。</strong></p>
+</blockquote>
+<h3 id="923-output-to-the-monitor">9.2.3 Output to the Monitor<a class="headerlink" href="#923-output-to-the-monitor" title="Permanent link">&para;</a></h3>
+<h4 id="9231-basic-output-registersddrdsr">9.2.3.1 Basic Output Registers（DDR，DSR）<a class="headerlink" href="#9231-basic-output-registersddrdsr" title="Permanent link">&para;</a></h4>
+<p>DDR stands for Display Data Register, which drives the monitor display. DSR stands for Display Status Register. In the LC-3, DDR is assigned address xFE06. DSR is assigned address xFE04.</p>
+<p>DDR 代表显示数据寄存器，用于驱动显示器显示。 DSR 代表显示状态寄存器。在 LC-3 中，<code>DDR 被分配地址 xFE06。 DSR 被分配地址 xFE04。</code></p>
+<p><img alt="image-20230720214731863" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504948.png" /></p>
+<p>对于DDR，位[7:0]用于数据，位[15:8]包含x00。对于DSR，位[15]包含同步机制，即就绪位。</p>
+<h4 id="9232-the-basic-output-service-routine">9.2.3.2 The Basic  Output Service Routine<a class="headerlink" href="#9232-the-basic-output-service-routine" title="Permanent link">&para;</a></h4>
+<p><strong>DSR[15]</strong> controls the synchronization of the fast processor and the slow monitor display. </p>
+<p><strong>DSR[15]</strong> 控制快速处理器和慢速监视器显示的同步。</p>
+<p>When the LC-3 transfers an ASCII code to DDR[7:0] for outputting, the electronics of the monitor automatically clear DSR[15] as the processing of the contents of DDR[7:0] begins. </p>
+<p>(<strong>初始DSR[15] = 1</strong>)当 LC-3 <strong>将 ASCII 代码传输到 DDR[7:0] 进行输出</strong>时，显示器的电子器件会在开始处理 DDR[7:0] 内容时<strong>自动清除 DSR[15]</strong>。</p>
+<p>As long as DSR[15] is clear, the monitor is still processing the previous character, so the monitor is disabled as far as additional output from the processor is concerned.</p>
+<p><strong>只要 DSR[15] 清零</strong>，监视器仍在处理前一个字符，因此就处理器的附加输出而言，显示器被<strong>禁用。</strong></p>
+<p>When the monitor finishes processing the character on the screen, it (the monitor) automatically sets DSR[15]. This is a signal to the processor that it (the processor) can transfer another ASCII code to DDR for outputting. </p>
+<p>当显示器处理完屏幕上的字符时，它（显示器）会<strong>自动设置 DSR[15]</strong>。这是向处理器发出的信号，表明它（处理器）<strong>可以将另一个 ASCII 代码传输到 DDR 中输出。</strong></p>
+<p>如果输入/输出由<code>处理器(processor)控制（即通过轮询）</code>，则程序可以重复测试 DSR[15]，直到注意到该位已设置，表明可以将字符写入屏幕。此时，处理器可以将其希望写入 DDR[7:0] 的字符的 ASCII 代码存储起来，从而设置将该字符传输到显示器的显示</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>;cause the ASCII code contained in R0 to be displayed on the monitor
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>START   LDI     R1,A        ;将DSR的内容加载到R1，判断R1的正负。注意一下此处的LDI，A表示地址，存放的内容时xFE06，我们需要将xFE06存放的内容DDR加载到R1中
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        BRzp    START       ;如果R1为0或正数，即第一位为0，则说明显示器被禁用，无法输出
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        STI     R0,B        ;第一位为1情况，将保存在R0的内容写入到DDR
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        BRnzp   NEXT_TASK   ;无条件跳转到下一个任务
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>A       .FILL   xFE04       ;address of DSR
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>B       .FILL   xFE06       ;address of DDR
+</code></pre></div>
+<p>第 01 行和第 02 行重复轮询 DSR[15]，以查看监视器电子设备是否完成了处理器传送的最后一个字符。只要 DSR[15] 清零，监视器电子设备仍在处理该字符，并且 BRzp 分支到 START 以进行循环的另一次迭代。</p>
+<p>当监视器电子设备完成处理器传送的最后一个字符时，它会自动将 DSR[15] 设置为 1，这会导致分支失败并执行第 03 行的指令。请注意 STI 指令的使用，它将 R0 存储到 xFE06（DDR 的内存映射地址）中。对 DDR 的写入也会清除 DSR[15]，暂时禁用 DDR 的进一步输出。监视器电子设备接管并将字符写入屏幕。由于输出例程现已完成，程序无条件分支（第 04 行）到其下一个任务</p>
+<h4 id="9233-implementation-of-memory-mapped-output">9.2.3.3 Implementation of Memory-Mapped Output<a class="headerlink" href="#9233-implementation-of-memory-mapped-output" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230720220637657" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504844.png" /></p>
+<p>一般的ST操作：</p>
+<ol>
+<li>
+<p>The MAR is loaded with the address of the memory location to be written.</p>
+</li>
+<li>
+<p>The MDR is loaded with the data to be written to memory.</p>
+</li>
+<li>
+<p>Memory is written, resulting in <strong>the contents of MDR being stored in the</strong>
+   <strong>specified memory location.</strong></p>
+</li>
+</ol>
+<blockquote>
+<p><strong>在内存映射输出情况中，MAR不再加载内存地址的位置，而是加载寄存器的地址（STI  R0，B  B表示的是寄存器DDR的地址），The address control logic asserts the load enable signal of DDR.地址控制逻辑断言 DDR 的加载使能信号</strong></p>
+</blockquote>
+<h4 id="9234-keyboard-echo">9.2.3.4 Keyboard Echo<a class="headerlink" href="#9234-keyboard-echo" title="Permanent link">&para;</a></h4>
+<p>当我们在键盘打字时，一边打字，一边输出，将input和output结合</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>START   LDI     R1,KESR     ;用于判断此时能否输入
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>        BRzp    START       ;如果以0开头，则无法输入，不断询问KBSR
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        LDI     R0,KBDR     ;如果第一位是1，KEDR是一个地址，采用间接寻址，先找到KEDR的地址，读取其中的内容是一个地址，在读取该地址（真正keyboard data register）的内容
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ECHO    LDI     R1,DSR      ;用于判断能否输出
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        BRzp    ECHO        ;如果第一位为0，则无法输出
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        STI     R0,DDR      ;间接寻址，读入到R0
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        BRnzp   NEXT_TASK
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>KBSR    .FILL   xFE00
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>KBDR    .FILL   xFE02
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>DSR     .FILL   xFE04
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>DDR     .FILL   xFE06       ;address of DDR
+</code></pre></div>
+<h3 id="924-a-more-sophisticated-input-routine">9.2.4 A More Sophisticated Input Routine 更加复杂的输入例程<a class="headerlink" href="#924-a-more-sophisticated-input-routine" title="Permanent link">&para;</a></h3>
+<p><strong>在前面提到的输入基础上，添加一个一个提示，让坐在键盘前的人知道何时需要键入按键。</strong></p>
+<p>第 05 行到第 08 行将 ASCII 代码 x0A 写入监视器。这是新行的 ASCII 代码。大多数 ASCII 代码对应于屏幕上可见的字符。有<strong>一些字符（如 x0A）是控制字符。它们导致动作发生</strong>。具体来说，ASCII 代码 x0A 使光标移动到屏幕上下一行的最左侧。因此，名称为 <strong>Newline</strong>。然而，在尝试写入 x0A 之前，一如既往，测试 DSR[15]（第 6 行）以查看 DDR 是否可以接受字符。<strong>如果 DSR[15] 清零，则监视器正忙，并且重复循环（第 06 行和第 07 行）。当DSR[15]为1时，不执行条件分支（第7行），并将（第8行）x0A写入DDR输出</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>START   ST      R1,SaveR1
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>        ST      R2,SaveR2
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        ST      R3,SaveR3       ;预先保存寄存器的值
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        LD      R2,Newline
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>L1      LDI     R3,DSR          ;R3保存DSR寄存器的内容
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        BRzp    L1              ;Loop until monitor is ready.现在是output的过程，当R3第一位为0时，说明无法进行输出，需要不断询问，直到第一位变为1
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        STI     R2,DDR          ;将R2的内容写到DDR寄存器中
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        LEA     R1,Prompt       ;将Prompt的头地址写入R1
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Loop    LDR     R0,R1,#0        ;R0加载Prompt的头地址，注意一下，关于output，输出的时R0寄存器的值，所以需要先保存到R0中
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        BRz     Input           ;End of prompt string,字符串以x0000结尾
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>L2      LDI     R3，DSR
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        BRzp    L2
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        STI     R0,DDR          ;write next prompt character
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        ADD     R1,R1,#1        ;Prompt 指针的地址加一，用于输出下一个字符
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        BRnzp   Loop            ;返回Loop,用于输出下一个字符
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>Input   LDI     R3,KBSR
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        BRzp    Input
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        LDI     R0,KEDR         ;Load input character into R0
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>L3      LDI     R3,DSR          ;输出阶段
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        BRzp    L3
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        STI     R0,DDR          ;ECHO input character
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>L4      LDI     R3,DSR
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        BRzp    L4
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        STI     R2,DDR          ;Move cursor to new clean line将光标移至新的干净行
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        LD      R1,SaveR1
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        LD      R2,SaveR2
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        LD      R3,SaveR3
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        BRnzp   NEXT_TASK
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>SaveR1  .BLKW   1
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>SaveR2  .BLKW   1
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>SaveR3  .BLKW   1
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>KBSR    .FILL   xFE00
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>KBDR    .FILL   xFE02
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>DSR     .FILL   xFE04
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>DDR     .FILL   xFE06
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>Newline .FILL   x000A           ;ASCII code for Newline
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>Prompt  .STRINGZ    &quot;Input a character&gt;&quot;
+</code></pre></div>
+<h3 id="925-implementation-of-memory-mapped-iorevisited">9.2.5 Implementation of Memory-Mapped I/O,Revisited<a class="headerlink" href="#925-implementation-of-memory-mapped-iorevisited" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230722112858996" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504694.png" /></p>
+<p><code>The Address Control Logic Block(地址控制逻辑块)</code> <strong>controls the input or output operation</strong>. Note that there are <strong>three inputs</strong> to this block.</p>
+<ul>
+<li>MIO.EN indicates whether a data movement <strong>from/to memory or I/O</strong> is to take place this clock cycle. </li>
+</ul>
+<p>MIO.EN表示此时钟周期是否发生从/到存储器或I/O的数据移动</p>
+<ul>
+<li>MAR contains the address of <strong>the memory location</strong> or the <strong>memory-mapped address of an I/O device register</strong>. </li>
+</ul>
+<p>MAR 包含内存位置的地址或 <strong>I/O 设备寄存器的内存映射地址</strong>。</p>
+<ul>
+<li>R.W indicates<code>whether a load or a store</code>is to take place.</li>
+</ul>
+<p>R.W指示是否要进行 load 或者 strore </p>
+<ul>
+<li>如果R.W表示 load ，则传输是从内存或I/O设备到MDR。The Address Control Logic Block（地址逻辑控制块）向INMUX提供选择线，以获取适合的I/O设备寄存器或者memory（取决于MAR）。</li>
+<li>如果R.W表示 store ，则MDR的内容要写入内存或者设备寄存器。地址逻辑控制块要么enable a write to memory 要么断言由 MAR 的内容指定的设备寄存器的加载启用线。</li>
+</ul>
+<p><img alt="image-20230722150005013" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504011.png" /></p>
+<h2 id="93-operating-system-service-routineslc-3-trap-routines">9.3 Operating System Service Routines（LC-3 Trap Routines）<a class="headerlink" href="#93-operating-system-service-routineslc-3-trap-routines" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20230721143301896" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504697.png" /></p>
+<p>Figure 9.9 shows a user program that, upon reaching location x4000, needs an I/O task performed. 需要执行IO任务</p>
+<p><code>The user program uses the TRAP instruction to request the operating system to perform the task on behalf of the user program. The operating system takes control of the computer, handles the request specified by the TRAP instruction, and then returns control back to the user program at location x4001.</code>用户程序使用<strong>TRAP指令请求操作系统代表用户程序完成任务，操作系统控制计算机，处理 TRAP 指令指定的请求，然后将控制权返回给位于 x4001 处的用户程序</strong>。</p>
+<p>As we said at the start of this chapter, we usually refer to the <strong>request made by the user program</strong> as <strong>a system call or a service call.（系统调用或者服务调用）</strong></p>
+<h3 id="931-the-trap-mechanism">9.3.1 The Trap Mechanism（机制）<a class="headerlink" href="#931-the-trap-mechanism" title="Permanent link">&para;</a></h3>
+<p>involve several element</p>
+<ol>
+<li>A set of service routines executed <strong>on behalf of user programs</strong> by the operating system. These are part of the operating system and start at arbitrary addresses in system space.  The LC-3 was designed so that up to<strong>256 service routines can be specified</strong></li>
+</ol>
+<p>由操作系统代表用户程序执行的一组服务例程。它们是操作系统的一部分，并从系统空间中的任意地址开始。</p>
+<ol start="2">
+<li>A table of the starting addresses of these 256 service routines. This table is stored in memory locations x0000 to x00FF. 这 256 个服务例程的起始地址表。该表存储在内存位置 x0000 到 x00FF 中。</li>
+</ol>
+<ul>
+<li>the one for the <code>character output</code>service routine (memory location x0420), which is stored in <code>memory location x0021</code>, </li>
+<li>the one for the <code>keyboard input</code>service routine (location x04A0), stored in <code>location x0023</code></li>
+<li>the one for the machine<code>halt</code>service routine (location x0520), stored in location <code>x0025.</code></li>
+</ul>
+<p><img alt="image-20230721145001714" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504699.png" /></p>
+<ol start="3">
+<li>The TRAP instruction.When a user program wishes to <strong>have the operating system execute a specific service routine on behalf of the user program,</strong> and then <code>return control to the user program</code>, the user program uses the TRAP instruction。</li>
+</ol>
+<p>当用户程序希望<strong>让操作系统代表用户程序执行特定的服务例程，然后将控制权返回给用户程序时</strong>，用户程序使用TRAP指令</p>
+<ol start="4">
+<li>A linkage back to the user program.The service routine must have a mechanism for <code>returning control to the user program</code></li>
+</ol>
+<p>返回用户程序的链接。服务例程必须具有将控制权返回给用户程序的机制</p>
+<h3 id="932-the-trap-instruction">9.3.2 The TRAP Instruction<a class="headerlink" href="#932-the-trap-instruction" title="Permanent link">&para;</a></h3>
+<p>The TRAP instruction causes the <strong>service routine to execute</strong> by </p>
+<ul>
+<li>(1) changing the PC to the <strong>starting address</strong> of the relevant service routine on the basis of its trap vector</li>
+</ul>
+<p>根据其陷阱向量将 PC 更改为相关服务例程的起始地址</p>
+<ul>
+<li>(2) providing a way to <strong>get back to the program</strong> that executed the TRAP instruction. The “way back” is referred to as a linkage</li>
+</ul>
+<p>提供返回到执行 TRAP 指令的程序的方法</p>
+<p><img alt="image-20230721145727881" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504792.png" /></p>
+<ol>
+<li>opcode = 1111</li>
+<li>bits[11:8] must be zero </li>
+<li>bits[7:0]表示trap vector，它标识用户程序希望操作系统代表其执行的服务例程</li>
+<li>上图所示的是x23，指令</li>
+</ol>
+<p>TRAP 指令的<strong>指令周期</strong>的 <strong>EXECUTE 阶段</strong>执行三件事：</p>
+<ol>
+<li>
+<p>The <code>PSR（processor status register）</code> and PC are both pushed onto the <code>system stack</code>(因为TRAP的<strong>起始地址在x0000到x00FF之间</strong>). </p>
+</li>
+<li>
+<p><strong>PSR[15] is set to 0</strong>, since the service routine is going to <strong>require supervisor privilege</strong> to execute. <strong>PSR[10:8] are left unchanged</strong> since<code>the priority of the TRAP routine is the same as the priority of the program that requested it.</code></p>
+</li>
+</ol>
+<p><strong>PSR[15] (表明是否需要管理员权限) 设置为 0</strong>，因为服务例程需要管理员权限才能执行。 <strong>PSR[10:8] （标识优先级的等级）保持不变</strong>，因为<code>TRAP 例程的优先级与请求它的程序的优先级相同</code></p>
+<ol start="3">
+<li>The 8-bit trap vector is <strong>zero-extended</strong> to 16 bits to form an address that corresponds to a location in the Trap Vector Table. <strong>For the trap vector x23, that address is x0023.</strong> Memory location x0023 <strong>contains x04A0,</strong> the starting address of the TRAP x23 service routine. <strong>The PC is loaded with x04A0, completing the instruction cycle.</strong></li>
+</ol>
+<p>8 位 trap 向量被零扩展为 16 位，以形成与 trap 向量表中的位置相对应的地址。<strong>对于trap 向量 x23，该地址是 x0023</strong>。<strong>内存位置 x0023 包含 x04A0</strong>，<code>即 TRAP x23 服务例程的起始地址(x04A0)。</code> PC 加载 x04A0，完成指令周期</p>
+<blockquote>
+<p>注意点：</p>
+<ol>
+<li>Since the <code>PC was incremented</code> during the FETCH phase of the TRAP instruction’s instruction cycle, <code>the return linkage is automatically saved in the PC</code>. When <strong>control returns</strong> to the user program, the <strong>PC will automatically be pointing to the instruction following the TRAP instruction</strong></li>
+</ol>
+<p>由于 PC 在 TRAP 指令的指令周期的 FETCH 阶段递增，因此返回链接会自动保存在 PC 中。当控制权返回到用户程序时，<code>PC将自动指向TRAP指令后面的指令（从而执行TRAP后面的指令）</code></p>
+<ol start="2">
+<li>
+<p>如果我们在用户模式下使用TRAP指令，需要<code>完成栈的切换</code>，PSR【15】设置为0，获取管理员权限，（<code>先保存USP，再加载SSP到R6</code>，然后保存PSR 和 PC）</p>
+</li>
+<li>
+<p>trap vector（x0023）对应的地址的内容（<strong>x04A0</strong>），是<strong>操作系统服务例程</strong>的起始地址，用于从键盘输入字符</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="933-the-rti-instructionto-return-control-to-the-calling-program">9.3.3 The RTI Instruction：To Return Control to the Calling Program<a class="headerlink" href="#933-the-rti-instructionto-return-control-to-the-calling-program" title="Permanent link">&para;</a></h3>
+<p><code>RTI：return from trap or interrupt</code></p>
+<p><img alt="image-20230721152953555" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504861.png" /></p>
+<ol>
+<li>
+<p>opcode = 1000</p>
+</li>
+<li>
+<p>The RTI instruction (opcode = 1000, with no operands) <strong>pops the top two values on the system stack into the PC and PSR</strong>. <code>Since the PC contains the address following the address of the TRAP instruction, control returns to the user program at the correct address.</code></p>
+</li>
+</ol>
+<p>先从system stack 里pop出PC、PSR，同时根据取出的PSR[15]判断是否需要切换栈</p>
+<ol start="3">
+<li>Finally, once the PSR has been popped off the system stack, PSR[15] must be examined to see whether the processor was running in User mode or Supervisor mode when the TRAP instruction was executed. </li>
+</ol>
+<p>最后，一旦 PSR 从系统堆栈中弹出，就必须检查 PSR[15]，以了解执行 TRAP 指令时处理器是运行在用户模式还是管理模式。</p>
+<ul>
+<li>
+<p>If in User mode, the stack pointers need to be adjusted to reflect that now back in User mode, the relevant stack in use is the user stack. This is done by <strong>loading the Saved_SSP with the current contents of R6, and loading R6 with the contents of Saved_USP.</strong></p>
+<p>如果处于用户模式，则需要调整堆栈指针以反映现在回到用户模式。<strong>需要将系统栈指针SSP存放在Saved_SSP中，并取出Saved_USP加载到R6</strong></p>
+</li>
+<li>
+<p>如果是在管理员模式调用TRAP，则不需要切换栈</p>
+</li>
+</ul>
+<h3 id="934-a-summary-of-the-trap-service-routine-process">9.3.4 A Summary of the Trap Service Routine Process<a class="headerlink" href="#934-a-summary-of-the-trap-service-routine-process" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230721153721180" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504591.png" /></p>
+<ol>
+<li>
+<p>TRAP x23指令的执行，导致PSR和递增的PC被推送到系统堆栈（system stack），<strong>并且地址x0023的内容x04A0被加载到PC上</strong>。图9.11中的<code>虚线显示了使用trap vector x23从trap vector table中获取trap service routine的起始地址。</code></p>
+</li>
+<li>
+<p>下一指令周期从x04A0内容的FETCH开始，这是操作系统服务例程（operating system service routine）的第一条指令。RTI指令发挥作用后，TRAP指令正式结束。</p>
+</li>
+<li>RTI指令将系统堆栈的两个元素加载到PSR和PC（<strong>即在 TRAP 指令执行期间压入的 PSR 和递增的 PC。</strong>）由于PC本身已经完成+1，后续用户程序可以继续执行TRAP之后的指令，控制权回归</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>;a person is sitting at a keyboard. Each time the person types a capital letter, the program outputs the lowercase version of that letter. If the person types a 7, the program terminates
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        .ORIG   x3000
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        LD      R2,TERM     ;R2,承载xFFC9
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        LD      R3,ASCII
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>AGAIN   TRAP    x23         ;TRAP x23 输入，并将输入的数据的ASCII值保存在R0
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        ADD     R1,R2,R0    ;判断输入的数是否为7
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        BRz     EXIT        ;若为7，程序结束
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        ADD     R0,R0,R3    ;R0 = R0 + 32
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        TRAP    x21         ;输出
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        BRnzp   AGAIN
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>TERM    .FILL   xFFC9       ;7的ASCII码的相反数
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>ASCII   .FILL   x0020       ;32，用于将小写变为大写
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>EXIT    TRAP    x25
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        .END
+</code></pre></div>
+<h3 id="935-trap-routines-for-handling-io">9.3.5 Trap Routines for Handling I/O<a class="headerlink" href="#935-trap-routines-for-handling-io" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230721155929041" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504777.png" /></p>
+<p><img alt="image-20230721155939597" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504624.png" /></p>
+<h3 id="936-a-trap-routine-for-halting-the-computer">9.3.6 A Trap Routine for Halting the Computer<a class="headerlink" href="#936-a-trap-routine-for-halting-the-computer" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230722153251968" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504618.png" /></p>
+<p>一般来说，时钟 Clock 会一直周期性变化，使得指令一直无休止地执行下去。如果我们想要终止程序，那我们需要停掉时钟。</p>
+<p>在 LC-3 里面，我们的时钟是由 a crystal oscillator（晶体振荡器） 和 a RUN latch 组成的。其中晶体振荡器会产生下面图的电压信号。</p>
+<ul>
+<li>如果我们的RUN Latch 值为 1，即我们允许程序运行，那么 Clock 输出和晶体振荡器相同，则 Clock 也呈现出时高时低的周期。</li>
+<li>如果 RUN Latch 值为0，此时无论如何 Clock 输出都为 0，我们成时钟被停掉了，这个时候就不能再执行指令了。</li>
+</ul>
+<blockquote>
+<p><strong>Halt 指令，实质上就是将 RUN Latch 设为0，从而达到终止clock，终止指令的效果</strong></p>
+<p><code>而RUN Latch 放在MCR（master control register）的第15位（开头的那位），MCR被映射到xFFFE。取出 MCR 的值，并用 x7FFF 与 MCR 做 AND 操作（相当于把 MCR 最高位清零），然后把值存回。（注意过程中需要保护寄存器本来的值，并在 RTI 前恢复）</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.ORIG           x0520               ;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ST              R0,SaveR0
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ST              R1,SaveR1           ;先保存R0和R1
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>;print the message that machine is halting
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>LD              R0,ASCIINewline     ;换行
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>TRAP            x21                 ;执行换行，关于TRAPx21的用法，R0存放的是数据的ASCII码，后续输出message
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>LEA             R0,Message          ;Message 对应是字符串的首地址，关于TRAPx22的用法，需要R0加载字符串的首地址，也就是Message
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>TRAP            x22                 ;输出字符串
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>LD              R0,ASCIINewline     ;换行
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>TRAP            x21 
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>;将MCR[15]清零
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>LDI             R1,MCR              ;关于为什么使用LDI，MCR是一个地址，该地址存放的内容是xFFFE也是一个地址，我们需要取出xFFFE的数据，加载到R1
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>LD              R0,MASK             ;RO = x7FFF
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>AND             R0,R0,R1            ;MCR[15]清零
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>STI             R0,MCR              ;将R0，新的MCR的值写入到MCR寄存器
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>;恢复寄存器和控制权回归
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>LD              R1,SaveR1           ;
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>LD              R2,SaveR2
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>RTI
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>ASCIINewline    .FILL   x000A       ;换行
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>SaveR0          .BLKW   1
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>SaveR1          .BLKW   1
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>Message         .STRINGZ    &quot;Halting the machine&quot;
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>MCR             .FILL   xFFFE       ;Address of MCR
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>MASK            .FILL   x7FFF       ;MASK to clear the top bit,将MCR的最高位清零
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>.END
+</code></pre></div>
+<h2 id="94-interrupts-and-interrupt-driven-io">9.4 Interrupts and Interrupt-Driven I/O<a class="headerlink" href="#94-interrupts-and-interrupt-driven-io" title="Permanent link">&para;</a></h2>
+<p>In Section 9.2.1.3, we noted that interaction between the processor and an I/O device can be <code>controlled by the processor (i.e., polling) or it can be controlled by the I/O device (i.e., interrupt driven).</code>In Sections 9.2.2, 9.2.3, and 9.2.4, we have studied several examples of <strong>polling. In each case, the processor tested the ready bit of the status register again and again, and when the ready bit was finally 1, the processor branched to the instruction that did the input or output operation.</strong></p>
+<blockquote>
+<p><strong>Interrupt-Driven I/O</strong></p>
+</blockquote>
+<ol>
+<li>概念：</li>
+</ol>
+<p>与正在运行的程序可能有关系，也可能无关系的I/O设备能够以下三个功能</p>
+<ul>
+<li>force the running program to stop停止正在运行的程序</li>
+<li>have the processor execute a program that carries out the needs of the I/O device让处理器执行满足 I/O 设备需求的程序</li>
+<li>have the stopped program resume execution as if nothing had happened.让停止的程序恢复执行，就像什么也没发生一样</li>
+</ul>
+<p><img alt="image-20230721165115227" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504902.png" /></p>
+<ol>
+<li>检测到中断信号</li>
+<li>程序A进入假死状态</li>
+<li>PC加载程序B的起始地址</li>
+<li>程序B开始满足I/O设备的要求</li>
+<li>继续满足</li>
+<li>完成满足</li>
+<li>程序A复活，继续工作</li>
+</ol>
+<blockquote>
+<p><strong>就程序A而言，中断后和没有中断得到的结果相同</strong></p>
+</blockquote>
+<ol start="2">
+<li>为什么会存在Interrupt-Driven I/O </li>
+</ol>
+<p>因为，轮询需要处理器浪费大量时间，一次又一次的执行LDI，和BR指令，直到设置就绪位。</p>
+<p>而对于中断驱动的I/O，无需进行任何测试和分支，可以将时间花在更有用的地方</p>
+<ol start="3">
+<li>Interrupt-Driven I/O的构成</li>
+</ol>
+<ul>
+<li>the mechanism that enables an I/O device to interrupt the processor使 I/O 设备能够中断处理器的机制，</li>
+<li>the mechanism that handles the interrupt request处理中断请求的机制</li>
+</ul>
+<h3 id="941-part1causing-the-interrupt-to-occur">9.4.1 Part1：Causing the Interrupt to occur(设备要具有中断的能力)<a class="headerlink" href="#941-part1causing-the-interrupt-to-occur" title="Permanent link">&para;</a></h3>
+<p>I/O设备能够中断正在运行的程序需要满足以下条件：</p>
+<ol>
+<li>The I/O device must want service。 I/O 设备必须需要服务</li>
+<li>The device must have the right to request the service设备必须有权请求服务</li>
+<li>The device request must be more urgent than what the processor is currently doing.. 设备请求必须比处理器当前正在执行的操作更紧急。</li>
+</ol>
+<h4 id="9411-the-interrupt-signal-from-the-device">9.4.1.1 The Interrupt Signal from the Device<a class="headerlink" href="#9411-the-interrupt-signal-from-the-device" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code>The Device Must Want Service</code>We have discussed that already in the study of polling. <strong>It is the ready bit of the KBSR or the DSR</strong>. That is, if the I/O device is the keyboard, it wants service if someone has typed a character. If the I/O device is the monitor, it wants service (i.e., the next character to output) if the associated electronic circuits have successfully completed the display of the last character. In both cases, <code>the I/O device wants service when the corresponding ready bit is set</code></li>
+</ol>
+<p>设备必须需要服务 我们已经在轮询研究中讨论过这一点。它是 KBSR 或 DSR 的就绪位。也就是说，<strong>如果 I/O 设备是键盘，则当有人键入字符时它需要服务</strong>。<strong>如果 I/O 设备是监视器，如果关联的电子电路已成功完成最后一个字符的显示，则它需要服务（即，输出下一个字符）</strong>。在这两种情况下，当设置相应的就绪位时，I/O 设备需要服务</p>
+<ol start="2">
+<li><code>The Device Must Have the Right to Request That Service</code> In most I/O devices, this <strong>interrupt enable (IE) bit(取决于处理器是否给予I/O device 权利取请求服务)</strong> is part of the device status regist（设备状态寄存器）In the KBSR and DSR shown in Figure 9.18,
+   the IE bit is bit [14]. The interrupt request signal from the I/O device is the logical AND of the IE bit and the ready bit, as is also shown in Figure 9.18.</li>
+</ol>
+<p><img alt="image-20230722165259732" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504850.png" /></p>
+<ul>
+<li>如果中断使能位bit[14]清零，则不管就绪位是什么，I/O设备都没有请求服务的权利，无法中断处理器。在这种情况下，程序必须轮询I/O设备来确定它是否准备就绪。</li>
+<li>如果中断使能位（IE）bit[14]设置为1，在这种情况下，如果有人输入一个字符或者显示器完成字符的输出，就会使就绪位ready bit为1，这时I/O设备就具有请求服务的权利</li>
+</ul>
+<h4 id="9412-the-urgency-of-the-request">9.4.1.2 The Urgency of the Request<a class="headerlink" href="#9412-the-urgency-of-the-request" title="Permanent link">&para;</a></h4>
+<p><code>The device request must be more urgent than what the processor is currently doing..</code></p>
+<p>要中断正在运行的程序，设备的优先级必须高于当前正在运行的程序。</p>
+<p>LC-3有8个优先等级，从PL0到PL7，数字越高，程序越紧急。</p>
+<ul>
+<li>The PL of a program is usually the same as the PL (i.e., urgency) of the request to run that program. </li>
+</ul>
+<p>程序的 PL 通常与运行该程序的请求的 PL（即紧急程度）相同。</p>
+<ul>
+<li>If a program is running at one PL, and a <strong>higher-level PL request</strong> wants the computer, the lower-priority program <strong>suspends processing</strong> until the higher-PL program executes and
+  satisfies its more urgent reques</li>
+</ul>
+<p>如果程序在一个 PL 上运行，并且较高级别的 PL 请求需要计算机，<strong>则较低优先级的程序将暂停处理</strong>，直到较高级别的 PL 程序执行并满足其更紧急的请求。</p>
+<blockquote>
+<p>为了使我们的 I/O 设备成功停止处理器并启动中断驱动的 I/O 请求，<code>请求的优先级必须高于它希望中断的程序的优先级。</code></p>
+</blockquote>
+<h4 id="9413-the-int-signal">9.4.1.3 The INT Signal<a class="headerlink" href="#9413-the-int-signal" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20230722171056255" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504389.png" /></p>
+<p>To stop the processor from continuing execution of its currently running program and service an interrupt request, <code>the INT signal must be asserted</code>. Figure 9.19 shows what is required to assert the INT signal. Figure 9.19 shows the status registers of several devices operating at various priority levels (PL). Any device that has bits [14] and [15] both set asserts its interrupt request signal. The interrupt request signals are input to<code>a priority encoder</code>, a combinational logic structure that <code>selects the highest priority request from all those asserted</code>. If the PL of that request is higher than the PL of the currently executing program, the INT signal is asserted.</p>
+<p>这里有多个I/O设备，每一个设备都通过状态寄存器 bit[15] AND bit[14] 得到一个值，表示这个设别是否在请求中断。所有的中断信号，会被输入到<code>Priority encoder 优先级编码器</code>，<strong>优先级编码器会找到优先级最高的中断请求。最后将中断请求的优先级和当前正在执行的程序的优先级进行比较，如果中断请求的优先级更高，则INT被设置为1</strong></p>
+<p>回忆一下，指令周期的各个阶段（Fetch，Decode，evaluate address，Fetch operand，execute，store result），每一条指令都能改变计算机的状态，并且该改变是在指令的指令周期结束之后完成。<code>也就是说，在计算机执行下一条指令的Fetch阶段之前的最后的一个时钟周期，计算机处于当前指令执行完毕导致的状态</code></p>
+<blockquote>
+<p><strong>一般情况下，我们会让中断发生在一个指令执行结束，下一个指令Fetch之前中断。因为我们需要保证中断处理之后，原来的程序能够继续运行，即我们需要保存中断处理之前的重要信息，付出代价大</strong></p>
+</blockquote>
+<h3 id="942-part2handling-the-interrupt-request">9.4.2 Part2：Handling the Interrupt Request(处理中断的能力)<a class="headerlink" href="#942-part2handling-the-interrupt-request" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230723103053932" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504678.png" /></p>
+<p>处理中断请求，分为三个状态</p>
+<ol>
+<li>initial the interrupt 发起中断（number1 前三行）</li>
+<li>service the interrupt 服务中断 （number2 四行）</li>
+<li>return from the interrupt 从中断返回 （number3 一行）</li>
+</ol>
+<h4 id="9421-initial-the-interrupt">9.4.2.1 initial the interrupt<a class="headerlink" href="#9421-initial-the-interrupt" title="Permanent link">&para;</a></h4>
+<p>Since the INT signal was asserted, <strong>the processor does not return to the first state of the FETCH phase of the next instruction cycle,</strong> but rather begins a sequence of actions to initiate the interrupt. The processor must do two things: <code>(1) save the state of the interrupted program so it can pick up where it left off after the requirements of the interrupt have been completed,</code> and<code>(2) load the state of the higher priority interrupting program so it can start satisfying its request.</code></p>
+<p>由于 INT 信号被置位，处理器不会返回到下一个指令周期的 FETCH 阶段的第一个状态，而是<strong>开始一系列操作来启动中断</strong>。处理器必须做两件事：<mark>（1）保存被中断程序的状态，以便它可以在完成中断要求后从中断的地方继续执行；（2）加载更高优先级中断程序的状态，以便它可以开始满足其请求。</mark></p>
+<ol>
+<li><strong>Save the state of the Interrupted program</strong></li>
+</ol>
+<p>首先，什么是程序的状态？包括存储位置的内容，所有寄存器的内容，PC，PSR</p>
+<p>PSR指定了程序的特权级别和优先级，PSR[15]表明程序是在管理员模式还是用户模式运行，PSR[10:8]表明程序的优先级，PSR[2:0]保存着条件码（condition codes NZP）</p>
+<p>启动中断的第一步是保存正在运行的程序的足够状态，以便在满足 I/O 设备请求后可以从中断处继续执行。</p>
+<ul>
+<li><strong>PC</strong> 必须被保存，因为它知道当中断的程序恢复执行时接下来应该执行哪条指令（which instruction should be executed next）。</li>
+<li>必须保存<strong>条件代码（N、Z 和 P 标志</strong>），因为程序恢复执行后后续条件分支指令（conditional branch instruction）可能需要它们。</li>
+<li>必须保存<strong>被中断程序的优先级（priority lever）</strong>，因为它指定了被中断程序相对于所有其他程序的紧急程度。当被中断的程序恢复执行时，重要的是要知道哪些优先级程序可以中断它，哪些不能。</li>
+<li>必须保存<strong>程序的特权级别</strong>，因为它指定被中断的程序可以访问和不能访问哪些处理器资源。</li>
+</ul>
+<blockquote>
+<p>从上面来看，<code>保存的信息就是PC和PSR</code>。至于<strong>保存的方式和TRAP指令发挥作用时保存PC、PSR相同</strong>。<code>如果中断服务程序开始之前，被中断的程序处于用户模式，那么USP应当先保存在Save_USP中，R6加载Save_SSP的内容SSP，然后PC和PSR被push进入supervisor stack，从而免受影响</code></p>
+</blockquote>
+<ol start="2">
+<li><strong>Load the state of the Interrupt Service Routine</strong></li>
+</ol>
+<p>根据上面的state，那么第二步就是加载 interrupt service routine 的PC和PSR。 </p>
+<ul>
+<li>
+<p><code>Most processors use the mechanism of vectored interrupts.(采用向量中断机制)</code> </p>
+</li>
+<li>
+<p>In the case of interrupts, the eight-bit vector is provided by the device that is requesting the processor be interrupted. That is, the I/O device transmits to the processor an eight-bit interrupt vector along with its interrupt request signal and its priority level.  It is designated <code>INTV.</code></p>
+</li>
+</ul>
+<p>在中断的情况下，八位向量由<strong>请求处理器中断的设备提供</strong>。也就是说，<code>I/O 设备向处理器发送一个八位中断向量及其中断请求信号和优先级</code>。它被指定为<code>INTV</code></p>
+<ul>
+<li>如果发生中断，处理器会将8位的中断向量（INTV）扩展成16位地址，对应于中断向量表（interrupt vector table）的一条。中断向量表由内存位置x0100到x01FF组成，每一个位置都包含中断服务例程的起始地址。利用INTV在中断向量表中找到对应的地址，将其中的内容（中断服务例程的起始地址）加载到PC</li>
+</ul>
+<h4 id="9422-service-the-interrupt">9.4.2.2 service the interrupt<a class="headerlink" href="#9422-service-the-interrupt" title="Permanent link">&para;</a></h4>
+<p>PC包含中断服务程序的起始地址，将为会被执行</p>
+<h4 id="9423-return-from-the-interrupt">9.4.2.3 return from the interrupt<a class="headerlink" href="#9423-return-from-the-interrupt" title="Permanent link">&para;</a></h4>
+<p>The last instruction in every interrupt service routine is RTI, return from trap or interrupt. When the processor finally accesses the RTI instruction, all the requirements of the I/O device have been taken care of.</p>
+<p>每个中断服务程序中的最后一条指令是RTI，从trap或interrupt返回。当处理器最终访问RTI指令时，I/O设备的所有要求都已得到满足。</p>
+<p>RTI</p>
+<ul>
+<li>opcode is 1000</li>
+<li><code>popping the PC and the PSR from the supervisor stack (where they have been resting peacefully)，从supervisor stack中弹出PC和PSR</code></li>
+<li>条件代码将恢复到程序中断时的状态，以防被中断程序中的后续 BR 指令需要它们。 PSR[15]和PSR[10:8]现在反映了即将恢复的程序的特权级别和优先级。<code>如果被中断程序的权限级别为非特权，则必须调整堆栈指针</code>，即保存Supervisor堆栈指针，并将用户堆栈指针加载到R6中。 PC 恢复到如果程序没有被中断则接下来要执行的指令的地址。</li>
+</ul>
+<h3 id="943-an-example">9.4.3 an example<a class="headerlink" href="#943-an-example" title="Permanent link">&para;</a></h3>
+<p>Suppose program A is executing when I/O device B, having a PL higher than that of A, requests service. During the execution of the service routine for I/O device B, a still more urgent device C requests service.</p>
+<p>假设程序 A 正在执行，而 PL 高于 A 的 I/O 设备 B 请求服务。在执行I/O设备B的服务例程期间，更紧急的设备C请求服务</p>
+<p><img alt="image-20230723132025507" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504657.png" /></p>
+<ul>
+<li>
+<p>程序 A 由位置 x3000 到 x3010 的指令组成，<strong>当设备 B 发送其中断请求信号和伴随的中断向量（8-bits interrupt vector） xF1</strong> 时，程序 A 正在执行 x3006 处的 ADD 指令，导致 INT 被置位。</p>
+</li>
+<li>
+<p>程序B的中断服务例程存储在x6200到x6210位置，<strong>当设备C发送其中中断请求信号和伴随的中断向量xF2时</strong>，程序B正在执行x6202处的AND指令，由于设备C的请求优先级高于设备B,因此INT再次被置位</p>
+</li>
+<li>设备C的中断服务例程存储在x6300到x6315</li>
+</ul>
+<p><img src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181504880.png" alt="image-20230723133109277" style="zoom: 80%;" /></p>
+<ol>
+<li>
+<p>图9.21（a）表示<strong>程序A在 x3006 处 fetch 之前的supervisor stack和PC。此时堆栈指针显示为Saved_SSP，不是R6，因为中断还没发生，R6指向的是用户堆栈的内容。</strong><code>在x3006中指令执行结束时检测到INT信号（在当前指令结束之后，下一条指令fetch之前）</code></p>
+</li>
+<li>
+<p>图9.21（b）表示检测到INT信号后，<code>先保存当前状态的信息（PC和PSR）</code>，将A的下一条指令（PC+1 = x3007）和PSR of program A push进入supervisor stack。<strong>切换栈</strong>，将 R6 保存在 Saved.UPC 寄存器中并将 Saved SSP 寄存器的内容加载到 R6 。<code>再加载中断服务例程的状态信息</code>，与设备B相关的<strong>中断向量扩充成x01F1，x01F1的内容x6200被加载到PC</strong></p>
+</li>
+<li>图9.21（c）表示检测到第二个INT信号后。设备B的服务例程一直执行，<strong>直到x6202处的指令执行结束时，检测到优先更高的中断</strong>。<code>先保存当前状态的信息（PC和PSR）</code>，B的服务例程的PSR和下一条指令的地址（PC+1 = x6203）被push进入supervisor stack。（栈不切换）。<code>再加载中断服务例程的状态信息</code>,与设备 C 相关的中断向量扩展为 16 位 (x01F2)，并将 x01F2 (x6300) 的内容加载到 PC 中。</li>
+<li>假设设备C的中断服务例程执行结束之后，在x6315处执行RTI，supervisor stack pop弹出PC（x6203）和PSR（程序B的），包括x6202中AND指令产生的Condition code条件码。图 9.21（d） 显示了此时的堆栈和 PC。</li>
+<li>设备 B 的中断服务例程在 x6203 处恢复执行并运行至完成，以 x6210 中的 RTI 指令结束。<code>管理程序堆栈被弹出两次，将 PC 恢复到 x3007 和程序 A 的 PSR，包括 x3006 中 ADD 指令产生的条件代码</code>。最后，由于程序A处于<strong>用户模式</strong>，R6的内容被存储在Saved SSP中，并且R6被加载Saved USP的内容。图 9.21（e） 显示了此时的管理程序堆栈和 PC。</li>
+<li>程序A通过x3007处的指令恢复执行</li>
+</ol>
+<h3 id="944-exception">9.4.4 Exception（异常）<a class="headerlink" href="#944-exception" title="Permanent link">&para;</a></h3>
+<p>LC-3中的Exception异常有三种</p>
+<ul>
+<li><strong>Privilege Mode Exception</strong></li>
+</ul>
+<p><strong>指在用户模式下使用了RTI指令</strong></p>
+<ul>
+<li><strong>Illegal Opcode Exception</strong></li>
+</ul>
+<p><strong>指在执行指令的时候，发现了一个不合法的指令（opcode = 1101）</strong></p>
+<ul>
+<li><strong>Access Control Violation Exception</strong></li>
+</ul>
+<p><strong>在用户模式下，尝试访问x3000以前和xFDFF之后的地址</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>        .ORIG   x3000
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>label   .FILL   xD000       ;x1101 
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>;Illegal Opcode Exception 使用了1101
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        RTI 
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>;Privilege Mode Exception 在用户模式下使用RTI
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        LDI     R0,A
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>A       .FILL   xFE04
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>;Access Control Violation Exception 访问了xFE04
+</code></pre></div>
+<h2 id="95-polling-revisitednow-that-we-know-aboat-interrupts">9.5 Polling Revisited，Now that We Know Aboat Interrupts<a class="headerlink" href="#95-polling-revisitednow-that-we-know-aboat-interrupts" title="Permanent link">&para;</a></h2>
+<h3 id="951-the-problem">9.5.1 The problem<a class="headerlink" href="#951-the-problem" title="Permanent link">&para;</a></h3>
+<p>Polling (轮询)：We continually test the ready bit in the relevant status register, and if it is not set, we branch back to again test the ready bit</p>
+<p>我们不断测试相关状态寄存器中的就绪位，如果未设置，我们分支返回再次测试就绪位</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Data%20Structures/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Chapter 8 Data Structures">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 8 Data Structures
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Calculator/" class="md-footer__link md-footer__link--next" aria-label="下一页: Chapter 10 Calculator">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 10 Calculator
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rescuerz" target="_blank" rel="noopener" title="My Github Page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="" target="_blank" rel="noopener" title="My CSDN Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 64c0-17.7 14.3-32 32-32 229.8 0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7 0 64zm0 352a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm32-256c159.1 0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

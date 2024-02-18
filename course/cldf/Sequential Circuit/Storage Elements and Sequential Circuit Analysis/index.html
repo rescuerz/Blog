@@ -11,22 +11,22 @@
       
       
       
-        <link rel="prev" href="../../Combinational%20Logic%20Design/Arithmetic%20Functions/">
+        <link rel="prev" href="../../Combinational%20Logic%20Design/Binary%20substraction/">
       
       
         <link rel="next" href="../Sequential%20Circuit%20Design/">
       
       
       <link rel="icon" href="../../../../duck.bmp">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
     
     
       
-        <title>Storage Elements and Sequential Circuit Analysis - Rescuers's Blog</title>
+        <title>Storage Elements and Sequential Circuit Analysis - Rescuerz's Blog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.f2e4d321.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -49,6 +49,8 @@
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
       <link rel="stylesheet" href="../../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-sequential-circuits" class="md-skip">
+        <a href="#41-storage-element-and-analysis" class="md-skip">
           跳转至
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
@@ -103,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Rescuers's Blog
+            Rescuerz's Blog
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -355,12 +357,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Rescuers&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuers's Blog" data-md-component="logo">
+    <a href="../../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
       
   <img src="../../../../favicon1.png" alt="logo">
 
     </a>
-    Rescuers's Blog
+    Rescuerz's Blog
   </label>
   
     <div class="md-nav__source">
@@ -392,14 +394,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
@@ -456,14 +456,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
@@ -482,7 +480,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -522,11 +520,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
@@ -571,11 +570,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
@@ -735,11 +735,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
@@ -924,11 +925,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
@@ -1151,11 +1153,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
@@ -1332,11 +1335,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
@@ -1469,11 +1473,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
@@ -1585,11 +1590,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
@@ -1709,11 +1715,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
@@ -1758,11 +1765,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
@@ -1914,11 +1922,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
@@ -2021,11 +2030,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
@@ -2271,13 +2281,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
@@ -2287,7 +2300,7 @@
             
   
   <span class="md-ellipsis">
-    数据结构与算法基础
+    数据结构基础
   </span>
   
 
@@ -2297,7 +2310,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
-            数据结构与算法基础
+            数据结构基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2318,11 +2331,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
@@ -2357,7 +2371,7 @@
         
   
   <span class="md-ellipsis">
-    算法
+    分析内容
   </span>
   
 
@@ -2378,7 +2392,7 @@
         
   
   <span class="md-ellipsis">
-    算法分析
+    渐进符号
   </span>
   
 
@@ -2395,11 +2409,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E6%AF%94%E8%BE%83/" class="md-nav__link">
+      <a href="../../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    算法比较
+    具体问题分析
   </span>
   
 
@@ -2438,21 +2452,14 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
@@ -2483,32 +2490,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/ADT/" class="md-nav__link">
+      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%881/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ADT
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%88%97%E8%A1%A8/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    列表
+    栈
   </span>
   
 
@@ -2546,74 +2532,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    栈
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    二叉树
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE%E6%A0%91/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    查找树
   </span>
   
 
@@ -2736,6 +2659,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2764,16 +2708,19 @@
       
         
       
-    
-    
+        
+      
     
     
       
+        
+        
       
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
@@ -2820,13 +2767,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
@@ -2886,13 +2836,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
@@ -2928,6 +2881,27 @@
   
   <span class="md-ellipsis">
     Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Circuits/Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
   </span>
   
 
@@ -3002,13 +2976,16 @@
       
         
       
+        
+      
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
@@ -3039,27 +3016,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Combinational Logic
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
         
   
@@ -3081,11 +3037,53 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
   </span>
   
 
@@ -3120,11 +3118,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" checked>
@@ -3197,82 +3196,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-sequential-circuits" class="md-nav__link">
+  <a href="#41-storage-element-and-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction to Sequential Circuits
+      4.1 Storage Element and Analysis
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latch
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Latch">
+    <nav class="md-nav" aria-label="4.1 Storage Element and Analysis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-nand-bar-s-bar-r-latch" class="md-nav__link">
+  <a href="#411-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic (NAND) \(\bar S\)-\(\bar R\) Latch
+      4.1.1 Latch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.1 Latch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4111-basic-nandoverline-s-overline-r-latch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1.1 Basic （NAND）\(\overline S - \overline R\) Latch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-nor-s-r-latch" class="md-nav__link">
+  <a href="#4112-basicnors-r-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic (NOR) S-R Latch
+      4.1.1.2 Basic（NOR）S-R Latch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clocked-s-r-latch" class="md-nav__link">
+  <a href="#4113-clocked-s-r-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      Clocked S-R Latch
+      4.1.1.3 Clocked S-R Latch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#d-latch" class="md-nav__link">
+  <a href="#4114-d-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      D Latch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#s-r-master-slave-flip-flop" class="md-nav__link">
-    <span class="md-ellipsis">
-      S-R Master-Slave Flip-Flop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#edge-triggered-d-flip-flop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Edge-Triggered D Flip-Flop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#positive-edge-triggered-d-flip-flop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Positive-Edge Triggered D Flip-Flop
+      4.1.1.4 D Latch
     </span>
   </a>
   
@@ -3282,13 +3255,93 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#sequential-circuit-analysis" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#412-flip-flop" class="md-nav__link">
     <span class="md-ellipsis">
-      Sequential Circuit Analysis
+      4.1.2 Flip-Flop 触发器
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4.1.2 Flip-Flop 触发器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4121-masterslave-flip-flop" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2.1 Master—Slave Flip-Flop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4122-edge-triggered-d-filp-flop" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2.2 Edge-Triggered D Filp-Flop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3 Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.3 Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4131-state-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.1 State Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4132-state-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.2 State Diagrams 状态图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4133-flip-flop-timing-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.3 Flip-Flop Timing Parameters 触发器时序参数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4134-circuit-and-system-level-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.4 Circuit and System Level Timing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3343,11 +3396,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
@@ -3415,11 +3469,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
@@ -3493,6 +3548,401 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Digital%20Logic%20Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Data%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ICS/Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3521,20 +3971,18 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3573,11 +4021,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
@@ -3630,11 +4079,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
@@ -3771,11 +4221,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
@@ -3927,11 +4378,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
@@ -4037,14 +4489,12 @@
       
     
     
-    
-    
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
@@ -4063,7 +4513,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -4109,11 +4559,12 @@
       
     
     
+      
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
-        
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
@@ -4355,82 +4806,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-sequential-circuits" class="md-nav__link">
+  <a href="#41-storage-element-and-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction to Sequential Circuits
+      4.1 Storage Element and Analysis
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latch
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Latch">
+    <nav class="md-nav" aria-label="4.1 Storage Element and Analysis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-nand-bar-s-bar-r-latch" class="md-nav__link">
+  <a href="#411-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic (NAND) \(\bar S\)-\(\bar R\) Latch
+      4.1.1 Latch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.1 Latch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4111-basic-nandoverline-s-overline-r-latch" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1.1 Basic （NAND）\(\overline S - \overline R\) Latch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-nor-s-r-latch" class="md-nav__link">
+  <a href="#4112-basicnors-r-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic (NOR) S-R Latch
+      4.1.1.2 Basic（NOR）S-R Latch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clocked-s-r-latch" class="md-nav__link">
+  <a href="#4113-clocked-s-r-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      Clocked S-R Latch
+      4.1.1.3 Clocked S-R Latch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#d-latch" class="md-nav__link">
+  <a href="#4114-d-latch" class="md-nav__link">
     <span class="md-ellipsis">
-      D Latch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#s-r-master-slave-flip-flop" class="md-nav__link">
-    <span class="md-ellipsis">
-      S-R Master-Slave Flip-Flop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#edge-triggered-d-flip-flop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Edge-Triggered D Flip-Flop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#positive-edge-triggered-d-flip-flop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Positive-Edge Triggered D Flip-Flop
+      4.1.1.4 D Latch
     </span>
   </a>
   
@@ -4440,13 +4865,93 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#sequential-circuit-analysis" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#412-flip-flop" class="md-nav__link">
     <span class="md-ellipsis">
-      Sequential Circuit Analysis
+      4.1.2 Flip-Flop 触发器
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4.1.2 Flip-Flop 触发器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4121-masterslave-flip-flop" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2.1 Master—Slave Flip-Flop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4122-edge-triggered-d-filp-flop" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2.2 Edge-Triggered D Filp-Flop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3 Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.3 Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4131-state-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.1 State Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4132-state-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.2 State Diagrams 状态图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4133-flip-flop-timing-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.3 Flip-Flop Timing Parameters 触发器时序参数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4134-circuit-and-system-level-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.3.4 Circuit and System Level Timing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4470,402 +4975,514 @@
 
   <h1>Storage Elements and Sequential Circuit Analysis</h1>
 
-<h2 id="introduction-to-sequential-circuits">Introduction to Sequential Circuits<a class="headerlink" href="#introduction-to-sequential-circuits" title="Permanent link">&para;</a></h2>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/16/8dWQqfgp61PhvMV.png" /></p>
-<p>次态方程：<span class="arithmatex">\(\text{Next State}=f(\text{Input},\text{State})\)</span></p>
-<p>输出方程：</p>
-<ul>
-<li>Mealy：<span class="arithmatex">\(\text{Outputs}=g(\text{Inputs},\text{State})\)</span></li>
-<li>Moore：<span class="arithmatex">\(\text{Outputs}=h(\text{State})\)</span></li>
-</ul>
-<p>分类：</p>
-<ul>
-<li>同步系统：<ul>
-<li>Behavior defined  from knowledge of its signals at discrete instances of time（周期性同步更新）</li>
-<li>Storage elements observe inputs and can change state only in relation to a timing signal (clock pulses from a clock)</li>
-</ul>
-</li>
-<li>异步系统：<ul>
-<li>Behavior defined from knowledge of inputs an any instant of time and the order in continuous time in which inputs change（非同步更新）</li>
-<li>If clock just regarded as another input, all circuits are asynchronous</li>
-</ul>
-</li>
-</ul>
-<h2 id="latch">Latch<a class="headerlink" href="#latch" title="Permanent link">&para;</a></h2>
-<h3 id="basic-nand-bar-s-bar-r-latch">Basic (NAND) <span class="arithmatex">\(\bar S\)</span>-<span class="arithmatex">\(\bar R\)</span> Latch<a class="headerlink" href="#basic-nand-bar-s-bar-r-latch" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/16/2OcJjGCfIwvyVXq.png" /></p>
-<ul>
-<li>R = 1, S = 1：此时假设Q = 0 / 1都是稳态，即保持历史状态；若历史状态unknown，为x</li>
-<li>R = 1, S = 0：将Q置位为1</li>
-<li>R = 1, S = 1：Q保持1</li>
-<li>R = 0, S = 1：将Q复位为0</li>
-<li>R = 1, S = 1：Q保持0</li>
-<li>R = 0, S = 0：将Q, <span class="arithmatex">\(\bar Q\)</span>置1（禁止）</li>
-<li>R = 1, S = 1：最后状态为一个1，一个0，由NAND门传输门延迟决定，延迟低的为1（不确定值）</li>
-</ul>
-<h3 id="basic-nor-s-r-latch">Basic (NOR) S-R Latch<a class="headerlink" href="#basic-nor-s-r-latch" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/16/3UkRWanpTmvOdZ9.png" /></p>
-<h3 id="clocked-s-r-latch">Clocked S-R Latch<a class="headerlink" href="#clocked-s-r-latch" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/16/SBVR6JGYT3w1md8.png" /></p>
-<ul>
-<li>C = 0：hold</li>
-<li>C = 1：<span class="arithmatex">\(\bar S-\bar R\)</span>锁存器</li>
-</ul>
-<h3 id="d-latch">D Latch<a class="headerlink" href="#d-latch" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/16/YAd5caWXukfVHsU.png" /></p>
-<ul>
-<li>C = 0：hold</li>
-<li>C = 1：禁止输入相同的操作，D = 1 / 0 为set / reset（Q = D）<blockquote>
-<p>计算门延迟时不算<span class="arithmatex">\(G_n\)</span>而算<span class="arithmatex">\(G\)</span>：触发器给出输出<span class="arithmatex">\(Q,\bar Q\)</span></p>
-</blockquote>
-</li>
-</ul>
-<p>问题：构造触发器Flip-Flops(#1 Q = ~Q;)时</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/16/StDd7eE9ZvfOlWg.png" /></p>
-<p>若置Clock = 1，则输出开始震荡，产生空翻现象</p>
-<p>本质：D直接改变输出Q</p>
-<p>期望：每个周期改且仅改一次（不让输入直接改变输出）</p>
-<p>解决：</p>
-<ul>
-<li>S-R主从触发器</li>
-<li>边沿触发器</li>
-</ul>
-<blockquote>
-<p>触发器：信号更新不再依赖于输入改变，而是依赖于触发信号（输入不再直接改变输出）</p>
-</blockquote>
-<h3 id="s-r-master-slave-flip-flop">S-R Master-Slave Flip-Flop<a class="headerlink" href="#s-r-master-slave-flip-flop" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/16/Zw3izE6NvkaHoe8.png" /></p>
-<p>性质：</p>
-<ul>
-<li>每个周期接收且仅接受一次外部输入</li>
-<li>脉冲触发：上升沿主锁存器接收信号，一个脉冲结束后，下降沿更新从锁存器</li>
-</ul>
-<p>问题：一次性采样</p>
-<ul>
-<li>当S = 0, R = 0，C处于上升沿时，此时为保持状态；若S抖动，则S<span class="arithmatex">\(\uparrow\downarrow\)</span>时Q'被置并保持（S上跳的恢复操作为R上跳，并非S恢复），在下降沿到来时将状态传递到Q导致主触发器状态被破坏</li>
-</ul>
-<p>解决：边沿D触发器</p>
-<h3 id="edge-triggered-d-flip-flop">Edge-Triggered D Flip-Flop<a class="headerlink" href="#edge-triggered-d-flip-flop" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/16/4ILoWNdiwlUMkTx.png" /></p>
-<p>C = 1时，D<span class="arithmatex">\(\uparrow\downarrow\)</span>互为逆操作，Q与D同步跳动（D上跳的恢复操作即D恢复）；下降沿时D的结果即为最后结果</p>
-<h3 id="positive-edge-triggered-d-flip-flop">Positive-Edge Triggered D Flip-Flop<a class="headerlink" href="#positive-edge-triggered-d-flip-flop" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/16/laX592rhbVmcIjM.png" /></p>
-<p>上升沿到来时，采集D输入；下降沿到来后更新Q状态</p>
-<blockquote>
-<p>标准触发器</p>
-</blockquote>
-<p>电路符号：</p>
-<p><img alt="image.png|400" src="https://s2.loli.net/2023/11/16/BE7yHprlSaKMbdj.png" /></p>
-<p>初值设定：</p>
-<ul>
-<li>
-<p>异步赋初值：通过S, R直接改变触发器的值</p>
-<p><img alt="image.png|100" src="https://s2.loli.net/2023/11/16/pUFwbqkQun8EOIg.png" /></p>
-</li>
-<li>
-<p>同步赋初值：通过改变D输入的值改变触发器的值</p>
-</li>
-</ul>
-<h2 id="sequential-circuit-analysis">Sequential Circuit Analysis<a class="headerlink" href="#sequential-circuit-analysis" title="Permanent link">&para;</a></h2>
-<p>模型：</p>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/1Pj9LrqD8kSWepI.png" /></p>
-<ul>
-<li>现态：在当前时刻t存储在触发器中的状态</li>
-<li>次态：t+1时刻的状态，is a Boolean function of State and Inputs</li>
-<li>输出<blockquote>
-<p>时钟信号不是输入信号，是系统组成的一部分</p>
-</blockquote>
-</li>
-</ul>
-<p>例：</p>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/jXK4qCYIocAv3Pz.png" /></p>
-<ul>
-<li>输入：<span class="arithmatex">\(x(t)\)</span></li>
-<li>输出：<span class="arithmatex">\(y(t)\)</span></li>
-<li>状态：<span class="arithmatex">\((A(t),B(t))\)</span><blockquote>
-<p>认为触发器的输出是电路的状态，n个触发器具有<span class="arithmatex">\(2^n\)</span>个状态</p>
-</blockquote>
-</li>
-<li>时钟脉冲：<span class="arithmatex">\(CP\)</span></li>
-<li>输出函数与次态方程：
-    <img alt="image.png|350" src="https://s2.loli.net/2023/11/23/7Zv2ws98OIUYkCJ.png" /><ul>
-<li><span class="arithmatex">\(D_A\)</span>：由触发器前的组合电路决定，<span class="arithmatex">\(D_A(t)=A(t)x(t)+B(t)x(t)\)</span></li>
-<li><span class="arithmatex">\(D_B(t)=\bar A(t)x(t)\)</span></li>
-<li>次态方程：由于D触发器激励方程为<span class="arithmatex">\(Q(t+1)=D(t)\)</span>，故<ul>
-<li><span class="arithmatex">\(A(t+1)=A(t)x(t)+B(t)x(t),B(t+1)=\bar A(t)x(t)\)</span></li>
-</ul>
-</li>
-<li>输出方程：<span class="arithmatex">\(y(t)=\bar x(t)(B(t)+A(t))\)</span><blockquote>
-<p>t时刻为上升沿到来的时刻（clk=1开始更新）</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<p>状态表：a multiple variable table with the following four sections</p>
-<ul>
-<li>Present State – the values of the state variables for each allowed state</li>
-<li>Input – the input combinations allowed</li>
-<li>Next-state – the value of the state at time (t+1) based on the present state and the input</li>
-<li>Output – the value of the output as a function of the present state and (sometimes) the input<blockquote>
-<p>类似真值表，枚举<span class="arithmatex">\(A(t),B(t),x(t)\)</span>得到<span class="arithmatex">\(A(t+1),B(t+1)\)</span>与<span class="arithmatex">\(y(t)\)</span></p>
-</blockquote>
-</li>
-</ul>
-<p><img alt="image.png|400" src="https://s2.loli.net/2023/11/23/n8R7r1mfvKi5NL2.png" /></p>
-<p>问题：状态转移难以观察</p>
-<p>解决：Alternate State Table</p>
-<ul>
-<li>A(t), B(t)类似卡诺图排列（非严格），2-dimensional table that matches well to a K-map. Present state rows and input columns in Gray code order
-<img alt="image.png|400" src="https://s2.loli.net/2023/11/23/CRp5QktD8NUGAHP.png" /></li>
-</ul>
-<p>问题：不直观</p>
-<p>解决：状态图</p>
-<ul>
-<li>A circle with the state name in it for each state</li>
-<li>A directed arc from the Present State to the Next State for each state transition</li>
-<li>A label on each directed arc with the Input values which causes the state transition, and<ul>
-<li>On each circle with the output value produced, or</li>
-<li>On each directed arc with the output value produced</li>
-</ul>
-</li>
-</ul>
-<p><img alt="image.png|400" src="https://s2.loli.net/2023/11/23/y6OTWzP1NdwEacv.png" /></p>
-<p>等效状态：从两个状态出发，给定相同的输出序列，若次态和输出都一致，则说明两个状态等效，可合并
-+ 目的：减少状态以减少触发器的数量</p>
-<p>例：</p>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/DrEBSOyvnIKta9H.png" /></p>
-<ul>
-<li>S2, S3：输入0，转移至S0, 输出1；输入1，转移至S2，输出0，故等效</li>
-</ul>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/wfkQqoJTtDWncPE.png" /></p>
-<ul>
-<li>S1, S2：输出0，转移至S2, 输出0；输入1，转移至S0，输出1，故等效</li>
-</ul>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/SmPj5ugGMTcwHx1.png" /></p>
-<p>有限状态自动机(FSM)：</p>
-<ul>
-<li>
-<p>Moore型：output depends only on state, 输出标记在圆圈内</p>
-<p><img alt="image.png|200" src="https://s2.loli.net/2023/11/23/1AMmeBpPzLuw68K.png" /><img alt="image.png|200" src="https://s2.loli.net/2023/11/23/ziDxCnpjGMYV4NE.png" /></p>
-</li>
-<li>
-<p>Mealy型：output depends on state and <mark>input</mark>, 输出标记在弧上</p>
-<p><img alt="image.png|200" src="https://s2.loli.net/2023/11/23/lQEhLp8OHIC1bzi.png" /><img alt="image.png|200" src="https://s2.loli.net/2023/11/23/NQ9ZXz7mo1vOGdn.png" /></p>
-</li>
-</ul>
-<p>简化Mealy型：将部分输出放在圆圈内</p>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/vyOjsHqJiAIeDfr.png" /></p>
-<p>例：模5计数器</p>
-<p><img alt="|400" src="https://s2.loli.net/2023/11/23/oPMWpjgyeG6bViA.png" /></p>
-<p>状态表：</p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/23/cUGe8opMEyIjgvZ.png" /></p>
-<p>状态图：</p>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/23/Ia62z4OmoMbulC1.png" /></p>
-<blockquote>
-<p>rst信号用于初值设定
-死锁：当系统受到外部干扰跳到无效状态时可能引起死锁</p>
-</blockquote>
-<pre class="mermaid"><code>graph LR;
-A[101]&lt;---&gt;B[110]</code></pre>
-<p>状态表简化：</p>
-<ul>
-<li>等效状态：设状态S1和S2是完全确定状态表中的两个状态,如果对于所有可能的输入序列，分别从状态S1和状态S2出发，所得到的输出响应序列完全相同，则状态S1和S2是等效的，记作(S1, S2), 或者说，状态S1和S2是等效对</li>
-<li>
-<p>判据：</p>
-<ul>
-<li><mark>输出相同</mark></li>
-<li>
-<p>次态相同 / 交错 / 循环</p>
-<ul>
-<li>相同：<span class="arithmatex">\(S_i\equiv S_j\)</span></li>
-</ul>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/30/qfycn5bLm8sJOAk.png" /></p>
-<ul>
-<li>交错：<span class="arithmatex">\(S_i\to S_j,S_j\to S_i\)</span></li>
-</ul>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/30/KvV5ntBDblUxEGh.png" /></p>
-<p><span class="arithmatex">\(S_i\equiv S_j\to S_k\equiv S_t\)</span></p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/30/PYVk5MEw6fNyq8j.png" /></p>
-<ul>
-<li>
-<p>循环：<span class="arithmatex">\(S_i\equiv S_j\to S_k\equiv S_t,S_k\equiv S_t\to S_i\equiv S_j\)</span></p>
-<p><img alt="image.png|250" src="https://s2.loli.net/2023/11/30/NX4E3BvU9FiqgHr.png" /></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>化简方法：</p>
-<ul>
-<li>观察法</li>
-<li>
-<p>隐含表法</p>
-<p><img alt="image.png" src="https://s2.loli.net/2023/11/30/5rZSvhCosRPn2OM.png" /></p>
-<ul>
-<li>由于CD、DE不等效，所以DG不等效，画斜线标志</li>
-<li>
-<p>处于循环链中的每一个状态对都是等效状态对：</p>
-<p><img alt="image.png|150" src="https://s2.loli.net/2023/11/30/kDN2dlCfL1utxJW.png" /></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>时钟参数：</p>
-<ul>
-<li>占空比：<span class="arithmatex">\(\dfrac{t_{wH}}{t_{wH}+t_{wL}}\times100\%=50\%\)</span></li>
-<li>
-<p>边沿触发器：</p>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/23/By4kceEYtI6nvSJ.png" /></p>
-<ul>
-<li>建立时间<span class="arithmatex">\(t_s\)</span>：触发信号==需要在建立时间前==触发，否则将不会被接收</li>
-<li>维持时间<span class="arithmatex">\(t_h\)</span>：触发完成后信号不会被立刻改变</li>
-<li>传输延迟<span class="arithmatex">\(t_{px}\)</span>：<ul>
-<li><span class="arithmatex">\(t_{PHL}\)</span>：High-to-Low</li>
-<li><span class="arithmatex">\(t_{PLH}\)</span>：Low-to-High</li>
-<li><span class="arithmatex">\(t_{pd}\)</span>：<span class="arithmatex">\(\max(t_{PHL},t_{PLH})\)</span></li>
-</ul>
-</li>
-<li>主从触发器：</li>
-</ul>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/23/SHu3T9OgjpfmwJv.png" /></p>
-<ul>
-<li><span class="arithmatex">\(t_s\)</span>为整个时钟脉冲的宽度（clk为高时输入信号不能改变——一次性采样）</li>
-<li><span class="arithmatex">\(t_h,t_{pd}\)</span></li>
-</ul>
-</li>
-</ul>
-<p>工作频率计算：触发时钟周期不能无限小，存在延迟；计算触发沿最小间隔</p>
-<ul>
-<li>
-<p>分析方法：将触发器拆成两部分</p>
-<p><img alt="image.png|350" src="https://s2.loli.net/2023/11/23/D8R3XEP9BQo2nGb.png" /></p>
-</li>
-</ul>
-<div class="arithmatex">\[
-t_p=t_{pd,FF}+t_{pd,COMB}+t_{slack}+t_s
-\]</div>
-<p>边沿触发器：</p>
-<p><img alt="image.png|450" src="https://s2.loli.net/2023/11/23/iSZdv6cstCm1gFp.png" /></p>
-<p>主从触发器：</p>
-<p><img alt="image.png|450" src="https://s2.loli.net/2023/11/23/S8rjiAvxMwHJG4C.png" /></p>
-<ul>
-<li><span class="arithmatex">\(t_{slack}\)</span>：松弛时间，需大于等于0</li>
-</ul>
-<p>结论：仅能缩短组合电路时间提升电路频率</p>
-<p>最大工作频率：</p>
-<p><span class="arithmatex">\(t_p=t_{slack}+t_{pd,FF}+t_{pd,COMB}+t_s\geqslant\max(t_{pd,FF}+t_{pd,COMB}+t_{s})\)</span></p>
-<p>例：<span class="arithmatex">\(t_{pd,FF}(\max)=1.0ns,t_s(\max)=0.3ns,f(clk)=250MHz\)</span></p>
-<p><img alt="image.png|450" src="https://s2.loli.net/2023/11/23/rRPIDJlWxzaTBoy.png" /></p>
-<p>状态分配：为状态指定触发器的表达</p>
-<ul>
-<li>
-<p>例：
-    <img alt="image.png|300" src="https://s2.loli.net/2023/11/30/5PmKExaYn97BJRX.png" /></p>
-<p>分配A = 00, B = 01, C = 10, D = 11，得</p>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/30/F7E9fG8kuNQMwxh.png" /></p>
-</li>
-</ul>
-<blockquote>
-<p>此处跳步：应先令次态为<span class="arithmatex">\(Y_1',Y_2'\)</span>，由D触发器激励方程<span class="arithmatex">\(Q=D\)</span>，得<span class="arithmatex">\(Y_1'Y_2'=D_1D_2\)</span>
-对SR触发器需根据<span class="arithmatex">\(Y_1'Y_2'\)</span>倒推输出</p>
-</blockquote>
-<p><span class="arithmatex">\(D_1/D_2\)</span>的值由<span class="arithmatex">\(Y_1,Y_2,X\)</span>决定，交换三四行（变为格雷码序），构造卡诺图</p>
-<p><img alt="image.png|400" src="https://s2.loli.net/2023/11/30/zPa97iqh28c4vrQ.png" /></p>
-<ul>
-<li>
-<p>近似最优分配方案</p>
+<h2 id="41-storage-element-and-analysis">4.1 Storage Element and Analysis<a class="headerlink" href="#41-storage-element-and-analysis" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20231109093010831" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446353.png" /></p>
+<p>时序逻辑电路包括：组合逻辑电路 + 存储元件</p>
+<p>Other inputs, State or Present State, are signals from storage elements.</p>
+<p>其他输入（状态或者当前状态），是来自存储元件的信号</p>
+<p>The remaining outputs, Next State are inputs to storage elements</p>
+<p>剩余的输出、下一状态是存储元件的输入</p>
 <ol>
-<li><mark>在相同输入条件下具有相同次态的现态，应尽可能分配相邻的二进制代码</mark></li>
-<li>在相邻输入条件，同一现态的次态应尽可能分配相邻的二进制代码</li>
-<li>输出完全相同的现态应尽可能分配相邻的二进制代码</li>
-<li>最小化状态表中出现次数最多的状态或初始状态应分配逻辑0</li>
+<li>Combinatorial Logic</li>
+</ol>
+<ul>
+<li>Next state function </li>
+<li>Next State = f(Inputs, State) 次态方程，输入和当前状态共同决定下一状态</li>
+<li>Output function (Mealy) <strong>Mealy模型</strong></li>
+<li>Outputs = g(Inputs, State)</li>
+<li>Output function (Moore) <strong>Moore模型</strong></li>
+<li>Outputs = h(State) 输入不会直接改变输出，而是<strong><code>通过状态来间接改变输出</code></strong></li>
+</ul>
+<blockquote>
+<p><strong>Mealy 模型和 Moore 模型</strong></p>
+</blockquote>
+<p><img alt="image-20231129183906444" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446298.png" /></p>
+<ol start="2">
+<li>Types of Sequential Circuits 时序电路的类型</li>
 </ol>
 <ul>
 <li>
-<p>例子</p>
-<p><img alt="image.png|500" src="https://s2.loli.net/2023/11/30/tAhHP5dgcbrnKFY.png" />
-<img alt="image.png|500" src="https://s2.loli.net/2023/11/30/4g5jdGoCq3OIpcn.png" /></p>
-</li>
-</ul>
-</li>
-</ul>
-<p>JK触发器：防止SR主从触发器S = R = 1的非法状态，J = K = 1时状态求反</p>
-<ul>
-<li>问题：仍存在一次性采样的问题（保持 <span class="arithmatex">\(\to\)</span> 求反 <span class="arithmatex">\(\to\)</span> 保持）</li>
-<li>
-<p>实现：选择结构 + D触发器</p>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/30/UBihpXIt4xaRJyc.png" /></p>
-<ul>
-<li>保持：Q = D</li>
-<li>求反：<span class="arithmatex">\(\bar Q\)</span> = D</li>
-<li>符号：</li>
-</ul>
-<p><img alt="image.png|150" src="https://s2.loli.net/2023/11/30/w7btmuEOvl9gjiz.png" /></p>
-</li>
-</ul>
-<p>T触发器：T = 0保持，T = 1求反</p>
-<ul>
-<li>
-<p>实现：JK触发器，J = K = T</p>
-<ul>
-<li>问题：一次性采样</li>
-<li>
-<p>解决：D触发器实现</p>
-<p><img alt="image.png|300" src="https://s2.loli.net/2023/11/30/TIxlU6AqEM9ePsH.png" /></p>
-</li>
-</ul>
+<p>Depends on the times at which:</p>
 </li>
 <li>
-<p>符号：</p>
-<p><img alt="image.png|150" src="https://s2.loli.net/2023/11/30/C8swjcQhfBgAo71.png" /></p>
+<p>storage elements observe their inputs, and</p>
+</li>
+<li>
+<p>storage elements change their state</p>
+<p>存储元件观察输入并改变其状态</p>
+</li>
+<li>
+<p>Synchronous 同步</p>
 </li>
 </ul>
-<p>触发器行为描述：</p>
+<p>所有的存储元件更新一定发生在时钟周期的整周期上</p>
 <ul>
-<li>特征表</li>
-<li>特征方程</li>
-<li>激励表<blockquote>
-<p>分析时使用特征表，特征方程
-设计时使用激励表</p>
+<li>Asynchronous 异步
+  存储元件更新可以在任意时间发生
+  如果时钟也被看做一个输入，那么所有电路都是 Asynchronous
+  Asynchronous 可以让我们在有需要的时候更新电路，降低电路的功耗</li>
+</ul>
+<p><strong>一般来说，异步电路的设计相对困难（行为与门的传播延迟和输入信号变化的时间序列密切相关）</strong></p>
+<p><img alt="image-20231109095029524" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446761.png" /></p>
+<h3 id="411-latch">4.1.1 Latch<a class="headerlink" href="#411-latch" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20231109095335046" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446730.png" /></p>
+<p><img alt="image-20231109095507619" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446392.png" /></p>
+<p><img alt="image-20231116104405722" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446800.png" /></p>
+<p>开启震荡模式，每1.1ns变化一次，前提是S = 0</p>
+<h4 id="4111-basic-nandoverline-s-overline-r-latch">4.1.1.1 Basic （NAND）<span class="arithmatex">\(\overline S - \overline R\)</span> Latch<a class="headerlink" href="#4111-basic-nandoverline-s-overline-r-latch" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231109095641744" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446152.png" /></p>
+<table>
+<thead>
+<tr>
+<th>R</th>
+<th>S</th>
+<th>Q</th>
+<th><span class="arithmatex">\(\overline Q\)</span></th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>?</td>
+<td>?</td>
+<td>Stored state unknown</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Set Q = 1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>now Q remembers 1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>Reset Q = 0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>now Q remembers 0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>Both go high</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>？</td>
+<td>？</td>
+<td>unstable</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>$S = 0 , R = 0 $ is forbidden as input pattern</li>
+</ul>
+<p><code>因为Q和\bar Q不再满足取反的条件，当R，S同时变为1时，进入存储状态时，Q和 \bar Q的值需要改变且无法确定</code></p>
+<ul>
+<li>第一步和最后一步，unstable是因为，无法确定Q还是<span class="arithmatex">\(\bar Q\)</span>变成1，都有可能，<strong>最后由传输延迟决定</strong></li>
+</ul>
+<h4 id="4112-basicnors-r-latch">4.1.1.2 Basic（NOR）S-R Latch<a class="headerlink" href="#4112-basicnors-r-latch" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231116105642769" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446289.png" /></p>
+<h4 id="4113-clocked-s-r-latch">4.1.1.3 Clocked S-R Latch<a class="headerlink" href="#4113-clocked-s-r-latch" title="Permanent link">&para;</a></h4>
+<p>门控SR 锁存器是一种基于SR 锁存器的改进版本，它引入了一个额外的控制信号（通常称为使能信号或时钟信号）来控制SR 锁存器的操作。门控SR 锁存器在时钟信号的作用下，只在特定时刻才允许输入信号对锁存器进行设置或重置操作，从而实现更可控的存储功能。</p>
+<p><img alt="image-20231116105918463" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446170.png" /></p>
+<ul>
+<li>
+<p>具有与基本 S-R 锁存器类似的时序行为，不同之处在于仅当线路 C 为高电平时才观察到 S 和 R 输入。</p>
+</li>
+<li>
+<p>C 表示“控制”或“时钟”。</p>
+</li>
+<li>
+<p><strong>作为一个 ENABLE 的功能。当$ C=0$ 时，<span class="arithmatex">\(Q\)</span> 不会发生改变。当 <span class="arithmatex">\(C\)</span>=1 时，上面相当于 <span class="arithmatex">\(\bar S\)</span>, 下面相当于 <span class="arithmatex">\(\bar R\)</span>, 变成一个钟控的 SR 锁存器。</strong></p>
+</li>
+</ul>
+<p>当S和R都为1，且C= 1时，是违法状态，相当于S-R Latch的<span class="arithmatex">\(S=0,R=0\)</span>状态</p>
+<table>
+<thead>
+<tr>
+<th>C</th>
+<th>S</th>
+<th>R</th>
+<th>Q(t+1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>X</td>
+<td>X</td>
+<td>no change(存储状态)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>no change（11，存储状态）</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0：Clear Q</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1： Set Q</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>（00）非法状态</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>此处你会发现，S和R的取值组合所得结果与SR锁存器相反。</strong></p>
+<p><strong>原因在于，当C = 1时， S AND C = S，经过非门作用后，输出结果为</strong><span class="arithmatex">\(\overline S, \overline R\)</span></p>
 </blockquote>
+<h4 id="4114-d-latch">4.1.1.4 D Latch<a class="headerlink" href="#4114-d-latch" title="Permanent link">&para;</a></h4>
+<p><strong>为了消除非法状态的影响，防止11的出现</strong></p>
+<p><img alt="image-20231116110302858" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446359.png" /></p>
+<table>
+<thead>
+<tr>
+<th>C</th>
+<th>D</th>
+<th>Q（t+1）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>X</td>
+<td>no change</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0 : clear Q</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1 : Set Q</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>当C = 1时, Q = D</code></strong></p>
+<p>S 和 R 输入始终保持相反，导致 0 和 0的输入也消失，也就是存储功能消失了</p>
+<p>但是当C = 0时，也能达到存储的结果，所以没有影响。</p>
+<blockquote>
+<p><strong>锁存器的空翻现象</strong>:</p>
+<p><strong>D 锁存器也存在问题。如果我门将 <span class="arithmatex">\(\overline Q\)</span> 接到 D 上，就会发现 D 锁存器将不停的变化其中的数据，出现 空翻，导致我们无法确定 C 置 0 时 Q 的输出究竟是什么，而这是非常危险的。</strong></p>
+</blockquote>
+<p>具体来说，<strong>当D 锁存器的输入信号在时钟信号的上升沿（或下降沿）到来时发生变化，并且在时钟信号的下一个上升沿（或下降沿）到来前，输入信号再次发生变化，就可能导致” 空翻” 现象的出现。这种情况下，D 锁存器的输出会在两个连续的时钟周期内出现两次翻转。</strong></p>
+<p>解决方法：消除空翻现象，使每次触发仅使锁存器的内部状态仅改变一次.</p>
+<blockquote>
+<p><strong>验证D锁存器的空翻现象</strong></p>
+</blockquote>
+<p><img alt="image-20231129184547195" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446764.png" /></p>
+<p><img alt="image-20231129184553319" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446632.png" /></p>
+<p>(a) 在0-20ns，C = 0, D = 1, 得到输出结果待定</p>
+<p>(b) 在20-40ns，C = 1，D = 1，得到输出结果Q=1，Qbar=0</p>
+<p>&copy; 在40-50ns，C = 0，D = 1，保持原状态。</p>
+<p>(d) 在50-60ns，D = 0，Qbar 成为输入，但是由于C=0，保持原状态。</p>
+<p>(e) 之后，Qbar 作为输入，C=1，开启振荡，Q 和Qbar 交替变化。</p>
+<h3 id="412-flip-flop">4.1.2 Flip-Flop 触发器<a class="headerlink" href="#412-flip-flop" title="Permanent link">&para;</a></h3>
+<p>锁存器不适合使用在电路中：不能做到一个周期，状态只更新一次。</p>
+<p><img alt="image-20231116111732558" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446802.png" /></p>
+<p><img alt="image-20231116111743581" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446837.png" /></p>
+<p>只要C = 1 ， Y的值就会不断地变化</p>
+<p>我们期望的是：Y的值每一个时钟周期变化一次</p>
+<blockquote>
+<p><strong>打断D到Q的直连通道，添加一个中间件</strong></p>
+</blockquote>
+<h4 id="4121-masterslave-flip-flop">4.1.2.1 Master—Slave Flip-Flop<a class="headerlink" href="#4121-masterslave-flip-flop" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231116112438846" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446038.png" /></p>
+<ul>
+<li>前面称为 master(主锁存器), 后面称为 slave(从锁存器)</li>
+<li>当 <span class="arithmatex">\(C=0\)</span> 时，主锁存器不变。从锁存器处于Enable状态，S，R输入未知，Q，<span class="arithmatex">\(\bar Q\)</span> 结果未知</li>
+<li>不妨设<span class="arithmatex">\(S= 1, Q = 0\)</span> <span class="arithmatex">\(,C <span class="arithmatex">\(从 0 变为 1 时，主锁存器被使能，Q 改变\)</span>Q = 1, \bar Q = 0\)</span>，但从锁存器不变，输出结果不变。</li>
+<li><span class="arithmatex">\(C\)</span> 从 1 变为 0时，主锁存器不变。从锁存器处于Enable状态，<span class="arithmatex">\(Q = 1, \bar Q = 0\)</span></li>
+</ul>
+<p><img alt="image-20231116120108178" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446678.png" /></p>
+<blockquote>
+<p><strong>周期变长一倍 一次性采样问题(1s catching)：当 S R 均为 0 时如果有小扰动，无法复原。</strong></p>
+<p><strong>以下是一次性采样问题的解释</strong></p>
+</blockquote>
+<p>S and/or R are permitted to change while C = 1</p>
+<ul>
+<li>Suppose Q = 0 and S goes to 1 and then back to 0 with R remaining at 0</li>
+</ul>
+<p>当SR初始状态为00，S产生一个小脉冲，从0变为1，再变为0</p>
+<ul>
+<li>
+<p>The master latch sets to 1. <code>导致主锁存器的输出Q’变为1</code></p>
+</li>
+<li>
+<p>A 1 is transferred to the slave <code>该结果被传输给从锁存器</code></p>
+</li>
+<li>
+<p>Suppose Q = 0 and S goes to 1 and back to 0 and R goes to 1 and back to 0</p>
 </li>
 </ul>
-<p>D触发器：</p>
+<p>SR初始状态为00，S先从0变为1，再变为0。R再从0变为1，再变为0</p>
 <ul>
-<li>特征表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/BleC9YZDQV1Gcto.png" /></li>
-<li>特征方程：<span class="arithmatex">\(Q(t+1)=D\)</span></li>
-<li>激励表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/M8qiTKQuSfrmtXj.png" /></li>
+<li>
+<p>The master latch sets and then resets</p>
+<p><code>也就是说，主锁存器先经历Set，输出结果Q‘=1，再经历Reset，输出结果变为0</code></p>
+</li>
+<li>
+<p>A 0 is transferred to the slave</p>
+</li>
 </ul>
-<p>T触发器：</p>
+<p>• This behavior is called 1s catching</p>
+<p><img alt="image-20231123100410756" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446424.png" /></p>
+<p>0-25ns，C = 0， 从锁存器输出未知</p>
+<p>25ns-50ns，主锁存器不影响从锁存器，Q‘ = 1，输出仍然未知</p>
+<p>50ns-75ns，从锁存器发挥作用，Q‘=1，输出Q=1</p>
+<p>75ns-100ns，主锁存器发挥作用，S=0，R=1，Q’=0，但是从锁存器输出不变</p>
+<p>100ns-125ns，从锁存器发挥作用，由于Q’=0，输出Q=0</p>
+<p>125ns-150ns，主锁存器发挥作用，S=0，R=0，Q‘=1，Q’bar=1</p>
+<p>150ns-175ns，从锁存器发挥作用，输入是11，保持之前的状态，Q=0</p>
+<p>175ns-200ns，主锁存器发挥作用，中间S从0变为1，导致输出Q'变为1，之后虽然S变为0，但是S=0，R=0，得到的是保持原来的状态，也就是Q’=1</p>
+<p>200-225ns，从锁存器发挥作用，由于Q'=1,导致输出Q=1，但是按照原来的想法，脉冲返回原来的状态，但是Q没有按照原来的状态</p>
+<h4 id="4122-edge-triggered-d-filp-flop">4.1.2.2 Edge-Triggered D Filp-Flop<a class="headerlink" href="#4122-edge-triggered-d-filp-flop" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231116120042979" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446548.png" /></p>
+<p><img alt="image-20231116120340740" src="https://gitee.com/zjdxzn_0/typora-image/raw/master/img/202311161203240.png" /></p>
+<ol>
+<li>An <strong>edge-triggered flip-flop</strong> ignores the pulse while it is at a constant level and triggers only during a transition of the clock signal.</li>
+</ol>
+<blockquote>
+<p>边沿触发触发器会<code>忽略处于恒定电平的脉冲</code>，并且仅在<strong>时钟信号转换期间(边沿交界处)</strong>触发。</p>
+</blockquote>
+<ol start="2">
+<li>A <strong>master-slave D flip-flop</strong> which also exhibits <strong>edge-triggered</strong> behavior can be used.</li>
+</ol>
+<p>可以使用也具有边沿触发行为的主从 D 触发器。</p>
+<ol start="3">
+<li>The delay of the S-R master-slave flip-flop can be avoided since the 1s-catching behavior is not present with D replacing S and R inputs.</li>
+</ol>
+<p>由于用 D 代替 S 和 R 输入，不存在 1 捕捉行为，因此可以避免 S-R 主从触发器的延迟。</p>
+<ol start="4">
+<li><code>D触发器发明的原因，在于解决MS FLIP-FLOP 主从触发器的一次性采样问题。D锁存器的使用直接解决了SR同时为0的情况，尽管出现脉冲，也能够恢复正常。</code></li>
+</ol>
+<blockquote>
+<p><strong>Positive-Edge Triggered D Flip-Flop</strong></p>
+<p><code>上升沿和下降沿，看的是输入到D触发器C输入端的值与CLK的关系。上升意味着，CLK从0变为1，在0阶段，实现主锁存器Q’的改变，在1阶段，实现Q‘的输出。也就是说0阶段，主锁存器发挥作用，1阶段从锁存器发挥作用。</code></p>
+<p><code>换句话说，从锁存器读取的Q‘是主锁存器在clk = 0 的最后一刻确定的（D触发器规避了一次性采样问题），对应的也就是边沿。</code></p>
+<p><strong>对于上升沿，主锁存器C前面有一个非门 0 -&gt; 1 ,进行输出</strong> </p>
+<p><strong>对于下降沿，从锁存器C前面有一个非门</strong></p>
+</blockquote>
+<p><img alt="image-20231116121054102" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446573.png" /></p>
+<p><img alt="image-20231123100534304" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446852.png" /></p>
+<p>(a) 当R = S = 1 时输出Q 随着输入D 的变化而变化</p>
+<p>(b) 在R = 0，S = 1 时，输出Q 为0</p>
+<p>&copy; R = 1，S = 0 时，输出Q 为1（Direct Input，此时输出与C D 的值无关）和真值表相符，符合预期。</p>
+<p>(d) <strong>上升沿触发体现在：在120ns 时，D 从0 变为1，但由于此时C 不变，所以Q 不变，直到150ns，C 从0 变为1，这时Q 才变为1</strong></p>
+<p><img alt="image-20231116120701466" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446380.png" /></p>
+<p>与上面的D触发器实现的功能相同，但是门输入成本更低</p>
+<blockquote>
+<p><strong>Standard symbol for storage Elements:</strong></p>
+</blockquote>
+<p><img alt="image-20231213195512542" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446481.png" /></p>
+<p><img alt="image-20231213195543323" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446518.png" /></p>
+<blockquote>
+<p><strong>Direct Input:</strong></p>
+</blockquote>
+<p><img alt="image-20231116121738493" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446757.png" /></p>
 <ul>
-<li>特征表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/4KLa1T3B9FrZyIu.png" /></li>
-<li>特征方程：<span class="arithmatex">\(Q(t+1)=T\oplus Q\)</span></li>
-<li>激励表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/iFGhCUzNYdTE1wy.png" /></li>
+<li>Direct <em>R</em> and/or <em>S</em> inputs that control the state of the latches within the flip-flops are used for this <em>initialization</em>.</li>
 </ul>
-<p>SR主从触发器：</p>
+<p>For the example flip-flop shown</p>
 <ul>
-<li>特征表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/GnU6FZraJOuHyYl.png" /></li>
-<li>特征方程：<span class="arithmatex">\(Q(t+1)=S+\bar R Q\)</span>, <span class="arithmatex">\(S\cdot R=0\)</span></li>
-<li>激励表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/e7DLRlEKHtB8srq.png" /></li>
+<li>0 applied to <span class="arithmatex">\(\overline R\)</span> resets the flip-flop to the 0 state</li>
+<li>0 applied to <span class="arithmatex">\(\overline S\)</span> sets the flip-flop to the 1 state</li>
 </ul>
-<p>JK主从触发器：</p>
+<h3 id="413-analysis">4.1.3 Analysis<a class="headerlink" href="#413-analysis" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20231123100854615" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446431.png" /></p>
+<p>利用同步，所有的触发器都在同一时间改变</p>
 <ul>
-<li>特征表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/pjeVHRZ62BOxo4i.png" /></li>
-<li>特征方程：<span class="arithmatex">\(Q(t+1)=J\bar Q+\bar KQ\)</span></li>
-<li>激励表：
-    <img alt="image.png|150" src="https://s2.loli.net/2023/11/30/GaebIvBMgqoLmQC.png" /></li>
+<li><strong>Current State</strong> at time (t) is stored in an array of flip-flops.</li>
+<li><strong>Next State</strong> at time (t+1) is a <em>Boolean function</em> of State and Inputs.</li>
+<li><strong>Outputs</strong> at time (t) are a <em>Boolean function</em> of State (t) and (sometimes) Inputs (t).</li>
 </ul>
+<p>例子：</p>
+<p><img alt="image-20231123101130628" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446807.png" /></p>
+<ul>
+<li>此处的CP也就是CLK，是时钟，<strong><code>时间信号不会出现在状态图（状态变迁）**，**不是外部信号输入</code></strong></li>
+<li>将触发器的输出，视作电路的状态state</li>
+<li><span class="arithmatex">\(state ： A(t),B(t)\)</span>,n个触发器就有<span class="arithmatex">\(2^n\)</span>个状态组合</li>
+<li><span class="arithmatex">\(Input: x(t)\)</span></li>
+<li><span class="arithmatex">\(Output: y(t)\)</span></li>
+<li>由于是D触发器，下一状态值由D决定(即<span class="arithmatex">\(Q = D\)</span>)，所以<span class="arithmatex">\(<span class="arithmatex">\(A(t+1)= D_A(t)\)</span>\)</span></li>
+<li><img alt="image-20231123101708961" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446557.png" /></li>
+</ul>
+<h4 id="4131-state-table">4.1.3.1 State Table<a class="headerlink" href="#4131-state-table" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Present State</strong> – the values of the state variables for each allowed state.</li>
+<li><strong>Input</strong> – the input combinations allowed.</li>
+<li><strong>Next-state</strong> – the value of the state at time (<span class="arithmatex">\(<span class="arithmatex">\(t+1\)</span>\)</span>) based on the present state and the input.</li>
+<li><strong>Output</strong> – the value of the output as a function of the present state and (sometimes) the input.</li>
+</ul>
+<p><img alt="image-20231123102555359" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446660.png" /></p>
+<p>行数由输入组合决定，两个触发器，两个状态，+ input = 3</p>
+<p>当x（t）= 0 时，Next state 均变为（0 0）</p>
+<p>当x（t）= 1时，Next state 历经（0，0），（0，1），（1，1），（1，0）</p>
+<p><img alt="image-20231123103235553" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446766.png" /></p>
+<h4 id="4132-state-diagrams">4.1.3.2 State Diagrams 状态图<a class="headerlink" href="#4132-state-diagrams" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A <em>circle</em> with the state name in it for each state </li>
+</ul>
+<p>每一个圆圈表示一个状态，多少个状态输入，就有<span class="arithmatex">\(2^n\)</span>个圆圈</p>
+<ul>
+<li>A <em>directed arc</em> from the Present State to the Next State for each state transition</li>
+</ul>
+<p>每个状态转换从当前状态到下一个状态的有向弧</p>
+<ul>
+<li>A label on each directed arc with the Input values which causes the state transition, and A label:</li>
+</ul>
+<p>每个有向弧上的标签，其中包含导致状态转换的输入值</p>
+<p>输出和输入是否有关，无关标在圈里面，有关标在外面</p>
+<ul>
+<li>On each circle with the output value produced, or</li>
+<li>On each directed arc with the output value produced.</li>
+</ul>
+<blockquote>
+<ol>
+<li><code>**Moore** type output depends only on state(输出画在圈里面)</code></li>
+</ol>
+<p>输出仅取决于状态</p>
+<ol start="2">
+<li>**<code>Mealy** type output depends on state and input(输出画在有向弧上)</code></li>
+</ol>
+<p>输出取决于状态和输入</p>
+<p><img alt="image-20231123103838799" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446276.png" /></p>
+<p>斜杠左边表示外部输入，右边表示输出结果，Mealy型输出写在有向弧上</p>
+</blockquote>
+<p><strong>Equivalent State Definitions</strong></p>
+<p>两个状态，无论输入是什么，都会使这两个状态输出相同，次态也相同，那么这两个状态是等效状态。</p>
+<p><img alt="image-20231123104401525" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446314.png" /></p>
+<p>观察S2和S3，当输入为0，输出都为1，次态都为S0。当输入为1，输出都是0，次态都为S2.说明S2和S3是等效状态。</p>
+<p><img alt="image-20231123104538377" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446469.png" /></p>
+<p>观察S1和S2，当输入为0是，输出都为1，次态都为S0.输入为1时，输出都为0，次态都为S2，两者为等效状态。</p>
+<p><img alt="image-20231123104656548" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446408.png" /></p>
+<blockquote>
+<p><strong>D触发器的个数由2个变为1个，实现了电路的简化</strong></p>
+</blockquote>
+<p>Sequential Circuits or Sequential Machines are also called Finite State Machines (FSMs). Two formal models exist:</p>
+<ul>
+<li>Moore Model</li>
+<li><strong>Outputs are a function ONLY of states</strong></li>
+<li>Usually <strong>specified on the states.</strong></li>
+<li>Mealy Model</li>
+<li><strong>Outputs are a function of inputs AND states</strong></li>
+<li>Usually <strong>specified on the state transition arcs.</strong> </li>
+</ul>
+<p><img alt="image-20231123105039323" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446217.png" /></p>
+<p><img alt="image-20231123105148313" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446236.png" /></p>
+<p>Example2：</p>
+<p><img alt="image-20231123110825709" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446212.png" /></p>
+<p><img alt="image-20231123110850691" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446429.png" /></p>
+<h4 id="4133-flip-flop-timing-parameters">4.1.3.3 Flip-Flop Timing Parameters 触发器时序参数<a class="headerlink" href="#4133-flip-flop-timing-parameters" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20231123111035217" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446166.png" /></p>
+<p>主从脉冲触发器（positive pulse）</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(t_s\)</span> ：对于主从触发器，ts等于触发脉冲的宽度</p>
+</li>
+<li>
+<p><span class="arithmatex">\(t_w\)</span> : clock pulse width 时钟脉冲宽度</p>
+</li>
+<li><strong><span class="arithmatex">\(t_s\)</span>与C处于高电平的时间相同（这段时间SR不能发生改变），否则会产生一次性采样问题</strong></li>
+<li></li>
+</ul>
+<p>下边沿触发器（negative edge），C从高电平变为低电平时触发。</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(t_s\)</span> : setup time. 在C下降之前要先准备好。等于通常远小于触发脉冲宽度的时间间隔</p>
+</li>
+<li>
+<p><span class="arithmatex">\(t_h\)</span> : hold time. 触发之后还要保持一段时间，通常等于0</p>
+</li>
+<li>
+<p><span class="arithmatex">\(t_{px}\)</span> : propagation delay. 传输延迟</p>
+</li>
+</ul>
+<p>Measured from clock edge that triggers the output change to the output change.</p>
+<blockquote>
+<p><strong>根据定义, <span class="arithmatex">\(t_s\)</span>指在采样前触发器需要的准备时间。对于主从触发器，在信号处于上升沿的时候 S 部分的输入是不能改变的，否则可能有一次性采样问题，因此在信号处于上升沿都是触发器的准备时间。这也是为什么现在我们普遍使用边缘触发器的原因。</strong></p>
+<p><strong>对于 D 触发器而言，不要卡在时钟边沿改变 D 的输入，而是在时钟改变之前就进行，这样 D 触发器才能有足够的准备时间。</strong></p>
+</blockquote>
+<h4 id="4134-circuit-and-system-level-timing">4.1.3.4 Circuit and System Level Timing<a class="headerlink" href="#4134-circuit-and-system-level-timing" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><span class="arithmatex">\(t_p\)</span> :  clock period</p>
+</li>
+<li>
+<p>$t_{pd,COMB} : $ total delay of combinational logic along the path from flip-flop output to flip-flop input</p>
+</li>
+</ul>
+<p>从触发器输出到触发器输入路径上<strong>组合逻辑的总延迟</strong></p>
+<ul>
+<li><span class="arithmatex">\(t_{slack}\)</span> : extra time in the clock period in addition to the sum of the delays and setup time on a path. <strong>松弛时间（休息）必须大于等于 0.才能正确运行</strong></li>
+</ul>
+<p><img alt="image-20231123113832155" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446981.png" /></p>
+<blockquote>
+<p><strong>对于Edge-triggered ， 先是<span class="arithmatex">(<span class="arithmatex">\(t_{pd，FF}\)</span>\)</span>触发器传输延迟 ，再<span class="arithmatex">(<span class="arithmatex">\(t_{pd,COMB}\)</span>\)</span>,组合逻辑电路传输延迟，<span class="arithmatex">(<span class="arithmatex">\(t_s\)</span>\)</span>是set time，准备时间</strong></p>
+<p><strong>对于Pulse- triggered ，<span class="arithmatex">(<span class="arithmatex">\(t_s\)</span>\)</span>占据一整个低电平的时间</strong></p>
+<p><strong><span class="arithmatex">(<span class="arithmatex">\(t_{slack}\)</span>\)</span> 必须大于等于0，才能够正常工作。</strong></p>
+<p><strong>边沿触发的<span class="arithmatex">(<span class="arithmatex">\(t_s\)</span>\)</span>较小，脉冲触发的<span class="arithmatex">(<span class="arithmatex">\(t_s\)</span>\)</span>较大，为了尽可能缩小<span class="arithmatex">(<span class="arithmatex">\(t_p\)</span>\)</span>,尽可能减小组合逻辑电路的传输延迟</strong></p>
+</blockquote>
+<p><strong>Time equation</strong>: <span class="arithmatex">\(t_p≥max(t_{pd,FF}+t_{pd,COMB}+t_s)\)</span> for all paths from flip-flop output to flip-flop input.</p>
+<p><img alt="image-20231123114557418" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181446939.png" /></p>
+<p>Compare the allowable combinational delay for a specific circuit:</p>
+<ul>
+<li>Using edge-triggered flip-flops; </li>
+<li>Using master-slave flip-flops.</li>
+</ul>
+<p>给定一些parameter ： </p>
+<ul>
+<li>clock frequency = 250 MHz</li>
+<li><span class="arithmatex">\(t_{pd,FF}(max) = 1.0ns\)</span></li>
+<li>$t_s(max) = 0.3ns  $for  edge-triggered  flip-flops</li>
+<li><span class="arithmatex">\(t_s(max) = t_{wH} = 2.0ns\)</span> for master-slave flip-flops</li>
+</ul>
+<p>利用<strong>Timing Equations</strong>
+$$
+t_p  = \dfrac{1}{clock  frequency} = 4.0ns\
+\
+对于Edge-triggered :\
+4.0 &gt;= t_{pd,FF} + t_{pd,COMB} + t_s = 1.0ns + t_{pd,COMB} + 0.3ns\
+得到t_{pd,CMOB} &lt;= 2.7ns\
+\ 
+对于Master-slave:\
+4.0 &gt;= t_{pd,FF} + t_{pd,COMB} + t_s = 1.0ns + t_{pd,COMB} + 2.0ns\
+得到得到t_{pd,CMOB} &lt;= 1.0ns\
+$$</p>
 
 
 
@@ -4901,7 +5518,7 @@ t_p=t_{pd,FF}+t_{pd,COMB}+t_{slack}+t_s
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../../Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Arithmetic Functions">
+          <a href="../../Combinational%20Logic%20Design/Binary%20substraction/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Binary Substraction">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -4911,7 +5528,7 @@ t_p=t_{pd,FF}+t_{pd,COMB}+t_{slack}+t_s
                 上一页
               </span>
               <div class="md-ellipsis">
-                Arithmetic Functions
+                Binary Substraction
               </div>
             </div>
           </a>
@@ -4978,10 +5595,10 @@ t_p=t_{pd,FF}+t_{pd,COMB}+t_{slack}+t_s
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
@@ -4990,6 +5607,12 @@ t_p=t_{pd,FF}+t_{pd,COMB}+t_{slack}+t_s
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
   </body>

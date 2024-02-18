@@ -1,0 +1,5940 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Rescuerz's Blog">
+      
+      
+      
+      
+        <link rel="prev" href="../Bits%20and%20Data%20Types%20and%20Operations/">
+      
+      
+        <link rel="next" href="../The%20Von%20Neumann%20Model/">
+      
+      
+      <link rel="icon" href="../../../duck.bmp">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+    
+    
+      
+        <title>Chapter 3 Digital Logic Structures - Rescuerz's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter3-digital-logic-structure" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Rescuerz&#39;s Blog" class="md-header__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
+      
+  <img src="../../../favicon1.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rescuerz's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 3 Digital Logic Structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rescuerz/Blog" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Rescuerz/Blog
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../cldf/Digital%20Systems%20and%20Information/" class="md-tabs__link">
+          
+  
+    
+  
+  System
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+          
+  
+    
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../miscellaneous/" class="md-tabs__link">
+          
+  
+    
+  
+  Miscellaneous
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Rescuerz&#39;s Blog" class="md-nav__button md-logo" aria-label="Rescuerz's Blog" data-md-component="logo">
+      
+  <img src="../../../favicon1.png" alt="logo">
+
+    </a>
+    Rescuerz's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rescuerz/Blog" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Rescuerz/Blog
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能引论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能引论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    知识表达与推理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            知识表达与推理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    命题逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    谓词逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识图谱推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率图推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%9F%A5%E8%AF%86%E8%A1%A8%E8%BE%BE%E4%B8%8E%E6%8E%A8%E7%90%86/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    因果推理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    搜索探寻与问题求解
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            搜索探寻与问题求解
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E6%90%9C%E7%B4%A2%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    搜索基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E8%B4%AA%E5%A9%AA%E6%9C%80%E4%BD%B3%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    贪婪最佳优先搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/A-star%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A-star搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/Minimax%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minimax搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/alpha-beta%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    alpha-beta搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%90%9C%E7%B4%A2%E6%8E%A2%E5%AF%BB%E4%B8%8E%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A0%91%E6%90%9C%E7%B4%A2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    机器学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            机器学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    决策树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/LDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/PCA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PCA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%B9%E5%BE%81%E4%BA%BA%E8%84%B8%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    特征人脸法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    k均值聚类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遗传算法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    神经网络与深度学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            神经网络与深度学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    神经网络参数优化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%AD%A3%E5%88%99%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    神经网络正则化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    卷积神经网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    循环神经网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    注意力机制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    强化学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            强化学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    马尔可夫决策过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    强化学习问题定义
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    强化学习方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能博弈
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能博弈
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E7%BA%B3%E4%BB%80%E5%9D%87%E8%A1%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    纳什均衡
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8D%9A%E5%BC%88/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%B8%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能与博弈论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    人工智能伦理与安全
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能伦理与安全
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能伦理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能可解释性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aid/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BC%A6%E7%90%86%E4%B8%8E%E5%AE%89%E5%85%A8/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%A8%A1%E5%9E%8B%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    人工智能模型安全
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    图像信息处理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            图像信息处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic concept and programming introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Basic concept and programming introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Basic%20principle%20of%20imaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic principle of imaging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Color%20space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Color space
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/Image%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/JPEG%28Joint%20Photographic%20Experts%20Group%29%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JPEG(Joint Photographic Experts Group) format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20concept%20and%20programming%20introduction/TIFF%28Tagged%20Image%20File%20Format%29%20format/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TIFF(Tagged Image File Format) format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Binary Image and Morphological Operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Binary Image and Morphological Operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Binary%20Image%20and%20Morphological%20Operation/Binary%20Image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Binary%20Image%20and%20Morphological%20Operation/Morphology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Morphology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic operation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Basic operation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Image%20grayscale%20transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image grayscale transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Geometric%20transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometric transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interpolation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Morph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Morph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Convolution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convolution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Sparse%20Norm%20Filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sparse Norm Filtering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Guided%20Image%20Filtering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guided Image Filtering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Fourier%20Transform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fourier Transform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dip/Basic%20operation/Image%20feature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image feature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_1" id="__nav_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    算法分析基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            算法分析基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    分析内容
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    渐进符号
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/%E5%85%B7%E4%BD%93%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    具体问题分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%881/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%98%9F%E5%88%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    队列
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%EF%BC%88%E5%A0%86%EF%BC%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    优先队列(堆)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    并查集
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E5%93%88%E5%B8%8C/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    哈希
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fds/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机逻辑设计基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            计算机逻辑设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Digital%20Systems%20and%20Information/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Systems and Information
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Combinational Logic Circuits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Combinational Logic Circuits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Gate%20Circuits%20and%20Boolean%20Equations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gate Circuits and Boolean Equations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Canonical%20Forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canonical Forms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Circuit%20Optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Circuit Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Circuits/Additional%20Gates%20and%20Circuits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional Gates and Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Combinational Logic Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Combinational Logic Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Design%20Procedure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design Procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Combinational%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Combinational Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Arithmetic%20Functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arithmetic Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Combinational%20Logic%20Design/Binary%20substraction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Binary Substraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sequential Circuit
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sequential Circuit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Sequential%20Circuit/Storage%20Elements%20and%20Sequential%20Circuit%20Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Elements and Sequential Circuit Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Sequential%20Circuit/Sequential%20Circuit%20Design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sequential Circuit Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_5" id="__nav_3_1_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Digital Hardware Implementation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Digital Hardware Implementation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Digital%20Hardware%20Implementation/Programmable%20Implementation%20Technologies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmable Implementation Technologies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_6" id="__nav_3_1_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Registers and Register Transfers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Registers and Register Transfers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Registers%20and%20Register%20Transfers/Registers%2C%20Microoperations%20and%20Implementations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registers, Microoperations and Implementations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Registers%20and%20Register%20Transfers/Counters%2C%20register%20cells%2C%20buses%2C%20%26%20serial%20operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Counters, register cells, buses, & serial operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_7" id="__nav_3_1_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Memory Basis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Memory Basis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Memory%20Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Memory Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Random%20Access%20Memory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random Access Memory(RAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cldf/Memory%20Basis/Dynamic%20RAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dynamic RAM(DRAM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统概论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统概论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Welcome%20Aboard/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 Welcome Aboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bits%20and%20Data%20Types%20and%20Operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 Bits and Data Types and Operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 Digital Logic Structures
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-the-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 The Transistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-n-type-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 N-type transistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312-p-type-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 P-type transistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-logic-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Logic Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Logic Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-the-not-gateinverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 The NOT Gate（inverter）非门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-or-and-nor-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 OR and NOR Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-and-and-nand-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 AND and NAND Gate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-gates-with-more-than-two-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 Gates with more than two inputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-combinational-logic-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Combinational Logic circuit(组合逻辑电路)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Combinational Logic circuit(组合逻辑电路)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 decoder（译码器）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-muxmultiplexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Mux(multiplexer)（多路选择器）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-a-one-bit-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 A one-bit adder（加法器）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-the-programmable-logic-arraypla" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 The programmable logic array（PLA）可编程逻辑阵列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-logical-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5 Logical Completeness
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-basic-storage-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Basic Storage Element
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Basic Storage Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-the-r-s-latch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 The R-S Latch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-the-gated-d-latch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 The Gated D Latch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-the-concept-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 The Concept of Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 The Concept of Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-address-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1 address space地址空间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-addressability" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2 addressability寻址能力
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-a-22-by-3-bit-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3 A \(2^2 - by - 3-\)Bit Memory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-sequential-logic-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Sequential Logic Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 Sequential Logic Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-a-simple-example-the-combination-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.1 A simple Example: The Combination Lock
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-the-concept-of-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.2 The Concept of State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363-the-finite-state-machine-and-its-state-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.3 The finite state machine and its state diagram 有限状态机和状态图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#364-the-synchronous-finite-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.4 The Synchronous Finite State Machine同步有限状态机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#365-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.5 clock
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#366-example-a-danger-sign" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.6 Example: a danger sign
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20Von%20Neumann%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 The Von Neumann Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../The%20LC-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 The LC-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assembly%20Language/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 Assembly Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 Data Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 9 I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 10 Calculator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    动手学深度学习读书笔记
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            动手学深度学习读书笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            引言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    核心组件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    学习问题分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%BC%95%E8%A8%80/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    线性神经网络
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            线性神经网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性回归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    损失函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    随机梯度下降
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BA%BF%E6%80%A7%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/softmax%E5%9B%9E%E5%BD%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    softmax回归
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    预备知识
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            预备知识
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵微分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine%20learning/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自动微分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../miscellaneous/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Miscellaneous
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Miscellaneous
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../miscellaneous/verilog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    verilog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            verilog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%A8%A1%E5%9D%97%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%A8%A1%E5%9D%97%E7%9A%84%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模块的结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%26%E5%B8%B8%E9%87%8F%E5%8F%98%E9%87%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据类型&常量变量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    运算符
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E8%B5%8B%E5%80%BC%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    赋值语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    控制语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E5%9D%97%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    块语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../miscellaneous/verilog/%E7%BB%93%E6%9E%84%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    结构语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-the-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 The Transistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-n-type-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 N-type transistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#312-p-type-transistor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 P-type transistor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-logic-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Logic Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Logic Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-the-not-gateinverter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 The NOT Gate（inverter）非门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-or-and-nor-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 OR and NOR Gates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-and-and-nand-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 AND and NAND Gate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-gates-with-more-than-two-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 Gates with more than two inputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-combinational-logic-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Combinational Logic circuit(组合逻辑电路)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Combinational Logic circuit(组合逻辑电路)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 decoder（译码器）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-muxmultiplexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 Mux(multiplexer)（多路选择器）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-a-one-bit-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 A one-bit adder（加法器）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-the-programmable-logic-arraypla" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 The programmable logic array（PLA）可编程逻辑阵列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-logical-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5 Logical Completeness
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-basic-storage-element" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Basic Storage Element
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Basic Storage Element">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-the-r-s-latch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 The R-S Latch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-the-gated-d-latch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 The Gated D Latch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-the-concept-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 The Concept of Memory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 The Concept of Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-address-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1 address space地址空间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-addressability" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2 addressability寻址能力
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-a-22-by-3-bit-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3 A \(2^2 - by - 3-\)Bit Memory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-sequential-logic-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 Sequential Logic Circuit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 Sequential Logic Circuit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-a-simple-example-the-combination-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.1 A simple Example: The Combination Lock
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-the-concept-of-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.2 The Concept of State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363-the-finite-state-machine-and-its-state-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.3 The finite state machine and its state diagram 有限状态机和状态图
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#364-the-synchronous-finite-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.4 The Synchronous Finite State Machine同步有限状态机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#365-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.5 clock
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#366-example-a-danger-sign" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.6 Example: a danger sign
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter3-digital-logic-structure">Chapter3 | DIgital Logic Structure<a class="headerlink" href="#chapter3-digital-logic-structure" title="Permanent link">&para;</a></h1>
+<h3 id="31-the-transistor">3.1 The Transistor<a class="headerlink" href="#31-the-transistor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Most computers today or rather most microprocessors (which form the core of the computer) are constructed out of MOS transistors. MOS stands for metal-oxide semiconductor.</li>
+</ul>
+<blockquote>
+<p><strong>当今大多数计算机，或者更确切地说，大多数微处理器（构成计算机的核心）都是由 MOS 晶体管构成的。 MOS 代表金属氧化物半导体。</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>there are two types of MOS transistors: P-type
+  and N-type. </p>
+</li>
+<li>
+<p>we could use an N-type or a P-type MOS transistor
+  to make or break the closed circuit。</p>
+</li>
+</ul>
+<blockquote>
+<p>**可以使用P型或N型MOS晶体管来接通或断开闭合电路 **</p>
+</blockquote>
+<h3 id="311-n-type-transistor">3.1.1 N-type transistor<a class="headerlink" href="#311-n-type-transistor" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713170045844" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501881.png" /></p>
+<p>（a）itself             （b）in a circuit</p>
+<ul>
+<li>
+<p>The transistor has three terminals。They are called <code>the gate(栅极)，the source（源极） ，and the drain（漏极）</code></p>
+</li>
+<li>
+<p>if the gate of the N-type transistor is supplied with <mark>1.2 volts</mark>, the connection from source to drain acts like a piece of wire. </p>
+</li>
+<li>此时we have a <code>short circuit</code> between the source and drain</li>
+<li>if the gate of N-type transistor is supplied with <mark>0 volts</mark> , the connection between the source and drain is <code>broken</code>.</li>
+<li>
+<p>此时we have an <code>open circuit</code> between the source and drain.</p>
+</li>
+<li>
+<p>in graph(b),</p>
+</li>
+<li>Figure 3.2 shows the N-type transistor in a circuit with a battery and a bulb. When the gate is supplied with 1.2 volts, the transistor acts like a piece of wire, completing the circuit and causing the bulb to glow. When the gate is supplied with 0 volts, the transistor acts like an open circuit, breaking the circuit, and causing the bulb to not glow.</li>
+</ul>
+<p>当门被提供1.2V电压时，电路接通，short circuit , 灯泡发光</p>
+<p>当门被提供0 V电压时，电路断开，open circuit，灯泡不发光</p>
+<p>高电压接通，低电压断开</p>
+<h3 id="312-p-type-transistor">3.1.2 P-type transistor<a class="headerlink" href="#312-p-type-transistor" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713171219811" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501793.png" /></p>
+<ul>
+<li>
+<p><code>效果与N-type transistor 相反，所以多了一个空心圆点</code></p>
+</li>
+<li>
+<p>When the gate is supplied with 0 volts, the P-type transistor acts (more or less) like a piece of wire, closing the circuit. When the gate is supplied with 1.2 volts,
+  the P-type transistor acts like an open circuit。</p>
+</li>
+</ul>
+<p>当门被提供0 V电压时，晶体管接通，电路接通，灯泡发光</p>
+<p>当门被提供1.2V电压时，晶体管断开，电路断开，灯泡不发光</p>
+<p>低电压接通，高电压断开</p>
+<blockquote>
+<p><strong>当电路同时具有P-type和N-type transistor 时，我们将该电路成为CMOS，complementary metal-oxide semiconductor</strong></p>
+</blockquote>
+<h2 id="32-logic-gates">3.2 Logic Gates<a class="headerlink" href="#32-logic-gates" title="Permanent link">&para;</a></h2>
+<h3 id="321-the-not-gateinverter">3.2.1 The NOT Gate（inverter）非门<a class="headerlink" href="#321-the-not-gateinverter" title="Permanent link">&para;</a></h3>
+<ul>
+<li>It is constructed from two MOS transistors, one P-type and one N-type. </li>
+</ul>
+<p><code>由一个P-type和一个N-type transistor构成</code></p>
+<p><img alt="image-20230713172231173" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501928.png" /></p>
+<ul>
+<li>
+<p>figure (a) is the schematic representation of that circuit(电路的示意图)</p>
+</li>
+<li>
+<p>if the input is supplied with 0 volts. Note that the P-type transistor acts like a short circuit and the N-type transistor acts like an open circuit. The output is, therefore, connected to 1.2 volts</p>
+</li>
+</ul>
+<p>当输入电压为 0 V时，P-type transistor 接通，N-type transistor 断开，输出电压为1.2V</p>
+<ul>
+<li>if the input is supplied with 1.2 volts, the P-type transistor acts like an open circuit, but the N-type transistor acts like a short circuit. The output in this case is connected to ground (i.e.,0 volts）</li>
+</ul>
+<p>当输入电压为1.2V时，N-type transistor 接通，导致接地，输出电压为0V</p>
+<ul>
+<li>将 0 Volts 换成 symbol 0 ，将1.2 Volts 换成 symbol 1，便可以得到figure（d）</li>
+</ul>
+<blockquote>
+<p><strong>晶体管不能倒着使用，（即Drain和Source的位置不能变，对于N-type transistor，从下往上流，对于P-type transistor transistor，从上往下流）</strong>。</p>
+<p><strong>一般在上方的晶体管是P-type transistor，在下方的晶体管是N-type transistor</strong></p>
+</blockquote>
+<h3 id="322-or-and-nor-gates">3.2.2 OR and NOR Gates<a class="headerlink" href="#322-or-and-nor-gates" title="Permanent link">&para;</a></h3>
+<ol>
+<li>NOR Gate 或非门</li>
+</ol>
+<p><img alt="image-20230713173158925" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501933.png" /></p>
+<ul>
+<li>
+<p><code>The NOT Gate  contains two P-type and two N-type transistors.</code></p>
+</li>
+<li>
+<p>if A is supplied with 0 volts and B is supplied with 1.2 volts. In this case, the lower of the two P-type transistors produces an open circuit, and the output C is disconnected from the 1.2-volt power supply. However, the leftmost N-type transistor acts like a piece of wire, connecting the output C to 0 volts.</p>
+</li>
+</ul>
+<p>当A输入0V电压，B输入1.2V电压，下方的P-type transistor 断开，左侧的N-type transistor 连通，右侧的N-type transistor 断开，由于左侧N 晶体管接地，所以输出电压为0V</p>
+<ul>
+<li>Note that if both A and B are supplied with 0 volts, the two P-type transistors conduct, and the output C is connected to 1.2 volts. Note further that there is no ambiguity here, since both N-type transistors act as open circuits, and so C is disconnected from ground.</li>
+</ul>
+<p>如果A，B输入的电压都是0V，那么两个P-type transistor都接通，N-type transistor 都不接通，即不接地。所以输出电压是1.2V</p>
+<ul>
+<li>If either A or B is supplied with 1.2 volts, the corresponding P-type transistor results in an open circuit. That is sufficient to break the connection from C to the 1.2-volt source. However, 1.2 volts supplied to the gate of one of the N-type transistors is sufficient to cause that transistor to conduct, resulting in C being connected to ground (i.e., 0 volts).</li>
+</ul>
+<p>如果A，B输入的电压都是1.2V，P-type transistor 都不接通，N-type transistor 都接通，导致C接地，输出电压为0V</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>观察图表，会发现只要有1.2V的存在，就会导致C输出端的电压为0</strong></p>
+</blockquote>
+<p><code>原因在于，只要有1.2V的输入电压存在，N-type transistor就会连通，继而导致C接地，输出电压为0V</code></p>
+<ol start="2">
+<li>OR Gate 非门</li>
+</ol>
+<p><img src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501971.png" alt="image-20230713192335079" style="zoom: 200%;" /></p>
+<ul>
+<li><code>或门OR是在或非门NOR的基础上，添加一个非门得到，在原先C作为NOR门的输出端基础上，将C作为非门的输入端，D作为非门的输出端得到最终结果</code></li>
+</ul>
+<h3 id="323-and-and-nand-gate">3.2.3 AND and NAND Gate<a class="headerlink" href="#323-and-and-nand-gate" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713193136771" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501842.png" /></p>
+<ul>
+<li>下方的两个均为N-type transistor，上方左右两个晶体管均为P-typetransistor</li>
+<li>当A，B输入电压均为1.2V时，下方两个晶体管都连通，导致C接地，最终C的输出电压为0V，后续在NOT gate非门的作用下，D的输出电压为1.2V</li>
+<li>后续，只要A，B中有一个输入电压为0V，上方的两个P-type transistor至少有一个会接通，又因为这是并联电路，所以C处的输出电压始终为1.2V，在Not gate 非门的作用下，D处的输出电压变为0V</li>
+</ul>
+<blockquote>
+<p><code>惊天发现：接地都是N-type transistor</code></p>
+</blockquote>
+<p><img alt="image-20230713194236781" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501935.png" /></p>
+<p>可以用以上符号表示逻辑门</p>
+<p>对于空心圆圈表示取反，<code>也可以在逻辑门输入端口加上空心圆圈表示对输入做取反操作</code></p>
+<h3 id="324-gates-with-more-than-two-inputs">3.2.4 Gates with more than two inputs<a class="headerlink" href="#324-gates-with-more-than-two-inputs" title="Permanent link">&para;</a></h3>
+<p>n-input AND gate</p>
+<ul>
+<li>An n-input AND gate has an output value of 1 only if ALL n input variables have values of 1.</li>
+<li>If any of the n inputs has a value of 0, the output of the n-input AND gate is 0.</li>
+<li><code>全为1，通过AND gate 才能得到1</code>.</li>
+</ul>
+<p>n-input OR gate</p>
+<ul>
+<li>
+<p>An n-input OR gate has an output value of 1 if ANY of the n input variables has a value of 1. </p>
+</li>
+<li>
+<p>an n-input OR gate has an output value of 0 only if ALL n
+  input variables have values of 0.</p>
+</li>
+<li><code>全为0，通过OR gate 才能得到0</code></li>
+</ul>
+<p><img alt="image-20230713194631389" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501648.png" /></p>
+<h2 id="33-combinational-logic-circuit">3.3 Combinational Logic circuit(组合逻辑电路)<a class="headerlink" href="#33-combinational-logic-circuit" title="Permanent link">&para;</a></h2>
+<h3 id="331-decoder">3.3.1 decoder（译码器）<a class="headerlink" href="#331-decoder" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713195535753" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501720.png" /></p>
+<ul>
+<li>A decoder has the property that exactly one of its outputs is 1 and all the rest are 0s</li>
+</ul>
+<blockquote>
+<p><code>只有一个输出结果是1，其余均为0，利用的是AND门的性质，当且仅当输入数全部都是1时，输出结果才为1</code></p>
+</blockquote>
+<ul>
+<li>
+<p>Decodes have n inputs and <span class="arithmatex">\(2^n\)</span>outputs.当输入的数有n个时，输出的结果有<span class="arithmatex">\(2^n\)</span>个，根据排列组合，每个输入的数都有两种可能</p>
+</li>
+<li>
+<p>The decoder is useful in determining how to interpret a bit pattern.</p>
+</li>
+<li>
+<p>实际上就是<strong>枚举</strong>所有输入的组合情况。</p>
+</li>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h3 id="332-muxmultiplexer">3.3.2 Mux(multiplexer)（多路选择器）<a class="headerlink" href="#332-muxmultiplexer" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713195922249" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501707.png" /></p>
+<p>The function of a mux is to select one of the inputs (A or B) and connect it to the output. The select signal (S in Figure 3.12)
+determines which input is connected to the output.</p>
+<blockquote>
+<p><strong>多路复用器的功能是选择输入之一（A 或 B）并将其连接到输出。选择信号（图 3.12 中的 S）决定哪个输入连接到输出，即哪个输入决定输出</strong></p>
+</blockquote>
+<p>如图3.12 （b）所示，假设输入的S=0，S和B通过AND gate 得到output一定是0。而<strong>左侧的输出结果output和A的input value相同（原因在于，空心圆圈表示取反，对S取反，输入的数是1）</strong>。A和0通过OR gate，取决于A的值，当A value是1，那么C处的output = 1，当A value= 0，那么C处的output = 0.因此C处的输出结果和A的值相同。</p>
+<p>假设输入的S是1，若B处的input = 1，则B和S经过AND gate 作用，得到的结果是1，再经过最后的OR gate，C处的output一定为1，和B的输入值相同。若B的input = 0，<strong>B和S经过AND gate得到结果为0</strong>，A和反S（0）经过AND gate 得到结果肯定为0，所以最终0和0 经过OR gate 得到结果为0，和B的输入值相同</p>
+<p><code>总之，C处的输出结果，经过S的作用，要么取决于A的input，要么取决于B的input，</code></p>
+<p><img alt="image-20230713211243009" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501682.png" /></p>
+<p>对于上方的figure 3.13（a）</p>
+<ul>
+<li>S[1:0] = 00, output取决于A，因为其余分支经过AND gate 后，全部变为0</li>
+<li>S[1:0] = 01, output取决于B</li>
+<li>以此类推 </li>
+</ul>
+<p><code>In general, a mux consists of 2^n inputs and n select lines.</code></p>
+<h3 id="333-a-one-bit-adder">3.3.3 A one-bit adder（加法器）<a class="headerlink" href="#333-a-one-bit-adder" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713211641360" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501037.png" /></p>
+<ul>
+<li>
+<p><span class="arithmatex">\(A_i,B_i\)</span>分别表示加数，<span class="arithmatex">\(C_i\)</span>表示前一次计算的进位，得到的结果是<span class="arithmatex">\(S_i总位和,C_{i+1}进位\)</span>,</p>
+</li>
+<li>
+<p>if only one of the three bits equals 1,wo get a sum of 1,and no carry</p>
+</li>
+<li>if two of the three bits equals 1，we get a sum of 0, and a carry of 1</li>
+<li>if all three bits equals 1,we get a sum of 1,and a carry of 1</li>
+</ul>
+<p><img alt="image-20230713212236295" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501375.png" /></p>
+<p>解释一下，adder加法器是对decoder和Mux的应用。</p>
+<ul>
+<li>首先，Decoder的作用是：（<strong>得到输入组合</strong>）输入的是<span class="arithmatex">\(A_i,B_i,C_i\)</span>,对应的排列组合有8种，对应8个AND gates。</li>
+<li>Mux作用是将<strong>OR gate 与 AND gate 进行连接</strong>，作用结果取决于<span class="arithmatex">\(A_i,B_i,C_i\)</span>,此处剔除了无关紧要的电线，仅将可能产生1结果的电线与OR gate 进行连接</li>
+<li>eg：对于从上往下数第二个AND gate，输入的分别为001，显然没有进位Carry（<span class="arithmatex">\(C_{i+1}\)</span>),但是有sum = 1，所以连接到<span class="arithmatex">\(S_i\)</span>对应的OR gate</li>
+</ul>
+<p><img alt="image-20230713212531947" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501379.png" /></p>
+<p>If we wish to implement a logic circuit that adds two 16-bit numbers, we can do so with a circuit of 16 one-bit adders.</p>
+<ul>
+<li>
+<p>the rightmost circuit depends on only <code>two inputs($A_0,B_0$)</code>,it has been referred to as a <strong>half adder.</strong></p>
+</li>
+<li>
+<p>the other circuits depends on <code>all three inputs($A_j,B_j,C_j$)</code>,they are refered to as a <strong>full adders</strong></p>
+</li>
+<li>
+<blockquote>
+<p><strong>half adder and full adder区别在于carry位是否确定</strong></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="334-the-programmable-logic-arraypla">3.3.4 The programmable logic array（PLA）可编程逻辑阵列<a class="headerlink" href="#334-the-programmable-logic-arraypla" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713213619183" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501446.png" /></p>
+<p>It consists of <strong>an array of AND gates</strong> (called an AND array) followed by <strong>an array of OR gates</strong> (called an OR array). <strong>The number of AND gates corresponds to the number of input combinations (rows) in the truth table. （AND门的数量取决于输入组合的数量）</strong></p>
+<ul>
+<li>For n-input logic functions，wo need a PLA with <span class="arithmatex">\(2^n\)</span> n-input AND gates.</li>
+</ul>
+<p><code>因为，n个输入数，有2^n个组合结果，需要2^n个AND gates</code></p>
+<ul>
+<li>
+<p>In Figure 3.17, we have 2^3 three-input AND gates, corresponding to three logical input variable</p>
+</li>
+<li>
+<p>The number of OR gates corresponds to the number of
+  logic functions we wish to implement, that is, the number of output columns in the truth table</p>
+</li>
+</ul>
+<p>或门的数量取决于我们希望实现得到的量的数量，即真值表中输出列的数量</p>
+<ul>
+<li>in figure 3.15，wo need sum and carry.So there are two OR gates.</li>
+</ul>
+<blockquote>
+<p><strong>实际上就是对 decoder 的用法的一个抽象，形式上和 1 位加法器是一致的，只不过你可以通过自定义每一种枚举情况如何影响输出来实现“编程”。</strong></p>
+</blockquote>
+<h3 id="335-logical-completeness">3.3.5 Logical Completeness<a class="headerlink" href="#335-logical-completeness" title="Permanent link">&para;</a></h3>
+<p><code>We  say that the set of gates {AND, OR, NOT}is logically complete because we can build a circuit to carry out the specification of any truth table we wish without using any other
+kind of gate.</code></p>
+<ul>
+<li>
+<p>我们说门集合{AND、OR、NOT}在==<strong>逻辑上是完整</strong>==的，因为我们可以构建一个电路来执行我们希望的任何真值表的规范，而无需使用任何其他类型的门。</p>
+</li>
+<li>
+<p>NAND 也是逻辑完整的，尝试用NAND 表示AND OR NOT</p>
+</li>
+</ul>
+<p>​   NOT A = A NAND A</p>
+<p>​   A AND B = NOT（A NAND B） = (A NAND B) NAND (A NAND B)</p>
+<p>​   A OR B = NOT(（NOT A) AND (NOT B）) </p>
+<ul>
+<li>NOR  门也是逻辑完整的</li>
+</ul>
+<p>NOT A = A NOR A</p>
+<p>A OR B = NOT（A NOR B）</p>
+<p>A AND B = NOT（（NOT A）OR (NOT B)）</p>
+<h2 id="34-basic-storage-element">3.4 Basic Storage Element<a class="headerlink" href="#34-basic-storage-element" title="Permanent link">&para;</a></h2>
+<h3 id="341-the-r-s-latch">3.4.1 The R-S Latch<a class="headerlink" href="#341-the-r-s-latch" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713214947047" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501432.png" /></p>
+<ol>
+<li></li>
+</ol>
+<ul>
+<li>
+<p><code>It can store one bit of information, a 0 or a 1</code></p>
+</li>
+<li>
+<p>R-S锁存器，有两个2-输入NAND门（与非门）连接在一起，每一个的输出结果都连接到另一个的输入。</p>
+</li>
+<li>
+<p><strong>setting</strong> the latch to <strong>store a 1</strong> was referred to as setting the latch,and <strong>setting</strong> the latch to <strong>store a 0</strong> was referred to as resetting the latch.</p>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>R</strong> : <strong>R</strong>esetting : setting the latch to store a <code>0</code>;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>S</strong> : <strong>S</strong>etting: setting the latch to store a <code>1</code>;</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><code>The quiescent state(静止状态)</code></li>
+</ol>
+<ul>
+<li>
+<p>We describe the quiescent (or quiet) state of a latch as the state when the latch is storing a value, either 0 or 1, and nothing is trying to change that value.</p>
+</li>
+<li>
+<p><code>This is the case when inputs S and R both have the logic value 1.</code>The letter a designates the value that is currently stored in the latch, which we also refer to as the output of the latch.</p>
+</li>
+</ul>
+<p>字母a表示当前存储在锁存器中的值，我们也将其称为锁存器的输出。</p>
+<ul>
+<li>
+<p>情况一：假设a =1，那么A=1，又由于是quiescent state静止状态，从而S和R的输入值都是1。当A和R一起通过NAND门时，得到b=0，那么B=0.当B和S一起通过NAND门时，得到a=1。<code>只要输入S和R保持为1，电路的状态就不会改变。即R-S锁存器会继续存储值1（输出a的值）</code></p>
+</li>
+<li>
+<p>情况二：假设a=0，那么A=0。A和R一起经过NAND门，得到b=B=1.那么当B和S一起通过NAND门时，得到a =0</p>
+</li>
+</ul>
+<ol start="3">
+<li><code>setting the latch to a 1 or a 0</code></li>
+</ol>
+<ul>
+<li>In order for the R-S latch to work properly, both S and R must never be allowed to be set to 0 at the same time.</li>
+</ul>
+<p>要使R-S锁存器正常工作，需要使R和S不同时为0，但是可以暂时性地使R为0，S为1，或者相反</p>
+<ul>
+<li>If we set S to 0 for a very brief period of time, this causes a to equal 1, which in turn causes A to equal 1. Since R is also 1, the output at b must be 0. This causes B to be 0, which in turn makes a equal to 1.</li>
+</ul>
+<p>使S暂时性地变成0，那么a=A=1,A和R经过NAND门作用，得到b=B=0，再次返回得到a=1.</p>
+<p><code>当S恢复变成1时，由于B此时为0，S和B经过NAND门作用，得到a仍然为1</code></p>
+<ul>
+<li><mark>clear the latch:set the latch to 0</mark></li>
+</ul>
+<p>by setting R to 0 for a very short period of time</p>
+<p>使R短暂性地变成0，得到b=B=1，S和B经过NAND门，得到a=A=0，A和R两个0经过NAND 门作用得到b=1</p>
+<ul>
+<li>
+<p>如果允许S和R同时设置为0，则输出a和b都将是1，并且锁存器的最终状态将取决于组成晶体管的电特性门而不是正在执行的逻辑。</p>
+</li>
+<li>
+<p><img alt="image-20230714103404799" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501757.png" /></p>
+</li>
+</ul>
+<h3 id="342-the-gated-d-latch">3.4.2 The Gated D Latch<a class="headerlink" href="#342-the-gated-d-latch" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713221808578" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501750.png" /></p>
+<ul>
+<li>
+<p>在R-S latch的基础上，添加两个NAND gates</p>
+</li>
+<li>
+<p>When WE is not asserted (i.e., when WE equals 0), the outputs S and R are both equal to 1. Since S and R are inputs to the R-S latch, if they are kept at 1, the value stored in the latch remains unchanged.</p>
+</li>
+</ul>
+<p>当WE是0时，S和R都是输入值都是1，得到情形和R-S Latch一样，保存的value不变</p>
+<ul>
+<li>When WE is momentarily set to 1, exactly one of the outputs S or R is set to 0, depending on the value of D. </li>
+</ul>
+<p>当WE的值，短暂地变成1，R，S其中一个变成0，此时RS的值取决于D</p>
+<ul>
+<li>
+<p>如果D=1，S变成0.R=1，对于R-S latch，保存1</p>
+</li>
+<li>
+<p>如果D=0，对于下面的NAND门，input值都是1，得到R =0，对于R-S latch，保存0</p>
+</li>
+<li>
+<blockquote>
+<p><code>the R-S latch is set to 1 or 0 according to whether D is 1 or 0</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="35-the-concept-of-memory">3.5 The Concept of Memory<a class="headerlink" href="#35-the-concept-of-memory" title="Permanent link">&para;</a></h2>
+<p><code>Memory is made up of a (usually large) number of locations, each uniquely identifiable and each having the ability to store a value.</code></p>
+<p>We refer to the unique identifier associated with each <strong>memory location</strong> as its <code>address</code>. We refer to t<strong>he number of bits of information stored in each location</strong> as its <code>addressability</code>.</p>
+<h3 id="351-address-space">3.5.1 address space地址空间<a class="headerlink" href="#351-address-space" title="Permanent link">&para;</a></h3>
+<p><code>内存中不同地址的个数</code></p>
+<p>We refer to the <strong>total number</strong> of uniquely identifiable locations as the memory’s <code>address space</code></p>
+<p>With n bits of address, we can uniquely identify <span class="arithmatex">\(2^n\)</span> locations.</p>
+<p>即地址空间为<span class="arithmatex">\(2^n\)</span></p>
+<ul>
+<li>kilo represent <span class="arithmatex">\(2^{10}\)</span>(1000)</li>
+<li>mega represent <span class="arithmatex">\(2^{20}\)</span> (one million)</li>
+<li>giga represent <span class="arithmatex">\(2^{30}\)</span>(one billion)</li>
+</ul>
+<p>We say the address space is <span class="arithmatex">\(2^{31}\)</span>, which is exactly 2,147,483,648 locations,</p>
+<h3 id="352-addressability">3.5.2 addressability寻址能力<a class="headerlink" href="#352-addressability" title="Permanent link">&para;</a></h3>
+<p><code>The number of bits stored in each memory location is the memory’s addressability</code></p>
+<p>大多数存储器都是字节寻址的。</p>
+<p>If the memory is byte-addressable,then each ASCII character occupies one location in memory.</p>
+<h3 id="353-a-22-by-3-bit-memory">3.5.3 A <span class="arithmatex">\(2^2 - by - 3-\)</span>Bit Memory<a class="headerlink" href="#353-a-22-by-3-bit-memory" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230713231351314" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501232.png" /></p>
+<p>Figure 3.20 illustrates a memory of size <span class="arithmatex">\(2^2\)</span> by 3 bits. That is, the memory has an address space of four locations and an addressability of three bits.</p>
+<ul>
+<li>
+<p>A memory of size 2^2 requires two bits to specify the address. We describe the two-bit address as A[1:0].</p>
+</li>
+<li>
+<p>A memory of addressability three stores three bits of information in each memory location.We describe the three bits of data as D[2:0].</p>
+</li>
+<li>地址是A[1:0],地址空间是<span class="arithmatex">\(2^2= 4\)</span></li>
+<li>每一个位置有三个存储单元，即可以存储3bits的数据，因此寻址能力为3bits</li>
+<li>WE= 1时，将D[2:0]写入内存（三个比特同时写）；WE=0时，从内存中读出数据到D[2:0]</li>
+</ul>
+<h2 id="36-sequential-logic-circuit">3.6 Sequential Logic Circuit<a class="headerlink" href="#36-sequential-logic-circuit" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20230713233112587" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501201.png" /></p>
+<ul>
+<li>
+<p>we discuss digital logic structures that can both <code>process information (i.e., make decisions) and store information</code>.既可以处理信息（即做出决策）又可以存储信息的数字逻辑结构。</p>
+</li>
+<li>
+<p>That is, these structures base their decisions not only on the input values now present, <mark>but also (and this is very important) on what has happened before</mark>. 这些结构的决策不仅基于现在存在的输入值，而且还基于（这非常重要）之前发生的事情。These structures are usually called <code>sequential logic circuits(时序逻辑电路)</code>.  </p>
+</li>
+<li>they contain storage elements that allow them to keep track of prior history information. Figure 3.22 shows a block diagram of a sequential logic circuit. Note the storage elements. Note also that the output can be dependent on both the inputs now and the values stored in the storage elements. <strong>The values stored in the storage elements reflect the history of what has happened before.存储在存储元件中的值反映了之前发生的事情的历史。</strong></li>
+</ul>
+<h3 id="361-a-simple-example-the-combination-lock">3.6.1 A simple Example: The Combination Lock<a class="headerlink" href="#361-a-simple-example-the-combination-lock" title="Permanent link">&para;</a></h3>
+<p>Because the lock stores the previous rotations and makes its decision (open or don’t open) on the basis of the the history of the past operations, that is, on the correct sequence being performed.</p>
+<p><img alt="image-20230714145802753" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501415.png" /></p>
+<h3 id="362-the-concept-of-state">3.6.2 The Concept of State<a class="headerlink" href="#362-the-concept-of-state" title="Permanent link">&para;</a></h3>
+<p>The state of a system is a snapshot of all the relevant elements of the system at the moment the snapshot is taken.</p>
+<p>系统的状态是拍摄快照时系统所有相关元素的快照</p>
+<h3 id="363-the-finite-state-machine-and-its-state-diagram">3.6.3 The finite state machine and its state diagram 有限状态机和状态图<a class="headerlink" href="#363-the-finite-state-machine-and-its-state-diagram" title="Permanent link">&para;</a></h3>
+<p>A finite state machine consists of five elements:</p>
+<ol>
+<li>a finite number of states</li>
+<li>a finite number of external inputs</li>
+<li>a finite number of external outputs</li>
+<li>an explicit specification of all state transitions</li>
+<li>
+<p>an explicit specification of what determines each external
+   output value</p>
+</li>
+<li>
+<p>The combination lock</p>
+</li>
+</ol>
+<p><img alt="image-20230714151127015" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501355.png" />A. The lock is not open, and NO relevant operations have been
+performed.
+B. The lock is not open, but the user has just completed the
+R13 operation.
+C. The lock is not open, but the user has just completed R13,
+followed by L22.
+D. The lock is open, since the user has just completed R13,
+followed by L22, followed by R3.</p>
+<ul>
+<li>
+<p>The external input外部的输入值是R13，L22，R3，and R-other-than-13，……</p>
+</li>
+<li>
+<p>The external output外部的输出值是锁开了或者没开</p>
+</li>
+<li>
+<p>箭头的方向表明系统的状态是从哪个状态（current state）到哪个状态（next state）</p>
+</li>
+<li>
+<p>In short, the next state is determined by the combination
+  of the current state and the current external input.</p>
+</li>
+</ul>
+<p>下一状态，既要考虑当前所处的状态，也要考虑外部的输入值</p>
+<ol start="2">
+<li>Very old soft drink machine</li>
+</ol>
+<p><img alt="image-20230714152218867" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501512.png" /></p>
+<p>A. at least 15 cents has been inserted</p>
+<p>B. 10 cents has been inserted</p>
+<p>C. 5 cents has been inserted</p>
+<ol start="3">
+<li>a basketball game</li>
+</ol>
+<p>根据记分牌显示状态</p>
+<ol start="4">
+<li>a Tic-Tac-Toe Machine</li>
+</ol>
+<p>井字棋，状态过于多</p>
+<p>output 有三种：（a）game still in progress （b）person wins （c） computer wins</p>
+<h3 id="364-the-synchronous-finite-state-machine">3.6.4 The Synchronous Finite State Machine同步有限状态机<a class="headerlink" href="#364-the-synchronous-finite-state-machine" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A synchronous finite state machine transitions from its current state to its next state after an identical fixed interval of time.</li>
+<li>同步有限状态机在相同的固定时间间隔后从当前状态转换到下一个状态</li>
+</ul>
+<h3 id="365-clock">3.6.5 clock<a class="headerlink" href="#365-clock" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>In digital logic terms, the clock is a signal whose value alternates between 0 and 1</p>
+</li>
+<li>
+<p>Each of the repeated sequence of identical intervals is referred to as a clock cycle. A clock cycle starts when the clock signal transitions from 0 to 1 and ends the next time the clock signal transitions from 0 to 1.</p>
+</li>
+</ul>
+<p>每个相同间隔的重复序列称为一个时钟周期。当时钟信号从 0 转变为 1 时，时钟周期开始，并在下一次时钟信号从 0 转变为 1 时结束。</p>
+<p><img alt="image-20230714161712586" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501436.png" /></p>
+<h3 id="366-example-a-danger-sign">3.6.6 Example: a danger sign<a class="headerlink" href="#366-example-a-danger-sign" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20230714162103640" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501729.png" /></p>
+<p>During one unit of time, all lights will be off.</p>
+<p>In the next unit of time, lights 1 and 2 will be on. </p>
+<p>The next unit of time, lights 1, 2, 3, and 4 will be on. </p>
+<p>Then all five lights will be on. Then the sequence repeats</p>
+<p><img alt="" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501495.png" /></p>
+<p><img alt="image-20230714162424420" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501487.png" /></p>
+<ul>
+<li>首先有两个外部的输入，clock和switch。switch开关决定有限状态机是否在四个状态之间转换。clock时钟通过控制存储元件的状态来控制不同状态之间的转化</li>
+<li>其次，有两个存储元件，storage element1和storage element2.由于具有四种状态，说明每一个存储元件存储1bit的信息。那么对应的四个状态为：A(0,0),B(01),C(10),D(11).Storage element2存储第一位（高位high）比特，storage element 1 存储第二位（低位）比特。</li>
+<li>combination logic circuit 1 表明灯的开关由存储元件storage element1，2控制。即由有限状态机的状态控制</li>
+<li>组合逻辑电路combination logic circuit2 表明从当前状态到下一状态的转变取决于两个存储元件和开关。开关断开，显然不存储？开关连接，组合逻辑电路2的输出取决于两个存储元件的状态</li>
+</ul>
+<p><img alt="image-20230714163739460" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501485.png" /></p>
+<ul>
+<li>light 5 由AND gate V 决定，当且仅当状态为11时，两个存储元件的信息通过与门后，得到结果为1，使得全部灯亮</li>
+<li>lights 3，4 由OR gate X决定，要么状态11，要么状态10，状态10，对应的是，存储元件2存储的信息是1，存储元件1存储的信息是0，通过AND 门后得到结果为1</li>
+<li>而Light 1，2由OR gate W 决定，通入的有三条线，分别对应装填01，10，11</li>
+</ul>
+<p>如果存储元件是门控 D 锁存器（gated D latch）会发生什么？如果两个存储元件是门控D锁存器，则当写使能信号（write enable signal）（时钟）为1时，或门Y和Z的输出将立即改变存储在两个门控D锁存器中的位。这将为三个与门产生新的输入值，经过与门作用后的输出值，被输入到或门Y和Z，产生将应用于门控锁存器的输入的新输出，这接下来会改变存储在门控锁存器中的位，接着，这意味着三个与门的新输入以及或门 Y 和 Z 的新输出。这种情况会一次又一次地发生，只要门控 D 锁存器的写使能信号不断地改变存储在两个存储元件中的位。被断言。结果：<strong>我们不知道下一个时钟周期有限状态机的状态是什么。而且，即使在当前时钟周期，存储元件的状态也会变化得如此之快，以至于五个灯的行为会不稳定。</strong></p>
+<blockquote>
+<p><strong>我们希望“或”门 Y 和 Z 的输出在当前时钟周期结束时转换到下一个状态，并允许当前状态在此之前保持不变。也就是说，我们不希望存储元件的输入在当前时钟周期结束之前生效。由于如果WE signal被置位，门控 D 锁存器的输出会立即响应其输入而变化，因此它不能成为我们的同步有限状态机的存储元件。我们需要的存储元件允许我们在整个当前时钟周期读取当前状态，并且直到下一个时钟周期开始才将下一个状态值写入存储元件</strong></p>
+</blockquote>
+<p>The Flip-Flop（触发器） to the rescue</p>
+<p><code>我们需要的存储元件允许我们在整个当前时钟周期读取当前状态，并且直到下一个时钟周期开始才将下一个状态值写入存储元件</code></p>
+<p><img alt="image-20230714165942653" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501395.png" /></p>
+<p><img alt="image-20230714170426212" src="https://zn-typora-image.oss-cn-hangzhou.aliyuncs.com/typora_image/202402181501767.png" /></p>
+<p><mark>master/slave fiip-flop 主/从触发器</mark></p>
+<p>Note that the write enable signal of the master is 1 when the clock is 0, and the write enable signal of the slave is 1 when the clock is 1.</p>
+<p>在每一时钟周期开始时，<strong>the clock signal is 1</strong>.存储元件的输出是两个从锁存器的输出。这些输出（time 1）被输入到AND门，导致OR门Y和Z产生存储元件的下一个状态值（time 2）。时序图显示了，组合逻辑电路的传播延迟（prop delay），尽管其结果在半周期A的某个时间产生下一个状态值，<strong>由于主锁存器（master latch）的write enable signal是0，因此下一个状态不能写入主锁存器。</strong></p>
+<p>在半周期B开始（time 3）后，<strong>the clock signal is 0</strong>，这意味着master latch 的write enable signal 是1，即主锁存器能够写入。然而在半周期B，<strong>从锁存器的write enable signal 是 0，所以从锁存器不能写入现在在主锁存器的新信息</strong>。</p>
+<p>在时钟周期n+1开始后，the clock signal is 1，此时从锁存器（slave latch ）的写使能信号是1，因此从锁存器能够存储组合逻辑在时钟周期n期间创建的下一个状态值。这成为时钟周期n+1的当前状态。又由于主锁存器的写使能信号是0，所以主锁存器的状态不变。</p>
+<p>简而言之，从锁存器的输出包含时钟周期持续时间内系统的当前状态，并产生组合逻辑电路中六个与门的输入。它们的状态在时钟周期开始时通过存储组合逻辑在前一个周期期间创建的下一个状态信息而改变，但在时钟周期期间不会再次改变。它们在时钟周期内不再改变的原因如下：在半周期A期间，主锁存器不能改变，因此从锁存器继续查看新时钟周期的当前状态的状态信息。在半周期 B 期间，从锁存器不能改变，因为时钟信号为 0</p>
+<p>在半周期B期间，主锁存器可以存储组合逻辑产生的下一个状态信息，但它们不能将其写入从锁存器，直到下一个时钟周期开始，此时它成为下一个时钟周期的状态信息。时钟周期</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Bits%20and%20Data%20Types%20and%20Operations/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Chapter 2 Bits and Data Types and Operations">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 2 Bits and Data Types and Operations
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../The%20Von%20Neumann%20Model/" class="md-footer__link md-footer__link--next" aria-label="下一页: Chapter 4 The Von Neumann Model">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 4 The Von Neumann Model
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rescuerz" target="_blank" rel="noopener" title="My Github Page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="" target="_blank" rel="noopener" title="My CSDN Blog" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 64c0-17.7 14.3-32 32-32 229.8 0 416 186.2 416 416 0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96 14.3 96 0 81.7 0 64zm0 352a64 64 0 1 1 128 0 64 64 0 1 1-128 0zm32-256c159.1 0 288 128.9 288 288 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
